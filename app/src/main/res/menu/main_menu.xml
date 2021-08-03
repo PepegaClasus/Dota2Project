@@ -5,12 +5,10 @@
 
     <item
         android:id="@+id/heroesList"
-        android:icon="@drawable/ic_person"
         android:title="Герои"/>
 
         <item
             android:id="@+id/teams"
-            android:icon="@drawable/ic_baseline_people_24"
             android:title="Команды"/>
 
     <item android:id="@+id/playerIdInfo"
