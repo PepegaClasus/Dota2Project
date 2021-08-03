@@ -50,6 +50,7 @@ class Majors : Fragment() {
 
         majorArrayList = arrayListOf()
 
+
         myAdapter = MajorAdapter(majorArrayList)
 
         binding.majorRecyclerView.adapter = myAdapter

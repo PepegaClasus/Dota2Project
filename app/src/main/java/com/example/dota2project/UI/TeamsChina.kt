@@ -33,12 +33,11 @@ class TeamsChina : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
         binding = FragmentTeamsChinaBinding.bind(view)
-        val utils = Utils()
 
 
 
-        binding.recyclerTeamView.adapter = TeamChinaAdapter(viewModel.teamsLive.value!!, this)
-        binding.recyclerTeamView.layoutManager = LinearLayoutManager(activity as MainActivity)
+
+
 
 
         binding.bottomTeamNavigation.setOnNavigationItemSelectedListener { item ->
@@ -74,7 +73,7 @@ class TeamsChina : Fragment() {
     }
 
     fun showTeamInfo(position:Int){
-        viewModel.teamsForInfo = viewModel.teamsLive.value?.get(position)
+        viewModel.myTeamsForInfo = viewModel.myTeamsLive.value?.get(position)
         navController.navigate(R.id.teamsInfo)
     }
 

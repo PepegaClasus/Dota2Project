@@ -15,48 +15,44 @@ data class Heroes(
 )
 
 
-data class Teams(
-    val name: String,
-    val teamMoney: String,
-    val rating: Int,
-    val img_team: Int,
-    val player1: Int,
-    val name_player1: String,
-    val age_player1: String,
-    val role_player1: String,
-    val earn_player1: String,
+data class MyTeams(
+    val carry:String = "",
+    val carry_country:String = "",
+    val carry_image:String = "",
+    val carry_name:String = "",
+    val carry_role:String = "",
+    val carry_year:String = "",
+    val description:String = "",
+    val earn:String = "",
+    val logo:String = "",
+    val mid:String = "",
+    val mid_country:String = "",
+    val mid_image:String = "",
+    val mid_name:String = "",
+    val mid_role:String = "",
+    val mid_year:String = "",
+    val name:String = "",
+    val offlane:String = "",
+    val offlane_country:String = "",
+    val offlane_image:String = "",
+    val offlane_name:String = "",
+    val offlane_role:String = "",
+    val offlane_year:String = "",
+    val rank:String = "",
+    val semiSupport:String = "",
+    val semiSupport_country:String = "",
+    val semiSupport_image:String = "",
+    val semiSupport_role:String = "",
+    val semiSupport_year:String = "",
+    val support:String = "",
+    val support_country:String = "",
+    val support_image:String = "",
+    val support_name:String = "",
+    val support_role:String = "",
+    val support_year:String = "",
+    val team_country_image:String = "",
+    val trofeys:String = ""
 
-    val player2: Int,
-    val name_player2: String,
-    val age_player2: String,
-    val role_player2: String,
-    val earn_player2: String,
-
-
-    val player3: Int,
-    val name_player3: String,
-    val age_player3: String,
-    val role_player3: String,
-    val earn_player3: String,
-
-
-    val player4: Int,
-    val name_player4: String,
-    val age_player4: String,
-    val role_player4: String,
-    val earn_player4: String,
-
-
-    val player5: Int,
-    val name_player5: String,
-    val age_player5: String,
-    val role_player5: String,
-    val earn_player5: String,
-
-
-    val trofeys: String,
-    val description: String,
-    val img_counryTeam: Int,
 ) {
 }
 

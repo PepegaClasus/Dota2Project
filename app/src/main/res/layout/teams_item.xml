@@ -1,63 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/black"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-    android:backgroundTint="@color/black">
+    android:backgroundTint="@color/black">>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
         android:backgroundTint="@color/black">
 
+
         <TextView
             android:id="@+id/team_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="56dp"
+
             android:text="Команда"
             android:textColor="@color/white"
-
-            android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/team_image"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/team_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_below="@id/team_name"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="12dp"
             android:text="Рейтинг"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             android:textStyle="italic"
-            android:textSize="15sp"/>
+            app:layout_constraintStart_toEndOf="@+id/team_image"
+            app:layout_constraintTop_toBottomOf="@+id/team_name" />
+
         <TextView
             android:id="@+id/team_Money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_below="@id/team_rating"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
             android:text="Призовые"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             android:textStyle="italic"
-            android:textSize="15sp"/>
-
-
+            app:layout_constraintStart_toEndOf="@+id/team_image"
+            app:layout_constraintTop_toBottomOf="@+id/team_rating" />
 
         <ImageView
             android:id="@+id/team_image"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+
+
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/aster"
-
-
-            android:layout_alignParentStart="true"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/team_Countryimage"
@@ -66,14 +86,344 @@
 
 
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
 
 
+            android:layout_marginTop="16dp"
+
+            android:layout_marginEnd="4dp"
             android:src="@drawable/cis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            />
 
 
-    </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/player1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/aster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team_Money" />
+
+        <ImageView
+            android:id="@+id/player2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+
+            android:src="@drawable/aster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player1" />
+
+        <ImageView
+            android:id="@+id/player3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/aster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player2" />
+
+        <ImageView
+            android:id="@+id/player4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/aster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player3" />
+
+        <ImageView
+            android:id="@+id/player5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/aster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player4" />
+
+        <TextView
+            android:id="@+id/trofeys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Трофеи"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player5" />
+
+        <ImageView
+            android:id="@+id/Kubok"
+            android:layout_width="20dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/trofey"
+            app:layout_constraintStart_toEndOf="@+id/trofeys"
+            app:layout_constraintTop_toBottomOf="@+id/player5" />
+
+        <TextView
+
+            android:id="@+id/num_trofeys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:text="1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/Kubok"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/trofeys"
+            app:layout_constraintTop_toBottomOf="@+id/player5" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Описание"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/trofeys" />
+
+        <ImageView
+            android:id="@+id/team_flag"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/china"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <TextView
+            android:id="@+id/name_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="25dp"
+            android:text="Имя"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player2"
+            app:layout_constraintTop_toBottomOf="@+id/team_Money" />
+
+        <TextView
+            android:id="@+id/age_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Возраст"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player2"
+            app:layout_constraintTop_toBottomOf="@+id/name_player1" />
+
+        <TextView
+            android:id="@+id/role_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Роль"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player2"
+            app:layout_constraintTop_toBottomOf="@+id/age_player1" />
+
+        <TextView
+            android:id="@+id/earn_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Заработано"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player2"
+            app:layout_constraintTop_toBottomOf="@+id/role_player1" />
+
+        <TextView
+            android:id="@+id/name_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="Имя"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintTop_toBottomOf="@+id/earn_player1" />
+
+        <TextView
+            android:id="@+id/age_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Возраст"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintTop_toBottomOf="@+id/name_player2" />
+
+        <TextView
+            android:id="@+id/role_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Роль"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintTop_toBottomOf="@+id/age_player2" />
+
+        <TextView
+            android:id="@+id/earn_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Заработано"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintTop_toBottomOf="@+id/role_player2" />
+
+        <TextView
+            android:id="@+id/name_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="Имя"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player4"
+            app:layout_constraintTop_toBottomOf="@+id/earn_player2" />
+
+        <TextView
+            android:id="@+id/age_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Возраст"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player4"
+            app:layout_constraintTop_toBottomOf="@+id/name_player3" />
+
+        <TextView
+            android:id="@+id/role_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Роль"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player4"
+            app:layout_constraintTop_toBottomOf="@+id/age_player3" />
+
+        <TextView
+            android:id="@+id/earn_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Заработано"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player4"
+            app:layout_constraintTop_toBottomOf="@+id/role_player3" />
+
+        <TextView
+            android:id="@+id/name_player4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="Имя"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/earn_player3" />
+
+        <TextView
+            android:id="@+id/age_player4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Возраст"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/name_player4" />
+
+        <TextView
+            android:id="@+id/role_player4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Роль"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/age_player4" />
+
+        <TextView
+            android:id="@+id/earn_player4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Заработано"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/role_player4" />
+
+        <TextView
+            android:id="@+id/name_player5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/earn_player4" />
+
+        <TextView
+            android:id="@+id/age_player5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/name_player5" />
+
+        <TextView
+            android:id="@+id/role_player5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/age_player5" />
+
+        <TextView
+            android:id="@+id/earn_player5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/player5"
+            app:layout_constraintTop_toBottomOf="@+id/role_player5"
+            tools:layout_editor_absoluteY="735dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+
+</ScrollView>

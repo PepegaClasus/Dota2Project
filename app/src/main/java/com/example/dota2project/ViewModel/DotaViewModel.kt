@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dota2project.RemoteModel.Heroes
 import com.example.dota2project.RemoteModel.MyMajors
-import com.example.dota2project.RemoteModel.Teams
+import com.example.dota2project.RemoteModel.MyTeams
 import com.example.dota2project.RemoteModel.profile
 import com.example.dota2project.Repository.Repository
 import kotlinx.coroutines.CoroutineScope
@@ -19,15 +19,15 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
     }
 
-    val teamsLive: MutableLiveData<MutableList<Teams>> by lazy {
-        MutableLiveData<MutableList<Teams>>(mutableListOf())
+    val myTeamsLive: MutableLiveData<MutableList<MyTeams>> by lazy {
+        MutableLiveData<MutableList<MyTeams>>(mutableListOf())
     }
 
     val majorsLive: MutableLiveData<MutableList<MyMajors>> by lazy {
         MutableLiveData<MutableList<MyMajors>>(mutableListOf())
     }
 
-    var teamsForInfo: Teams? = null
+    var myTeamsForInfo: MyTeams? = null
 
 
 

@@ -34,8 +34,7 @@ class TeamsCIS : Fragment() {
         binding = FragmentTeamsCISBinding.bind(view)
         val utils = Utils()
 
-        binding.recyclerTeamView.adapter = TeamCISAdapter(viewModel.teamsLive.value!!, this)
-        binding.recyclerTeamView.layoutManager = LinearLayoutManager(activity as MainActivity)
+
 
         binding.bottomTeamNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
@@ -81,12 +80,12 @@ class TeamsCIS : Fragment() {
 //        viewModel.teamsLive.value?.add(Teams("PuckChamp", "71, 000 $", 6,))
 //        viewModel.teamsLive.value?.add(Teams("Team Unique", "104, 472 $", 7))
 
-        viewModel.teamsLive.observe(viewLifecycleOwner, Observer {
+        viewModel.myTeamsLive.observe(viewLifecycleOwner, Observer {
             binding.recyclerTeamView.adapter?.notifyDataSetChanged()
         })
     }
     fun showTeamInfo(position:Int){
-        viewModel.teamsForInfo = viewModel.teamsLive.value?.get(position)
+        viewModel.myTeamsForInfo = viewModel.myTeamsLive.value?.get(position)
         navController.navigate(R.id.teamsInfo)
     }
 
