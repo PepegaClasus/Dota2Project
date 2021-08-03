@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "963207257426",
+    "firebase_url": "https://dota2project-c08d5-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "dota2project-c08d5",
+    "storage_bucket": "dota2project-c08d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963207257426:android:2147d9ffb2761af765ae8b",
+        "android_client_info": {
+          "package_name": "com.example.dota2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963207257426-0i2kh4q3b56d584e9j0pask624e0j4rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASOWk8ea7jFHhFXytxwaejAeOnyNfGzyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963207257426-0i2kh4q3b56d584e9j0pask624e0j4rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963207257426:android:0238b3adf20076a665ae8b",
+        "android_client_info": {
+          "package_name": "com.example.dota2project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963207257426-0i2kh4q3b56d584e9j0pask624e0j4rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASOWk8ea7jFHhFXytxwaejAeOnyNfGzyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963207257426-0i2kh4q3b56d584e9j0pask624e0j4rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/menu_heroesList"
+        android:enabled="true"
+        android:title="Все герои"/>
+
+    <item
+        android:id="@+id/menu_strength"
+
+        android:enabled="true"
+        android:title="Сила"/>
+
+    <item
+        android:id="@+id/menu_agility"
+
+        android:enabled="true"
+        android:title="Ловкость"/>
+
+    <item
+        android:id="@+id/menu_intelligence"
+
+        android:enabled="true"
+        android:title="Интеллект"/>
+
+</menu>

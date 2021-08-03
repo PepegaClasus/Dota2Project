@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/allTeams"
+        android:title="Мир"
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/EuropeTeams"
+        android:title="Европа"
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/CisTeams"
+        android:title="СНГ"
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/ChinaTeams"
+        android:title="Китай"
+        android:enabled="true"
+        />
+</menu>
