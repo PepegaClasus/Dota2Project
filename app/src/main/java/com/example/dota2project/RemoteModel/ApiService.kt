@@ -1,10 +1,11 @@
 package com.example.dota2project.RemoteModel
 
+
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 val BASE_URL = "https://api.opendota.com/api/"
@@ -14,10 +15,16 @@ interface ApiService    {
     @GET ("heroes")
     suspend fun getHeroes():MutableList<Heroes>
 
-    @GET ("players/{account_id}/")
-    suspend fun getPlayers(
-        @Path ("account_id") account_id:Int
-    ):MutableList<profile>
+    @GET ("teams")
+    suspend fun getTeams():MutableList<MyTeams>
+
+    @GET ("search?")
+     suspend fun getPlayers(
+        @Query ("q")Search:String
+    ): MutableList<PlayersSearch>
+
+
+
 
 
 

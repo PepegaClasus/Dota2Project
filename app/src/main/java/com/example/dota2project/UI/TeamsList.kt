@@ -7,27 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.MyTeams
+import com.example.dota2project.RemoteModel.MyMajors
+import com.example.dota2project.RemoteModel.MyTeamsFireBase
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTeamsBinding
 
 
 import com.google.firebase.firestore.*
-import kotlinx.android.synthetic.main.fragment_teams.*
-import java.util.ArrayList
 
 class TeamsList : Fragment() {
-    lateinit var viewModel: DotaViewModel
+     val viewModel: DotaViewModel by viewModels()
     lateinit var navController: NavController
     private lateinit var binding: FragmentTeamsBinding
-    lateinit var db: FirebaseFirestore
+    lateinit var db:FirebaseFirestore
     private lateinit var myAdapter: TeamAdapter
-    private lateinit var teamArrayList: ArrayList<MyTeams>
+    private lateinit var teamArrayList:ArrayList<MyTeamsFireBase>
+
 
 
     override fun onCreateView(
@@ -35,7 +36,7 @@ class TeamsList : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(activity as MainActivity).get(DotaViewModel::class.java)
+
 
 
 
@@ -50,10 +51,13 @@ class TeamsList : Fragment() {
         binding.recyclerTeamView.layoutManager = LinearLayoutManager(context)
         binding.recyclerTeamView.setHasFixedSize(true)
 
+        teamArrayList = arrayListOf()
 
+        myAdapter = TeamAdapter(teamArrayList)
+        binding.recyclerTeamView.adapter = myAdapter
+        teamArrayList.clear()
 
-
-
+        EventChangeListener()
 
         binding.bottomTeamNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -83,13 +87,10 @@ class TeamsList : Fragment() {
 
 
 
-        teamArrayList = arrayListOf()
 
-        myAdapter = TeamAdapter(teamArrayList, this)
 
-        binding.recyclerTeamView.adapter = myAdapter
-        teamArrayList.clear()
-        EventChangeListener()
+
+
 
 
 
@@ -99,8 +100,7 @@ class TeamsList : Fragment() {
     }
 
     fun showTeamInfo(position: Int) {
-        viewModel.myTeamsForInfo = viewModel.myTeamsLive.value?.get(position)
-        navController.navigate(R.id.teamsInfo)
+
     }
 
     private fun EventChangeListener() {
@@ -117,8 +117,8 @@ class TeamsList : Fragment() {
                 for (dc: DocumentChange in value?.documentChanges!!) {
 
                     if (dc.type == DocumentChange.Type.ADDED) {
-
-                        teamArrayList.add(dc.document.toObject(MyTeams::class.java))
+                        Log.d("dcMajor", dc.document.toString())
+                        teamArrayList.add(dc.document.toObject(MyTeamsFireBase::class.java))
                     }
                 }
 
@@ -129,6 +129,7 @@ class TeamsList : Fragment() {
         })
 
     }
+
 
 
 }

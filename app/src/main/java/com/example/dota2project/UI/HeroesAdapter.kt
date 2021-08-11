@@ -7,11 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.dota2project.FindPlayersFragment
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Heroes
-import com.example.dota2project.RemoteModel.MyMajors
-import com.example.dota2project.RemoteModel.MyTeams
+import com.example.dota2project.RemoteModel.*
 import kotlinx.android.synthetic.main.major_item.view.*
+import kotlinx.android.synthetic.main.players_search_item.view.*
+import kotlinx.android.synthetic.main.teams_info_item.view.*
 import kotlinx.android.synthetic.main.teams_item.view.*
 import java.util.ArrayList
 
@@ -146,10 +147,6 @@ class IntelligenceAdapter(val list: MutableList<Heroes>, val fragment: IntList) 
 }
 
 
-
-
-
-
 class MajorAdapter(private val list: ArrayList<MyMajors>) :
     RecyclerView.Adapter<MajorAdapter.ViewHolder>() {
 
@@ -199,68 +196,19 @@ class MajorAdapter(private val list: ArrayList<MyMajors>) :
 
 }
 
-class TeamAdapter(private val list: ArrayList<MyTeams>, val fragment:TeamsList) :
+class TeamAdapter(private val list: MutableList<MyTeamsFireBase>) :
     RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
-        var carry:TextView
-        var carry_image:ImageView
-//        var carry_name:TextView
-        var carry_role:TextView
-        var carry_year:TextView
-        var mid:TextView
-        var mid_image:ImageView
-//        var mid_name:TextView
-        var mid_role:TextView
-        var mid_year:TextView
-        var offlane:TextView
-        var offlane_image:ImageView
-//        var offlane_name:TextView
-        var offlane_role:TextView
-        var offlane_year:TextView
-        var semiSupport:TextView
-//        var semiSupport_country:TextView
-        var semiSupport_image:ImageView
-        var semiSupport_role:TextView
-        var semiSupport_year:TextView
-        var support:TextView
-//        var support_country:TextView
-        var support_image:ImageView
-//        var support_name:TextView
-        var support_role:TextView
-        var support_year:TextView
         var rating: TextView
-        var earn: TextView
-        var team_image: ImageView
-        var teamCountryImage: ImageView
+        var logo: ImageView
+
 
         init {
             name = itemView.findViewById(R.id.team_name)
             rating = itemView.findViewById(R.id.team_rating)
-            earn = itemView.findViewById(R.id.team_Money)
-            team_image = itemView.findViewById(R.id.team_image)
-            teamCountryImage = itemView.findViewById(R.id.team_Countryimage)
-            carry_image = itemView.findViewById(R.id.player1)
-            carry = itemView.findViewById(R.id.name_player1)
-            carry_role = itemView.findViewById(R.id.role_player1)
-            carry_year = itemView.findViewById(R.id.age_player1)
-            mid = itemView.findViewById(R.id.name_player2)
-            mid_image = itemView.findViewById(R.id.player2)
-            mid_role = itemView.findViewById(R.id.role_player2)
-            mid_year = itemView.findViewById(R.id.age_player2)
-            offlane = itemView.findViewById(R.id.name_player3)
-            offlane_image = itemView.findViewById(R.id.player3)
-            offlane_role = itemView.findViewById(R.id.role_player3)
-            offlane_year = itemView.findViewById(R.id.age_player3)
-            semiSupport = itemView.findViewById(R.id.name_player4)
-            semiSupport_image = itemView.findViewById(R.id.player4)
-            semiSupport_role = itemView.findViewById(R.id.role_player4)
-            semiSupport_year = itemView.findViewById(R.id.age_player4)
-            support = itemView.findViewById(R.id.name_player5)
-            support_image = itemView.findViewById(R.id.player5)
-            support_role = itemView.findViewById(R.id.role_player5)
-            support_year = itemView.findViewById(R.id.age_player5)
-            team_image = itemView.findViewById(R.id.team_image)
+
+            logo = itemView.findViewById(R.id.team_image)
 
 
         }
@@ -272,14 +220,113 @@ class TeamAdapter(private val list: ArrayList<MyTeams>, val fragment:TeamsList) 
         val itemView = inflater.inflate(R.layout.teams_item, parent, false)
         val holder = ViewHolder(itemView)
 
-       
+
 
 
         return holder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val myTeams: MyTeams = list[position]
+        val myTeams: MyTeamsFireBase = list[position]
+        holder.name.text = list[position].name
+        holder.rating.text = list[position].rank.toString()
+
+        Glide.with(holder.itemView).load(myTeams.logo).into(holder.itemView.team_image)
+
+
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+}
+
+class TeamAdapterInfo(private val list: MutableList<MyTeamsFireBase>, val fragment: TeamsInfo) :
+    RecyclerView.Adapter<TeamAdapterInfo.ViewHolder>() {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var name: TextView
+        var carry: TextView
+        var carry_image: ImageView
+
+        //        var carry_name:TextView
+        var carry_role: TextView
+        var carry_year: TextView
+        var mid: TextView
+        var mid_image: ImageView
+
+        //        var mid_name:TextView
+        var mid_role: TextView
+        var mid_year: TextView
+        var offlane: TextView
+        var offlane_image: ImageView
+
+        //        var offlane_name:TextView
+        var offlane_role: TextView
+        var offlane_year: TextView
+        var semiSupport: TextView
+
+        //        var semiSupport_country:TextView
+        var semiSupport_image: ImageView
+        var semiSupport_role: TextView
+        var semiSupport_year: TextView
+        var support: TextView
+
+        //        var support_country:TextView
+        var support_image: ImageView
+
+        //        var support_name:TextView
+        var support_role: TextView
+        var support_year: TextView
+        var rating: TextView
+        var earn: TextView
+        var team_image: ImageView
+        var teamCountryImage: ImageView
+
+        init {
+            name = itemView.findViewById(R.id.team_name)
+            rating = itemView.findViewById(R.id.team_rating)
+            earn = itemView.findViewById(R.id.team_Money)
+            team_image = itemView.findViewById(R.id.team_image)
+            teamCountryImage = itemView.findViewById(R.id.team_Countryimage)
+            carry_image = itemView.findViewById(R.id.player1Info)
+            carry = itemView.findViewById(R.id.nameInfo_player1)
+            carry_role = itemView.findViewById(R.id.roleInfo_player1)
+            carry_year = itemView.findViewById(R.id.ageInfo_player1)
+            mid = itemView.findViewById(R.id.nameInfo_player2)
+            mid_image = itemView.findViewById(R.id.player2Info)
+            mid_role = itemView.findViewById(R.id.roleInfo_player2)
+            mid_year = itemView.findViewById(R.id.ageInfo_player2)
+            offlane = itemView.findViewById(R.id.nameInfo_player3)
+            offlane_image = itemView.findViewById(R.id.player3Info)
+            offlane_role = itemView.findViewById(R.id.roleInfo_player3)
+            offlane_year = itemView.findViewById(R.id.ageInfo_player3)
+            semiSupport = itemView.findViewById(R.id.nameInfo_player4)
+            semiSupport_image = itemView.findViewById(R.id.player4Info)
+            semiSupport_role = itemView.findViewById(R.id.roleInfo_player4)
+            semiSupport_year = itemView.findViewById(R.id.ageInfo_player4)
+            support = itemView.findViewById(R.id.nameInfo_player5)
+            support_image = itemView.findViewById(R.id.player5Info)
+            support_role = itemView.findViewById(R.id.roleInfo_player5)
+            support_year = itemView.findViewById(R.id.ageInfo_player5)
+
+
+        }
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val itemView = inflater.inflate(R.layout.teams_info_item, parent, false)
+        val holder = ViewHolder(itemView)
+
+
+
+
+        return holder
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val myTeamsFireBase: MyTeamsFireBase = list[position]
         holder.name.text = list[position].name
         holder.rating.text = list[position].rank
         holder.earn.text = list[position].earn
@@ -300,15 +347,53 @@ class TeamAdapter(private val list: ArrayList<MyTeams>, val fragment:TeamsList) 
         holder.support_year.text = list[position].support_year
 
         holder.earn.text = list[position].earn
-        Glide.with(holder.itemView).load(myTeams.logo).into(holder.itemView.team_image)
-        Glide.with(holder.itemView).load(myTeams.team_country_image)
+        Glide.with(holder.itemView).load(myTeamsFireBase.logo).into(holder.itemView.team_image)
+        Glide.with(holder.itemView).load(myTeamsFireBase.team_country_image)
             .into(holder.itemView.team_Countryimage)
-        Glide.with(holder.itemView).load(myTeams.carry_image).into(holder.itemView.player1)
-        Glide.with(holder.itemView).load(myTeams.mid_image).into(holder.itemView.player2)
-        Glide.with(holder.itemView).load(myTeams.offlane_image).into(holder.itemView.player3)
-        Glide.with(holder.itemView).load(myTeams.semiSupport_image).into(holder.itemView.player4)
-        Glide.with(holder.itemView).load(myTeams.support_image).into(holder.itemView.player5)
+        Glide.with(holder.itemView).load(myTeamsFireBase.carry_image)
+            .into(holder.itemView.player1Info)
+        Glide.with(holder.itemView).load(myTeamsFireBase.mid_image)
+            .into(holder.itemView.player2Info)
+        Glide.with(holder.itemView).load(myTeamsFireBase.offlane_image)
+            .into(holder.itemView.player3Info)
+        Glide.with(holder.itemView).load(myTeamsFireBase.semiSupport_image)
+            .into(holder.itemView.player4Info)
+        Glide.with(holder.itemView).load(myTeamsFireBase.support_image)
+            .into(holder.itemView.player5Info)
 
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+}
+
+class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: FindPlayersFragment) :
+    RecyclerView.Adapter<PlayersInfoAdapter.ViewHolder>() {
+    class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        var name:TextView
+        var player_image:ImageView
+
+        init {
+            name = itemView.findViewById(R.id.playerSearch_name)
+            player_image = itemView.findViewById(R.id.player_imageView)
+
+        }
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val itemView = inflater.inflate(R.layout.players_search_item, parent, false)
+        val holder = ViewHolder(itemView)
+
+        return holder
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val playersSearch:PlayersSearch = list[position]
+        holder.name.text = list[position].personaname
+        Glide.with(holder.itemView).load(playersSearch.avatarfull).into(holder.itemView.player_imageView)
     }
 
     override fun getItemCount(): Int {

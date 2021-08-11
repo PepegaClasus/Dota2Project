@@ -16,6 +16,9 @@
     <item android:id="@+id/majors"
         android:title="Турниры"/>
 
+    <item android:id="@+id/findPlayersFragment"
+        android:title="Поиск игрока"/>
+
 
 
 

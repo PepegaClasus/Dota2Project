@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_person.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_find_players.xml" value="0.2988679352838745" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_int_list.xml" value="0.1" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_players_list.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_teams.xml" value="0.2484375" />
-        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_teams_info.xml" value="0.2988679352838745" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_teams_info.xml" value="0.25790513833992096" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/heroes_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/major_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/players_search_item.xml" value="0.271875" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_info_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_item.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/heroes_menu.xml" value="0.1" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/main_menu.xml" value="0.13020833333333334" />

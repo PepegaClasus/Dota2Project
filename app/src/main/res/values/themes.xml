@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.Dota2Project" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
@@ -27,6 +27,14 @@
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorPrimary">@android:color/holo_red_dark</item>
         <item name="colorOnPrimary">@color/black</item>
+    </style>
+
+    <style name = "TextViewTheme" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name = "colorAccent">@color/colorAccent</item>
+
+
     </style>
 
 

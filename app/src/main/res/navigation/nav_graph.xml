@@ -62,6 +62,11 @@
         android:name="com.example.dota2project.Majors"
         android:label="fragment_majors"
         tools:layout="@layout/fragment_majors" />
+    <fragment
+        android:id="@+id/findPlayersFragment"
+        android:name="com.example.dota2project.FindPlayersFragment"
+        android:label="fragment_find_players"
+        tools:layout="@layout/fragment_find_players" />
 
 
 </navigation>

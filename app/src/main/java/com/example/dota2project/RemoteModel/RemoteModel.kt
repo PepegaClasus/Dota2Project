@@ -14,6 +14,17 @@ class RemoteModel @Inject constructor() {
         }
     }
 
+    suspend fun getRemoteTeams():MutableList<MyTeams>{
+        return try {
+            val teams = apiService.getTeams()
+            teams
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+
+
 
 
 

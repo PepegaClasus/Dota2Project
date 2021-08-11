@@ -3,10 +3,7 @@ package com.example.dota2project.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dota2project.RemoteModel.Heroes
-import com.example.dota2project.RemoteModel.MyMajors
-import com.example.dota2project.RemoteModel.MyTeams
-import com.example.dota2project.RemoteModel.profile
+import com.example.dota2project.RemoteModel.*
 import com.example.dota2project.Repository.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,22 +16,23 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
     }
 
-    val myTeamsLive: MutableLiveData<MutableList<MyTeams>> by lazy {
-        MutableLiveData<MutableList<MyTeams>>(mutableListOf())
+    val teamsLive = MutableLiveData<MutableList<MyTeams>>(mutableListOf())
+    val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
+        MutableLiveData<MutableList<PlayersSearch>>(mutableListOf())}
+
+    val myTeamsFireBaseLive: MutableLiveData<MutableList<MyTeamsFireBase>> by lazy {
+        MutableLiveData<MutableList<MyTeamsFireBase>>(mutableListOf())
     }
 
     val majorsLive: MutableLiveData<MutableList<MyMajors>> by lazy {
         MutableLiveData<MutableList<MyMajors>>(mutableListOf())
     }
 
-    var myTeamsForInfo: MyTeams? = null
+    var myTeamsFireBaseForInfo:MyTeamsFireBase? = null
 
 
 
 
-    val playersLive: MutableLiveData<MutableList<profile>> by lazy {
-        MutableLiveData<MutableList<profile>>(mutableListOf())
-    }
 
     fun getHeroes(){
         viewModelScope.launch {
@@ -46,6 +44,17 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
         }
     }
+
+    fun getTeams(){
+        viewModelScope.launch {
+            val teams = repository.getTeams()
+            val list = teamsLive.value
+            list?.addAll(teams)
+            teamsLive.postValue(list)
+        }
+    }
+
+
 
 
 

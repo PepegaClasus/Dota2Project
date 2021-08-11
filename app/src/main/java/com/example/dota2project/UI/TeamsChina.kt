@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTeamsChinaBinding
@@ -73,7 +72,7 @@ class TeamsChina : Fragment() {
     }
 
     fun showTeamInfo(position:Int){
-        viewModel.myTeamsForInfo = viewModel.myTeamsLive.value?.get(position)
+        viewModel.myTeamsFireBaseForInfo = viewModel.myTeamsFireBaseLive.value?.get(position)
         navController.navigate(R.id.teamsInfo)
     }
 

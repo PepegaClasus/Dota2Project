@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTeamsCISBinding
@@ -80,12 +79,12 @@ class TeamsCIS : Fragment() {
 //        viewModel.teamsLive.value?.add(Teams("PuckChamp", "71, 000 $", 6,))
 //        viewModel.teamsLive.value?.add(Teams("Team Unique", "104, 472 $", 7))
 
-        viewModel.myTeamsLive.observe(viewLifecycleOwner, Observer {
+        viewModel.myTeamsFireBaseLive.observe(viewLifecycleOwner, Observer {
             binding.recyclerTeamView.adapter?.notifyDataSetChanged()
         })
     }
     fun showTeamInfo(position:Int){
-        viewModel.myTeamsForInfo = viewModel.myTeamsLive.value?.get(position)
+        viewModel.myTeamsFireBaseForInfo = viewModel.myTeamsFireBaseLive.value?.get(position)
         navController.navigate(R.id.teamsInfo)
     }
 
