@@ -1,17 +1,13 @@
 package com.example.dota2project.UI
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dota2project.HeroesInfoFragment
 import com.example.dota2project.R
 import com.example.dota2project.RemoteModel.*
 import kotlinx.android.synthetic.main.heroes_item.view.*
