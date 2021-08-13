@@ -65,7 +65,7 @@
         tools:layout="@layout/fragment_find_players" />
     <fragment
         android:id="@+id/heroesInfo"
-        android:name="com.example.dota2project.HeroesInfo"
+        android:name="com.example.dota2project.UI.HeroesInfo"
         android:label="fragment_heroes_info"
         tools:layout="@layout/fragment_heroes_info" />
     <fragment
