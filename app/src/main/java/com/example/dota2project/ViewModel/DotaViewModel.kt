@@ -12,11 +12,22 @@ import kotlinx.coroutines.launch
 class DotaViewModel(val repository: Repository): ViewModel() {
     val scope = CoroutineScope(Dispatchers.IO)
 
+
+
+
     val heroesLive: MutableLiveData<MutableList<Heroes>> by lazy {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
     }
 
+    var heroesLiveInfo:Heroes? = null
+
+
+
+
+
+
     val teamsLive = MutableLiveData<MutableList<MyTeams>>(mutableListOf())
+
     val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
         MutableLiveData<MutableList<PlayersSearch>>(mutableListOf())}
 
@@ -44,6 +55,8 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
         }
     }
+
+
 
     fun getTeams(){
         viewModelScope.launch {

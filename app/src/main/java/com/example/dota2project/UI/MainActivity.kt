@@ -38,10 +38,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-
-
-
-
         FirebaseApp.initializeApp(this)
 
 
@@ -54,15 +50,6 @@ class MainActivity : AppCompatActivity() {
         nav_view.setupWithNavController(navController)
 
         viewModel = ViewModelProvider(this, factory).get(DotaViewModel :: class.java)
-
-
-
-
-
-
-
-
-
 
     }
 

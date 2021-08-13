@@ -1,15 +1,20 @@
 package com.example.dota2project.UI
 
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dota2project.FindPlayersFragment
+import com.example.dota2project.HeroesInfoFragment
 import com.example.dota2project.R
 import com.example.dota2project.RemoteModel.*
+import kotlinx.android.synthetic.main.heroes_item.view.*
 import kotlinx.android.synthetic.main.major_item.view.*
 import kotlinx.android.synthetic.main.players_search_item.view.*
 import kotlinx.android.synthetic.main.teams_info_item.view.*
@@ -20,11 +25,40 @@ class HeroesAdapter(val list: MutableList<Heroes>, val fragment: HeroesList) :
     RecyclerView.Adapter<HeroesAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
+        var img: ImageView
+        var base_health: TextView
+        var base_mana: TextView
+        var base_armor: TextView
+        var base_str: TextView
+        var base_agi: TextView
+        var base_int: TextView
+        var attack_range: TextView
+        var base_health_regen: TextView
+        var base_mana_regen: TextView
+        var str_gain: TextView
+        var agi_gain: TextView
+        var int_gain: TextView
+        var layout: ConstraintLayout
+        var move_speed: TextView
 
 
         init {
-
+            base_health = itemView.findViewById(R.id.base_health)
+            base_mana = itemView.findViewById(R.id.base_mana)
+            base_armor = itemView.findViewById(R.id.base_armor)
+            base_str = itemView.findViewById(R.id.base_str)
+            base_agi = itemView.findViewById(R.id.base_agi)
+            base_int = itemView.findViewById(R.id.base_int)
+            attack_range = itemView.findViewById(R.id.attack_range)
+            base_health_regen = itemView.findViewById(R.id.base_health_regen)
+            base_mana_regen = itemView.findViewById(R.id.base_mana_regen)
+            str_gain = itemView.findViewById(R.id.str_gain)
+            agi_gain = itemView.findViewById(R.id.agi_gain)
+            int_gain = itemView.findViewById(R.id.int_gain)
+            move_speed = itemView.findViewById(R.id.move_speed)
             name = itemView.findViewById(R.id.hero_name)
+            img = itemView.findViewById(R.id.hero_image)
+            layout = itemView.findViewById(R.id.layout_hero_info)
 
         }
     }
@@ -33,14 +67,44 @@ class HeroesAdapter(val list: MutableList<Heroes>, val fragment: HeroesList) :
         val inflater = LayoutInflater.from(parent.context)
         val itemView = inflater.inflate(R.layout.heroes_item, parent, false)
         val holder = ViewHolder(itemView)
+
+
+holder.itemView.setOnClickListener {
+    fragment.nextFragment(holder.layoutPosition)
+}
+
+
+
+
+
+
+
         return holder
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text = list[position].localized_name
 
-//        holder.heroImage.setImageResource(list[position].hero_image)
-//        holder.heroImage.setImageDrawable(ContextCompat.getDrawable(context, list.))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val heroes: Heroes = list[position]
+        holder.name.text = list[position].localized_name
+        holder.base_health.text = list[position].base_health.toString()
+        holder.base_mana.text = list[position].base_mana.toString()
+        holder.base_armor.text = list[position].base_armor.toString()
+        holder.base_str.text = list[position].base_str.toString()
+        holder.base_agi.text = list[position].base_agi.toString()
+        holder.base_int.text = list[position].base_int.toString()
+        holder.attack_range.text = list[position].attack_range.toString()
+        holder.base_health_regen.text = list[position].base_health_regen.toString()
+        holder.base_mana_regen.text = list[position].base_mana_regen.toString()
+        holder.str_gain.text = list[position].str_gain.toString()
+        holder.agi_gain.text = list[position].agi_gain.toString()
+        holder.int_gain.text = list[position].int_gain.toString()
+        holder.move_speed.text = list[position].move_speed.toString()
+        Glide.with(holder.itemView).load("http://cdn.dota2.com" + heroes.img)
+            .into(holder.itemView.hero_image)
+
+
+
+
     }
 
     override fun getItemCount(): Int {
@@ -71,7 +135,11 @@ class StrengthAdapter(val list: MutableList<Heroes>, val fragment: StrengthList)
     }
 
     override fun onBindViewHolder(holder: StrengthAdapter.ViewHolder, position: Int) {
+
         holder.name.text = list[position].localized_name
+        val heroes: Heroes = list[position]
+        Glide.with(holder.itemView).load("http://cdn.dota2.com" + heroes.img)
+            .into(holder.itemView.hero_image)
 
     }
 
@@ -103,6 +171,9 @@ class AgilityAdapter(val list: MutableList<Heroes>, val fragment: AgilityList) :
 
     override fun onBindViewHolder(holder: AgilityAdapter.ViewHolder, position: Int) {
         holder.name.text = list[position].localized_name
+        val heroes: Heroes = list[position]
+        Glide.with(holder.itemView).load("http://cdn.dota2.com" + heroes.img)
+            .into(holder.itemView.hero_image)
 
     }
 
@@ -137,6 +208,9 @@ class IntelligenceAdapter(val list: MutableList<Heroes>, val fragment: IntList) 
 
     override fun onBindViewHolder(holder: IntelligenceAdapter.ViewHolder, position: Int) {
         holder.name.text = list[position].localized_name
+        val heroes: Heroes = list[position]
+        Glide.with(holder.itemView).load("http://cdn.dota2.com" + heroes.img)
+            .into(holder.itemView.hero_image)
 
     }
 
@@ -202,12 +276,13 @@ class TeamAdapter(private val list: MutableList<MyTeamsFireBase>) :
         var name: TextView
         var rating: TextView
         var logo: ImageView
+        var team_money: TextView
 
 
         init {
             name = itemView.findViewById(R.id.team_name)
             rating = itemView.findViewById(R.id.team_rating)
-
+            team_money = itemView.findViewById(R.id.team_Money)
             logo = itemView.findViewById(R.id.team_image)
 
 
@@ -230,6 +305,14 @@ class TeamAdapter(private val list: MutableList<MyTeamsFireBase>) :
         val myTeams: MyTeamsFireBase = list[position]
         holder.name.text = list[position].name
         holder.rating.text = list[position].rank.toString()
+
+        holder.itemView.setOnClickListener {
+            if (holder.team_money.visibility == View.INVISIBLE)
+                holder.team_money.visibility = View.VISIBLE
+
+        }
+
+
 
         Glide.with(holder.itemView).load(myTeams.logo).into(holder.itemView.team_image)
 
@@ -370,9 +453,9 @@ class TeamAdapterInfo(private val list: MutableList<MyTeamsFireBase>, val fragme
 
 class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: FindPlayersFragment) :
     RecyclerView.Adapter<PlayersInfoAdapter.ViewHolder>() {
-    class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var name:TextView
-        var player_image:ImageView
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var name: TextView
+        var player_image: ImageView
 
         init {
             name = itemView.findViewById(R.id.playerSearch_name)
@@ -391,9 +474,10 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val playersSearch:PlayersSearch = list[position]
+        val playersSearch: PlayersSearch = list[position]
         holder.name.text = list[position].personaname
-        Glide.with(holder.itemView).load(playersSearch.avatarfull).into(holder.itemView.player_imageView)
+        Glide.with(holder.itemView).load(playersSearch.avatarfull)
+            .into(holder.itemView.player_imageView)
     }
 
     override fun getItemCount(): Int {

@@ -10,8 +10,6 @@
             android:id="@+id/teams"
             android:title="Команды"/>
 
-    <item android:id="@+id/playerIdInfo"
-        android:title="Игроки"/>
 
     <item android:id="@+id/majors"
         android:title="Турниры"/>

@@ -1,4 +1,4 @@
-package com.example.dota2project
+package com.example.dota2project.UI
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dota2project.R
 import com.example.dota2project.RemoteModel.MyMajors
-import com.example.dota2project.UI.MajorAdapter
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentMajorsBinding
 import com.google.firebase.firestore.*

@@ -14,6 +14,7 @@ class Repository @Inject constructor(val remoteModel: RemoteModel, val localMode
         return if (heroesList.isEmpty()){
             heroesList = remoteModel.getRemoteHeroes()
             localModel.insertHeroes(heroesList)
+            Log.d("HeroesList", heroesList.toString())
             heroesList
         }else {
             heroesList

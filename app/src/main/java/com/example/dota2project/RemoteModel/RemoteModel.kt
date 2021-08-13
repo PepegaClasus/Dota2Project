@@ -1,5 +1,6 @@
 package com.example.dota2project.RemoteModel
 
+import android.util.Log
 import javax.inject.Inject
 
 class RemoteModel @Inject constructor() {
@@ -9,10 +10,13 @@ class RemoteModel @Inject constructor() {
         return try {
             val heroes = apiService.getHeroes()
             heroes
+
         }catch (e:Exception){
             mutableListOf()
         }
     }
+
+
 
     suspend fun getRemoteTeams():MutableList<MyTeams>{
         return try {

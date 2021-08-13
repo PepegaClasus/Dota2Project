@@ -52,21 +52,27 @@
         android:label="fragment_teams_china"
         tools:layout="@layout/fragment_teams_china" />
 
-    <fragment
-        android:id="@+id/playerIdInfo"
-        android:name="com.example.dota2project.PlayerIdInfo"
-        android:label="fragment_player_id_info"
-        tools:layout="@layout/fragment_player_id_info" />
+
     <fragment
         android:id="@+id/majors"
-        android:name="com.example.dota2project.Majors"
+        android:name="com.example.dota2project.UI.Majors"
         android:label="fragment_majors"
         tools:layout="@layout/fragment_majors" />
     <fragment
         android:id="@+id/findPlayersFragment"
-        android:name="com.example.dota2project.FindPlayersFragment"
+        android:name="com.example.dota2project.UI.FindPlayersFragment"
         android:label="fragment_find_players"
         tools:layout="@layout/fragment_find_players" />
+    <fragment
+        android:id="@+id/heroesInfo"
+        android:name="com.example.dota2project.HeroesInfo"
+        android:label="fragment_heroes_info"
+        tools:layout="@layout/fragment_heroes_info" />
+    <fragment
+        android:id="@+id/heroesInfoFragment"
+        android:name="com.example.dota2project.HeroesInfoFragment"
+        android:label="fragment_heroes_info2"
+        tools:layout="@layout/fragment_heroes_info2" />
 
 
 </navigation>

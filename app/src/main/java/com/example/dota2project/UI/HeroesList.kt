@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import com.example.dota2project.R
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentHeroesListBinding
 import kotlinx.android.synthetic.main.fragment_heroes_list.*
+import kotlinx.android.synthetic.main.heroes_item.*
 
 class HeroesList : Fragment() {
     lateinit var navController: NavController
@@ -82,13 +84,26 @@ class HeroesList : Fragment() {
 
         viewModel.heroesLive.observe(viewLifecycleOwner, Observer { it ->
             Log.d("!!!", it.toString())
-
-//
-
             viewModel.heroesLive.value!!.sortBy { it.localized_name }
             binding.recyclerView.adapter?.notifyDataSetChanged()
         })
 
+        Log.d("===!!!===", viewModel.heroesLive.value!!.toString())
+
+
+
 
     }
+
+    fun nextFragment(position:Int){
+        if (layout_hero_info.visibility == View.GONE){
+            layout_hero_info.visibility = View.VISIBLE
+        }else {
+            layout_hero_info.isVisible = false
+        }
+    }
+
+
+
+
 }
