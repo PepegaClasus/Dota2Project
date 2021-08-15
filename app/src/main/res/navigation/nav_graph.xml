@@ -64,15 +64,30 @@
         android:label="fragment_find_players"
         tools:layout="@layout/fragment_find_players" />
     <fragment
-        android:id="@+id/heroesInfo"
-        android:name="com.example.dota2project.UI.HeroesInfo"
-        android:label="fragment_heroes_info"
-        tools:layout="@layout/fragment_heroes_info" />
+        android:id="@+id/publicMatches"
+        android:name="com.example.dota2project.PublicMatches"
+        android:label="fragment_public_matches"
+        tools:layout="@layout/fragment_public_matches" />
     <fragment
-        android:id="@+id/heroesInfoFragment"
-        android:name="com.example.dota2project.HeroesInfoFragment"
-        android:label="fragment_heroes_info2"
-        tools:layout="@layout/fragment_heroes_info2" />
+        android:id="@+id/tournamentsRunning"
+        android:name="com.example.dota2project.UI.TournamentsRunning"
+        android:label="fragment_tournaments_running"
+        tools:layout="@layout/fragment_tournaments_running" />
+    <fragment
+        android:id="@+id/tournamentsUpcoming"
+        android:name="com.example.dota2project.UI.TournamentsUpcoming"
+        android:label="fragment_tournaments_upcoming"
+        tools:layout="@layout/fragment_tournaments_upcoming" />
+    <fragment
+        android:id="@+id/tournamentPast"
+        android:name="com.example.dota2project.UI.TournamentPast"
+        android:label="fragment_tournament_past"
+        tools:layout="@layout/fragment_tournament_past" />
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="com.example.dota2project.UI.ItemsFragment"
+        android:label="fragment_items"
+        tools:layout="@layout/fragment_items" />
 
 
 </navigation>

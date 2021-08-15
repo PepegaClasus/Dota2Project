@@ -5,6 +5,8 @@ import javax.inject.Inject
 
 class RemoteModel @Inject constructor() {
     val apiService = ApiService.create()
+    val pandaApi = PandaScoreApi.create()
+
 
     suspend fun getRemoteHeroes():MutableList<Heroes>{
         return try {
@@ -26,6 +28,72 @@ class RemoteModel @Inject constructor() {
             mutableListOf()
         }
     }
+
+    suspend fun getRunningTournaments():MutableList<Tournaments>{
+        return try {
+            val tournaments = pandaApi.getRunningTournaments()
+            tournaments
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+    suspend fun getUpcomingTournaments():MutableList<Tournaments>{
+        return try {
+            val tournaments = pandaApi.getUpcomingTournaments()
+            tournaments
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+    suspend fun getPastTournaments():MutableList<Tournaments>{
+        return try {
+            val tournaments = pandaApi.getPastTournaments()
+            tournaments
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+    suspend fun getItems():MutableList<Items>{
+        return try {
+            val items = pandaApi.getItems()
+            items
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+    suspend fun getSecondItems():MutableList<Items>{
+        return try {
+            val items = pandaApi.getSecondItems()
+            items
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+    suspend fun getThirdItems():MutableList<Items>{
+        return try {
+            val items = pandaApi.getThirdItems()
+            items
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+    suspend fun getFourthItems():MutableList<Items>{
+        return try {
+            val items = pandaApi.getFourthItems()
+            items
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+
+
+
 
 
 

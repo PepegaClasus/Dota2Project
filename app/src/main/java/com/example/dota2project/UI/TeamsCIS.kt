@@ -31,11 +31,11 @@ class TeamsCIS : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
         binding = FragmentTeamsCISBinding.bind(view)
-        val utils = Utils()
 
 
 
-        binding.bottomTeamNavigation.setOnNavigationItemSelectedListener { item ->
+
+        binding.bottomTeamNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.allTeams ->{
                     navController.navigate(R.id.teams)

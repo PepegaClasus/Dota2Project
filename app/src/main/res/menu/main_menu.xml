@@ -17,6 +17,13 @@
     <item android:id="@+id/findPlayersFragment"
         android:title="Поиск игрока"/>
 
+    <item android:id="@+id/tournamentsRunning"
+        android:title="Идущие турниры"/>
+
+    <item android:id="@+id/itemsFragment"
+        android:title="Предметы"/>
+
+
 
 
 

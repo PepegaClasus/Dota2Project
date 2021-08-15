@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
+import com.example.dota2project.RemoteModel.Heroes
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentHeroesListBinding
 import kotlinx.android.synthetic.main.fragment_heroes_list.*
@@ -48,9 +49,6 @@ class HeroesList : Fragment() {
 
         binding.recyclerView.adapter = HeroesAdapter(viewModel.heroesLive.value!!, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity as MainActivity)
-
-
-
         viewModel.heroesLive.value!!.clear()
         viewModel.getHeroes()
 
@@ -95,13 +93,15 @@ class HeroesList : Fragment() {
 
     }
 
-    fun nextFragment(position:Int){
-        if (layout_hero_info.visibility == View.GONE){
-            layout_hero_info.visibility = View.VISIBLE
-        }else {
-            layout_hero_info.isVisible = false
-        }
-    }
+
+
+//    fun nextFragment(position:Int){
+////        navController.navigate(R.id.heroesFragmentInfo)
+//    }
+//
+//    fun alsaks(position: Int){
+////        viewModel.heroesLiveInfo.value!! = viewModel.heroesLive.value!!
+//    }
 
 
 

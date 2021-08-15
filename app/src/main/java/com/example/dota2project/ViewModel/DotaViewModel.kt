@@ -19,14 +19,14 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
     }
 
-    var heroesLiveInfo:Heroes? = null
+    val runningTournamentsLive: MutableLiveData<MutableList<Tournaments>> by lazy {
+        MutableLiveData<MutableList<Tournaments>>(mutableListOf())
+    }
+    val itemsLive:MutableLiveData<MutableList<Items>> by lazy {
+        MutableLiveData<MutableList<Items>>(mutableListOf())
+    }
 
 
-
-
-
-
-    val teamsLive = MutableLiveData<MutableList<MyTeams>>(mutableListOf())
 
     val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
         MutableLiveData<MutableList<PlayersSearch>>(mutableListOf())}
@@ -35,9 +35,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<MyTeamsFireBase>>(mutableListOf())
     }
 
-    val majorsLive: MutableLiveData<MutableList<MyMajors>> by lazy {
-        MutableLiveData<MutableList<MyMajors>>(mutableListOf())
-    }
+
 
     var myTeamsFireBaseForInfo:MyTeamsFireBase? = null
 
@@ -58,14 +56,74 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
 
 
-    fun getTeams(){
+
+
+    fun getRunningTournaments(){
         viewModelScope.launch {
-            val teams = repository.getTeams()
-            val list = teamsLive.value
-            list?.addAll(teams)
-            teamsLive.postValue(list)
+            val tournaments = repository.getRunningTournaments()
+            val list = runningTournamentsLive.value
+            list?.addAll(tournaments)
+            runningTournamentsLive.postValue(list)
         }
     }
+
+    fun getUpcomingTournaments(){
+        viewModelScope.launch {
+            val tournaments = repository.getUpcomingTournaments()
+            val list = runningTournamentsLive.value
+            list?.addAll(tournaments)
+            runningTournamentsLive.postValue(list)
+        }
+    }
+
+    fun getPastTournaments(){
+        viewModelScope.launch {
+            val tournaments = repository.getPastTournaments()
+            val list = runningTournamentsLive.value
+            list?.addAll(tournaments)
+            runningTournamentsLive.postValue(list)
+        }
+    }
+
+    fun getItems(){
+        viewModelScope.launch {
+            val items = repository.getItems()
+            val list = itemsLive.value
+            list?.addAll(items)
+            itemsLive.postValue(list)
+        }
+    }
+
+    fun getSecondItems(){
+        viewModelScope.launch {
+            val items = repository.getSecondItems()
+            val list = itemsLive.value
+            list?.addAll(items)
+            itemsLive.postValue(list)
+        }
+    }
+
+    fun getThirdItems(){
+        viewModelScope.launch {
+            val items = repository.getThirdItems()
+            val list = itemsLive.value
+            list?.addAll(items)
+            itemsLive.postValue(list)
+        }
+    }
+
+    fun getFourthItems(){
+        viewModelScope.launch {
+            val items = repository.getFourthItems()
+            val list = itemsLive.value
+            list?.addAll(items)
+            itemsLive.postValue(list)
+        }
+    }
+
+
+
+
 
 
 

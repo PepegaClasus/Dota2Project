@@ -1,10 +1,10 @@
 package com.example.dota2project.UI
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
 
 
@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
         val navController = navHostFragment.navController
 
         setSupportActionBar(toolbar)
@@ -49,10 +50,10 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, drawer_layout)
         nav_view.setupWithNavController(navController)
 
-        viewModel = ViewModelProvider(this, factory).get(DotaViewModel :: class.java)
+        viewModel = ViewModelProvider(this, factory).get(DotaViewModel::class.java)
+
 
     }
-
 
 
     override fun onSupportNavigateUp(): Boolean {
@@ -60,23 +61,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        MenuInflater(this).inflate(R.menu.top_menu,menu)
+        MenuInflater(this).inflate(R.menu.top_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 
-        if(item.itemId.equals(R.id.heroesList)){
+        if (item.itemId.equals(R.id.heroesList)) {
             navController.navigate(R.id.heroesList)
-        }else {
+        } else {
             navController.navigate(R.id.heroesList)
         }
 
         return super.onOptionsItemSelected(item)
     }
-
-
 
 
 }

@@ -3,6 +3,7 @@ package com.example.dota2project.RemoteModel
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.time.format.DateTimeFormatter
 
 
 @Entity(tableName = "heroes")
@@ -149,3 +150,33 @@ data class MyMajors(
     val winner: String = "",
     val winner_image: String = "",
 )
+
+data class Tournaments(
+    val begin_at:String,
+    val league:League,
+    val prizepool:String
+
+){
+
+
+
+
+
+}
+data class League(
+    val name:String,
+    val image_url:String
+)
+
+
+data class Items(
+    val id:Int,
+    val cost:Int,
+    val name:String,
+    val image_url: String
+
+)
+
+
+
+

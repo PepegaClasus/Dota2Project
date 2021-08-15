@@ -2,10 +2,7 @@ package com.example.dota2project.Repository
 
 import android.util.Log
 import com.example.dota2project.LocalModel.LocalModel
-import com.example.dota2project.RemoteModel.Heroes
-import com.example.dota2project.RemoteModel.MyTeams
-import com.example.dota2project.RemoteModel.PlayersSearch
-import com.example.dota2project.RemoteModel.RemoteModel
+import com.example.dota2project.RemoteModel.*
 import javax.inject.Inject
 
 class Repository @Inject constructor(val remoteModel: RemoteModel, val localModel: LocalModel) {
@@ -33,6 +30,36 @@ class Repository @Inject constructor(val remoteModel: RemoteModel, val localMode
             teamList
         }
     }
+
+    suspend fun getRunningTournaments(): MutableList<Tournaments> {
+        return remoteModel.getRunningTournaments()
+    }
+
+    suspend fun getUpcomingTournaments(): MutableList<Tournaments> {
+        return remoteModel.getUpcomingTournaments()
+    }
+
+    suspend fun getPastTournaments(): MutableList<Tournaments> {
+        return remoteModel.getPastTournaments()
+    }
+
+    suspend fun getItems():MutableList<Items>{
+        return remoteModel.getItems()
+    }
+
+    suspend fun getSecondItems():MutableList<Items>{
+        return remoteModel.getSecondItems()
+    }
+
+    suspend fun getThirdItems():MutableList<Items>{
+        return remoteModel.getThirdItems()
+    }
+
+    suspend fun getFourthItems():MutableList<Items>{
+        return remoteModel.getFourthItems()
+    }
+
+
 
 
 
