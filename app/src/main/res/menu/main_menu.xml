@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/heroesList"
-        android:title="Герои"/>
-        <item
-            android:id="@+id/teams"
-            android:title="Команды"/>
+        android:title="Герои" />
+    <item
+        android:id="@+id/teams"
+        android:title="Команды" />
 
+    <item
+        android:id="@+id/findPlayersFragment"
+        android:title="Поиск игрока" />
 
-    <item android:id="@+id/majors"
-        android:title="Турниры"/>
+    <item
+        android:id="@+id/tournamentsRunning"
+        android:title="Турниры" />
 
-    <item android:id="@+id/findPlayersFragment"
-        android:title="Поиск игрока"/>
-
-    <item android:id="@+id/tournamentsRunning"
-        android:title="Идущие турниры"/>
-
-    <item android:id="@+id/itemsFragment"
-        android:title="Предметы"/>
-
-
-
-
-
+    <item
+        android:id="@+id/itemsFragment"
+        android:title="Предметы" />
 
 
 </menu>
