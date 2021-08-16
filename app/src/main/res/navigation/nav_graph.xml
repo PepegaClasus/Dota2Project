@@ -39,17 +39,17 @@
     <fragment
         android:id="@+id/teamsEurope"
         android:name="com.example.dota2project.UI.TeamsEurope"
-        android:label="fragment_teams_europe"
+        android:label="Европа"
         tools:layout="@layout/fragment_teams_europe" />
     <fragment
         android:id="@+id/teamsCIS"
         android:name="com.example.dota2project.UI.TeamsCIS"
-        android:label="fragment_teams_c_i_s"
+        android:label="СНГ"
         tools:layout="@layout/fragment_teams_c_i_s" />
     <fragment
         android:id="@+id/teamsChina"
         android:name="com.example.dota2project.UI.TeamsChina"
-        android:label="fragment_teams_china"
+        android:label="Китай"
         tools:layout="@layout/fragment_teams_china" />
 
 
@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/findPlayersFragment"
         android:name="com.example.dota2project.UI.FindPlayersFragment"
-        android:label="fragment_find_players"
+        android:label="Найти игрока"
         tools:layout="@layout/fragment_find_players" />
     <fragment
         android:id="@+id/publicMatches"
@@ -71,22 +71,22 @@
     <fragment
         android:id="@+id/tournamentsRunning"
         android:name="com.example.dota2project.UI.TournamentsRunning"
-        android:label="fragment_tournaments_running"
+        android:label="Идущие турниры"
         tools:layout="@layout/fragment_tournaments_running" />
     <fragment
         android:id="@+id/tournamentsUpcoming"
         android:name="com.example.dota2project.UI.TournamentsUpcoming"
-        android:label="fragment_tournaments_upcoming"
+        android:label="Предстоящие турниры"
         tools:layout="@layout/fragment_tournaments_upcoming" />
     <fragment
         android:id="@+id/tournamentPast"
         android:name="com.example.dota2project.UI.TournamentPast"
-        android:label="fragment_tournament_past"
+        android:label="Прошедшие турниры"
         tools:layout="@layout/fragment_tournament_past" />
     <fragment
         android:id="@+id/itemsFragment"
         android:name="com.example.dota2project.UI.ItemsFragment"
-        android:label="fragment_items"
+        android:label="Предметы"
         tools:layout="@layout/fragment_items" />
 
 

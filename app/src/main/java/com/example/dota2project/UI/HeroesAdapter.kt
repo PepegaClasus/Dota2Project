@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.major_item.view.*
 import kotlinx.android.synthetic.main.players_search_item.view.*
 import kotlinx.android.synthetic.main.running_tournaments_item.view.*
 import kotlinx.android.synthetic.main.teams_item.view.*
-import java.util.ArrayList
+import java.util.*
 
 class HeroesAdapter(
     val list: MutableList<Heroes>,
@@ -604,10 +604,12 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
         var player_image: ImageView
+        var last_match_time:TextView
 
         init {
             name = itemView.findViewById(R.id.playerSearch_name)
             player_image = itemView.findViewById(R.id.player_imageView)
+            last_match_time = (itemView.findViewById(R.id.last_match_time) as? TextView)!!
 
         }
 
@@ -622,9 +624,19 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val playersSearch: PlayersSearch = list[position]
+        val players: PlayersSearch= list[position]
+        try {
+            var date = players.last_match_time.substring(0, 10)
+            holder.last_match_time.text = date
+            date = list[position].last_match_time
+        }catch (e:NullPointerException){
+
+        }
+
+
+        holder.last_match_time.text = list[position].last_match_time
         holder.name.text = list[position].personaname
-        Glide.with(holder.itemView).load(playersSearch.avatarfull)
+        Glide.with(holder.itemView).load(players.avatarfull)
             .into(holder.itemView.player_imageView)
     }
 
@@ -663,7 +675,11 @@ class RunningTournamentAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tournament: Tournaments = list[position]
-        holder.begin_at.text = list[position].begin_at
+        var date = tournament.begin_at.substring(0, 10)
+
+
+        holder.begin_at.text = date
+        date = list[position].begin_at
         holder.league_name.text = list[position].league.name
         holder.prize_pool.text = list[position].prizepool
         Glide.with(holder.itemView).load(tournament.league.image_url)
@@ -706,7 +722,12 @@ class UpcomingTournamentAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tournament: Tournaments = list[position]
-        holder.begin_at.text = list[position].begin_at
+        var date = tournament.begin_at.substring(0, 10)
+
+
+        holder.begin_at.text = date
+        date = list[position].begin_at
+
         holder.league_name.text = list[position].league.name
         holder.prize_pool.text = list[position].prizepool
         Glide.with(holder.itemView).load(tournament.league.image_url)
@@ -820,12 +841,12 @@ class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
     class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
         var item_name:TextView
         var item_image:ImageView
-        var item_cost:TextView
+
 
         init {
             item_name = itemView.findViewById(R.id.item_name)
             item_image = itemView.findViewById(R.id.item_image)
-            item_cost = itemView.findViewById(R.id.item_cost)
+
         }
     }
 
@@ -841,7 +862,7 @@ class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
     override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
         val items:Items = list[position]
         holder.item_name.text = items.name
-        holder.item_cost.text = items.cost.toString()
+
 
         Glide.with(holder.itemView).load(items.image_url).into(holder.itemView.item_image)
     }

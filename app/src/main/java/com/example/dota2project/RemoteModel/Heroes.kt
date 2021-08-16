@@ -3,7 +3,6 @@ package com.example.dota2project.RemoteModel
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import java.time.format.DateTimeFormatter
 
 
 @Entity(tableName = "heroes")
@@ -131,6 +130,7 @@ data class PlayersSearch(
     val personaname: String,
     val avatarfull: String,
     val last_match_time: String,
+    val similarity:Double
 )
 
 @Entity(tableName = "teams")

@@ -2,10 +2,11 @@ package com.example.dota2project.UI
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -49,6 +50,7 @@ class FindPlayersFragment : Fragment() {
 
         binding.btnSearch.setOnClickListener {
             scope.launch {
+                viewModel.playersLive.value?.clear()
                 val playerSearch = apiService.getPlayers(binding.etFind.text.toString())
                 viewModel.playersLive.value?.addAll(playerSearch)
                 Log.d("===!!!", viewModel.playersLive.value.toString())
@@ -58,6 +60,11 @@ class FindPlayersFragment : Fragment() {
 
 
         }
+
+        viewModel.playersLive.observe(viewLifecycleOwner, Observer {
+            viewModel.playersLive.value?.sortBy { it.similarity }
+            binding.listPlayers.adapter?.notifyDataSetChanged()
+        })
 
 
 

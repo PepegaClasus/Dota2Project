@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         setSupportActionBar(toolbar)
 
@@ -68,13 +68,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 
-        if (item.itemId.equals(R.id.heroesList)) {
-            navController.navigate(R.id.heroesList)
-        } else {
-            navController.navigate(R.id.heroesList)
-        }
 
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
 
