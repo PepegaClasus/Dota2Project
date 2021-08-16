@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,11 +12,9 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Heroes
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentHeroesListBinding
 import kotlinx.android.synthetic.main.fragment_heroes_list.*
-import kotlinx.android.synthetic.main.heroes_item.*
 
 class HeroesList : Fragment() {
     lateinit var navController: NavController
@@ -58,7 +55,7 @@ class HeroesList : Fragment() {
 
 
 
-        bottom_heroes_navigation.setOnNavigationItemSelectedListener { item ->
+        bottom_heroes_navigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_heroesList -> {
                     navController.navigate(R.id.heroesList)

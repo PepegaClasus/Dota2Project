@@ -38,7 +38,7 @@ class IntList : Fragment() {
         viewModel.heroesLive.value?.clear()
         viewModel.getHeroes()
 
-        binding.bottomIntNavigation.setOnNavigationItemSelectedListener { item ->
+        binding.bottomIntNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.menu_heroesList ->{
                     navController.navigate(R.id.heroesList)

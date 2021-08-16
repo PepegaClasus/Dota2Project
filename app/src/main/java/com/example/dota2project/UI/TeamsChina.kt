@@ -39,7 +39,7 @@ class TeamsChina : Fragment() {
 
 
 
-        binding.bottomTeamNavigation.setOnNavigationItemSelectedListener { item ->
+        binding.bottomTeamNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.allTeams->{
                     navController.navigate(R.id.teams)

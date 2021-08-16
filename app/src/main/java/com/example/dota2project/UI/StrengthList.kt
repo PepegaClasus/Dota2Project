@@ -42,7 +42,7 @@ class StrengthList : Fragment() {
         viewModel.getHeroes()
 
 
-        binding.bottomStrNavigation.setOnNavigationItemSelectedListener { item ->
+        binding.bottomStrNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.menu_heroesList ->{
                     navController.navigate(R.id.heroesList)

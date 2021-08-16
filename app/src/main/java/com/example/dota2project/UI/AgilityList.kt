@@ -40,7 +40,7 @@ class AgilityList : Fragment() {
         viewModel.heroesLive.value?.clear()
         viewModel.getHeroes()
 
-        binding.bottomAgiNavigation.setOnNavigationItemSelectedListener { item ->
+        binding.bottomAgiNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.menu_heroesList ->{
                     navController.navigate(R.id.heroesList)
