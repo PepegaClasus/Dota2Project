@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -40,16 +41,20 @@ class FindPlayersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
         binding = FragmentFindPlayersBinding.bind(view)
-
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
 
         binding.listPlayers.adapter = PlayersInfoAdapter(viewModel.playersLive.value!!, this)
         binding.listPlayers.layoutManager = LinearLayoutManager(activity as MainActivity)
+        var i = 0
 
 
 
 
         binding.btnSearch.setOnClickListener {
-            scope.launch {
+
+        scope.launch {
+
+
                 viewModel.playersLive.value?.clear()
                 val playerSearch = apiService.getPlayers(binding.etFind.text.toString())
                 viewModel.playersLive.value?.addAll(playerSearch)

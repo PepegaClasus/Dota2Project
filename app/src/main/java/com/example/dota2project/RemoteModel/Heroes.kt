@@ -21,7 +21,7 @@ data class Heroes(
     val base_armor: Double,
     val base_attack_min: Int,
     val base_attack_max: Int,
-    val base_str:Int,
+    val base_str: Int,
     val base_agi: Int,
     val base_int: Int,
     val str_gain: Double,
@@ -79,8 +79,8 @@ data class Heroes(
     @SerializedName("8_win")
     val Immortal_wins: Int,
 
-    val turbo_pick:Int,
-    val turbo_win:Int
+    val turbo_pick: Int,
+    val turbo_win: Int,
 
     )
 
@@ -130,7 +130,7 @@ data class PlayersSearch(
     val personaname: String,
     val avatarfull: String,
     val last_match_time: String,
-    val similarity:Double
+    val similarity: Double,
 )
 
 @Entity(tableName = "teams")
@@ -152,37 +152,35 @@ data class MyMajors(
 )
 
 data class Tournaments(
-    val begin_at:String,
-    val league:League,
-    val prizepool:String
+    val begin_at: String,
+    val league: League,
+    val prizepool: String,
 
-){
-
-
-
+    ) {
 
 
 }
+
 data class League(
-    val name:String,
-    val image_url:String
+    val name: String,
+    val image_url: String,
 )
 
 
 data class Items(
-    val id:Int,
-    val cost:Int,
-    val name:String,
-    val image_url: String
+    val id: Int,
+    val cost: Int,
+    val name: String,
+    val image_url: String,
 
-)
+    )
 
 data class ProPlayers(
     val avatarfull: String,
     val personaname: String,
     val last_match_time: String,
-    var fantasy_role:Int,
-    val team_name:String,
+    var fantasy_role: Int,
+    val team_name: String,
 
     )
 

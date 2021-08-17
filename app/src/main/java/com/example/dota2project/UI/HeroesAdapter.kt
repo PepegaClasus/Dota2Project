@@ -628,9 +628,6 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
         val players: PlayersSearch = list[position]
 
 
-
-
-        holder.last_match_time.text = players.last_match_time
         holder.name.text = list[position].personaname
         Glide.with(holder.itemView).load(players.avatarfull)
             .into(holder.itemView.player_imageView)
