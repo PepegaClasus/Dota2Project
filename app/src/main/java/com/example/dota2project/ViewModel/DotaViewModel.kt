@@ -26,6 +26,10 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<Items>>(mutableListOf())
     }
 
+    val proPlayersLive:MutableLiveData<MutableList<ProPlayers>> by lazy {
+        MutableLiveData<MutableList<ProPlayers>>(mutableListOf())
+    }
+
 
 
     val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
@@ -118,6 +122,15 @@ class DotaViewModel(val repository: Repository): ViewModel() {
             val list = itemsLive.value
             list?.addAll(items)
             itemsLive.postValue(list)
+        }
+    }
+
+    fun getProPlayers(){
+        viewModelScope.launch {
+            val proPlayers = repository.getProPlayers()
+            val list = proPlayersLive.value
+            list?.addAll(proPlayers)
+            proPlayersLive.postValue(list)
         }
     }
 

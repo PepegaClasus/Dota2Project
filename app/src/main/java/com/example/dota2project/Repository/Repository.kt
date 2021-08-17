@@ -59,6 +59,10 @@ class Repository @Inject constructor(val remoteModel: RemoteModel, val localMode
         return remoteModel.getFourthItems()
     }
 
+    suspend fun getProPlayers():MutableList<ProPlayers>{
+        return remoteModel.getProPlayers()
+    }
+
 
 
 

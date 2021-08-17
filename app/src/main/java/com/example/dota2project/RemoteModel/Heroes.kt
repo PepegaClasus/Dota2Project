@@ -177,6 +177,15 @@ data class Items(
 
 )
 
+data class ProPlayers(
+    val avatarfull: String,
+    val personaname: String,
+    val last_match_time: String,
+    var fantasy_role:Int,
+    val team_name:String,
+
+    )
+
 
 
 

@@ -88,6 +88,11 @@
         android:name="com.example.dota2project.UI.ItemsFragment"
         android:label="Предметы"
         tools:layout="@layout/fragment_items" />
+    <fragment
+        android:id="@+id/proPlayersFragment"
+        android:name="com.example.dota2project.UI.ProPlayersFragment"
+        android:label="fragment_pro_players"
+        tools:layout="@layout/fragment_pro_players" />
 
 
 </navigation>

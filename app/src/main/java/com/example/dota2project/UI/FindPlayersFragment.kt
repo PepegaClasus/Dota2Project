@@ -61,6 +61,21 @@ class FindPlayersFragment : Fragment() {
 
         }
 
+
+        binding.bottomPlayersNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.pro_player -> {
+                    navController.navigate(R.id.proPlayersFragment)
+                    true
+                }
+                R.id.players -> {
+                    navController.navigate(R.id.findPlayersFragment)
+                    true
+                }
+                else ->true
+            }
+        }
+
         viewModel.playersLive.observe(viewLifecycleOwner, Observer {
             viewModel.playersLive.value?.sortBy { it.similarity }
             binding.listPlayers.adapter?.notifyDataSetChanged()

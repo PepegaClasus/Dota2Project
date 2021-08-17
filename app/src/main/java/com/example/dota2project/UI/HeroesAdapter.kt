@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.dota_items.view.*
 import kotlinx.android.synthetic.main.heroes_item.view.*
 import kotlinx.android.synthetic.main.major_item.view.*
 import kotlinx.android.synthetic.main.players_search_item.view.*
+import kotlinx.android.synthetic.main.pro_players_item.view.*
 import kotlinx.android.synthetic.main.running_tournaments_item.view.*
 import kotlinx.android.synthetic.main.teams_item.view.*
 import java.util.*
@@ -604,7 +605,7 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
         var player_image: ImageView
-        var last_match_time:TextView
+        var last_match_time: TextView
 
         init {
             name = itemView.findViewById(R.id.playerSearch_name)
@@ -624,17 +625,12 @@ class PlayersInfoAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val players: PlayersSearch= list[position]
-        try {
-            var date = players.last_match_time.substring(0, 10)
-            holder.last_match_time.text = date
-            date = list[position].last_match_time
-        }catch (e:NullPointerException){
-
-        }
+        val players: PlayersSearch = list[position]
 
 
-        holder.last_match_time.text = list[position].last_match_time
+
+
+        holder.last_match_time.text = players.last_match_time
         holder.name.text = list[position].personaname
         Glide.with(holder.itemView).load(players.avatarfull)
             .into(holder.itemView.player_imageView)
@@ -838,9 +834,9 @@ class TeamTournamentAdapter(val list: MutableList<Tournaments>) :
 
 class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
-    class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var item_name:TextView
-        var item_image:ImageView
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var item_name: TextView
+        var item_image: ImageView
 
 
         init {
@@ -856,11 +852,11 @@ class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
         val itemView = inflater.inflate(R.layout.dota_items, parent, false)
         val holder = ViewHolder(itemView)
 
-        return  holder
+        return holder
     }
 
     override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
-        val items:Items = list[position]
+        val items: Items = list[position]
         holder.item_name.text = items.name
 
 
@@ -871,6 +867,66 @@ class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
         return list.size
     }
 
+}
+
+class ProPlayerAdapter(val list: MutableList<ProPlayers>, val fragment: ProPlayersFragment) :
+    RecyclerView.Adapter<ProPlayerAdapter.ViewHolder>() {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var proPlayerAvatar: ImageView
+        var proPlayerName: TextView
+        var last_match_time: TextView
+        var fantasy_role: TextView
+        var team_name: TextView
+
+        init {
+            proPlayerAvatar = itemView.findViewById(R.id.pro_players_image)
+            proPlayerName = itemView.findViewById(R.id.pro_player_name)
+            last_match_time = itemView.findViewById(R.id.pro_player_last_time)
+            fantasy_role = itemView.findViewById(R.id.fantasy_role)
+            team_name = itemView.findViewById(R.id.pro_player_team_name)
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val itemView = inflater.inflate(R.layout.pro_players_item, parent, false)
+        val holder = ViewHolder(itemView)
+
+        return holder
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val proPlayers: ProPlayers = list[position]
+        var date = proPlayers.last_match_time.substring(0, 10)
+
+
+        holder.last_match_time.text = date
+        date = list[position].last_match_time
+        holder.proPlayerName.text = list[position].personaname
+        holder.team_name.text = list[position].team_name
+
+        if (proPlayers.fantasy_role == 1) {
+            holder.fantasy_role.text = "Carry"
+        } else if (proPlayers.fantasy_role == 2) {
+            holder.fantasy_role.text = "Mid"
+        } else if (proPlayers.fantasy_role == 3) {
+            holder.fantasy_role.text = "Offlane"
+        } else if (proPlayers.fantasy_role == 4) {
+            holder.fantasy_role.text = "Semi-Support"
+        } else if (proPlayers.fantasy_role == 5) {
+            holder.fantasy_role.text = "Support"
+        }
+
+        Glide.with(holder.itemView).load(proPlayers.avatarfull)
+            .into(holder.itemView.pro_players_image)
+
+
+    }
+
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
 }
 
 

@@ -23,6 +23,9 @@ interface ApiService    {
         @Query ("q")Search:String
     ): MutableList<PlayersSearch>
 
+     @GET ("proPlayers")
+     suspend fun getProPlayers():MutableList<ProPlayers>
+
 
 
 
