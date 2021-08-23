@@ -1,4 +1,4 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Players.FindPlayers
 
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
 import com.example.dota2project.RemoteModel.ApiService
+import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentFindPlayersBinding
 import kotlinx.coroutines.CoroutineScope
@@ -43,7 +44,7 @@ class FindPlayersFragment : Fragment() {
         binding = FragmentFindPlayersBinding.bind(view)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
 
-        binding.listPlayers.adapter = PlayersInfoAdapter(viewModel.playersLive.value!!, this)
+        binding.listPlayers.adapter = FindPlayersAdapter(viewModel.playersLive.value!!, this)
         binding.listPlayers.layoutManager = LinearLayoutManager(activity as MainActivity)
         var i = 0
 

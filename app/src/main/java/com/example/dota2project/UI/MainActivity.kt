@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, drawer_layout)
         nav_view.setupWithNavController(navController)
 
+
         viewModel = ViewModelProvider(this, factory).get(DotaViewModel::class.java)
 
 
@@ -61,8 +62,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
         MenuInflater(this).inflate(R.menu.top_menu, menu)
-        return true
+        val menuItem = menu!!.findItem(R.id.search)
+        if (menuItem != null){
+
+        }
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

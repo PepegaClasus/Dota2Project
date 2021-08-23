@@ -1,4 +1,4 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Tournaments.Past
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
+import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTournamentPastBinding
 
@@ -35,7 +36,7 @@ class TournamentPast : Fragment() {
         navController = view.findNavController()
         binding = FragmentTournamentPastBinding.bind(view)
 
-        binding.tournamentsPastList.adapter = PastTournamentAdapter(viewModel.runningTournamentsLive.value!!, this)
+        binding.tournamentsPastList.adapter = TournamentPastAdapter(viewModel.runningTournamentsLive.value!!, this)
         binding.tournamentsPastList.layoutManager = LinearLayoutManager(activity as MainActivity)
 
         viewModel.runningTournamentsLive.value?.clear()

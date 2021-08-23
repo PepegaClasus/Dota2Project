@@ -30,6 +30,9 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<ProPlayers>>(mutableListOf())
     }
 
+    val heroesInfo :MutableLiveData<MutableList<Heroes>> by lazy {
+        MutableLiveData<MutableList<Heroes>>(mutableListOf())
+    }
 
 
     val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
@@ -133,6 +136,10 @@ class DotaViewModel(val repository: Repository): ViewModel() {
             proPlayersLive.postValue(list)
         }
     }
+
+
+
+
 
 
 

@@ -1,29 +1,25 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Tournaments.Upcoming
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Tournaments
+import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
-import com.example.dota2project.databinding.FragmentTournamentsRunningBinding
-import kotlinx.android.synthetic.main.running_tournaments_item.*
+import com.example.dota2project.databinding.FragmentTournamentsUpcomingBinding
 
 
-class TournamentsRunning : Fragment() {
-    lateinit var viewModel: DotaViewModel
+class TournamentUpcoming : Fragment() {
     lateinit var navController: NavController
-    val tourn = ArrayList<Tournaments>()
-    private lateinit var binding: FragmentTournamentsRunningBinding
-
+    lateinit var viewModel: DotaViewModel
+    private lateinit var binding:FragmentTournamentsUpcomingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,27 +27,21 @@ class TournamentsRunning : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         viewModel = ViewModelProvider(activity as MainActivity).get(DotaViewModel :: class.java)
-        return inflater.inflate(R.layout.fragment_tournaments_running, container, false)
+        return inflater.inflate(R.layout.fragment_tournaments_upcoming, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        binding = FragmentTournamentsRunningBinding.bind(view)
+        binding = FragmentTournamentsUpcomingBinding.bind(view)
 
-        binding.tournamentsRunningList.adapter =
-            RunningTournamentAdapter(viewModel.runningTournamentsLive.value!!, this)
+        binding.tournamentsUpcomingList.adapter = TournamentUpcomingAdapter(viewModel.runningTournamentsLive.value!!, this)
+        binding.tournamentsUpcomingList.layoutManager = LinearLayoutManager(activity as MainActivity)
 
-        binding.tournamentsRunningList.layoutManager = LinearLayoutManager(activity as MainActivity)
 
         viewModel.runningTournamentsLive.value?.clear()
+        viewModel.getUpcomingTournaments()
 
-
-
-        viewModel.getRunningTournaments()
-
-
-        Log.d("Running", viewModel.runningTournamentsLive.value!!.toString())
 
         binding.bottomIntNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
@@ -73,8 +63,17 @@ class TournamentsRunning : Fragment() {
 
 
 
+
+
+
+
+
+
         viewModel.runningTournamentsLive.observe(viewLifecycleOwner, Observer {
-            binding.tournamentsRunningList.adapter?.notifyDataSetChanged()
+
+
+
+            binding.tournamentsUpcomingList.adapter?.notifyDataSetChanged()
         })
     }
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".UI.TeamsList">
+    tools:context=".UI.Teams.World.TeamsList">
 
 
     <androidx.recyclerview.widget.RecyclerView

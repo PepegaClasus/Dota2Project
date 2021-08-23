@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/heroesList"
-        android:name="com.example.dota2project.UI.HeroesList"
+        android:name="com.example.dota2project.UI.Heroes.HeroesList"
         android:label="Список героев"
         tools:layout="@layout/fragment_heroes_list" />
     <fragment
         android:id="@+id/strengthList"
-        android:name="com.example.dota2project.UI.StrengthList"
+        android:name="com.example.dota2project.UI.Heroes.Strength.StrengthList"
         android:label="Сила"
         tools:layout="@layout/fragment_strength_list" />
     <fragment
         android:id="@+id/agility_list"
-        android:name="com.example.dota2project.UI.AgilityList"
+        android:name="com.example.dota2project.UI.Heroes.Agility.AgilityList"
         android:label="Ловкость"
         tools:layout="@layout/fragment_agility_list" />
     <fragment
         android:id="@+id/int_list"
-        android:name="com.example.dota2project.UI.IntList"
+        android:name="com.example.dota2project.UI.Heroes.Intelligence.IntList"
         android:label="Интеллект"
         tools:layout="@layout/fragment_int_list" />
     <fragment
         android:id="@+id/teams"
-        android:name="com.example.dota2project.UI.TeamsList"
+        android:name="com.example.dota2project.UI.Teams.World.TeamsList"
         android:label="Команды"
         tools:layout="@layout/fragment_teams" />
 
@@ -38,12 +38,12 @@
         tools:layout="@layout/fragment_teams_info" />
     <fragment
         android:id="@+id/teamsEurope"
-        android:name="com.example.dota2project.UI.TeamsEurope"
+        android:name="com.example.dota2project.UI.Teams.Europe.TeamsEurope"
         android:label="Европа"
         tools:layout="@layout/fragment_teams_europe" />
     <fragment
         android:id="@+id/teamsCIS"
-        android:name="com.example.dota2project.UI.TeamsCIS"
+        android:name="com.example.dota2project.UI.Teams.CIS.TeamsCIS"
         android:label="СНГ"
         tools:layout="@layout/fragment_teams_c_i_s" />
     <fragment
@@ -60,7 +60,7 @@
         tools:layout="@layout/fragment_majors" />
     <fragment
         android:id="@+id/findPlayersFragment"
-        android:name="com.example.dota2project.UI.FindPlayersFragment"
+        android:name="com.example.dota2project.UI.Players.FindPlayers.FindPlayersFragment"
         android:label="Найти игрока"
         tools:layout="@layout/fragment_find_players" />
     <fragment
@@ -70,29 +70,34 @@
         tools:layout="@layout/fragment_public_matches" />
     <fragment
         android:id="@+id/tournamentsRunning"
-        android:name="com.example.dota2project.UI.TournamentsRunning"
+        android:name="com.example.dota2project.UI.Tournaments.Running.TournamentRunning"
         android:label="Идущие турниры"
         tools:layout="@layout/fragment_tournaments_running" />
     <fragment
         android:id="@+id/tournamentsUpcoming"
-        android:name="com.example.dota2project.UI.TournamentsUpcoming"
+        android:name="com.example.dota2project.UI.Tournaments.Upcoming.TournamentUpcoming"
         android:label="Предстоящие турниры"
         tools:layout="@layout/fragment_tournaments_upcoming" />
     <fragment
         android:id="@+id/tournamentPast"
-        android:name="com.example.dota2project.UI.TournamentPast"
+        android:name="com.example.dota2project.UI.Tournaments.Past.TournamentPast"
         android:label="Прошедшие турниры"
         tools:layout="@layout/fragment_tournament_past" />
     <fragment
         android:id="@+id/itemsFragment"
-        android:name="com.example.dota2project.UI.ItemsFragment"
+        android:name="com.example.dota2project.UI.Items.ItemsFragment"
         android:label="Предметы"
         tools:layout="@layout/fragment_items" />
     <fragment
         android:id="@+id/proPlayersFragment"
-        android:name="com.example.dota2project.UI.ProPlayersFragment"
+        android:name="com.example.dota2project.UI.Players.ProPlayers.ProPlayersFragment"
         android:label="fragment_pro_players"
         tools:layout="@layout/fragment_pro_players" />
+    <fragment
+        android:id="@+id/heroesInfo"
+        android:name="com.example.dota2project.HeroesInfo"
+        android:label="fragment_heroes_info"
+        tools:layout="@layout/fragment_heroes_info" />
 
 
 </navigation>

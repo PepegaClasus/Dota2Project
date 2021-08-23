@@ -1,4 +1,4 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Teams.Europe
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.dota2project.R
+import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTeamsEuropeBinding
 
@@ -39,10 +40,7 @@ class TeamsEurope : Fragment() {
     }
 
 
-    fun showTeamInfo(position: Int) {
-        viewModel.myTeamsFireBaseForInfo = viewModel.myTeamsFireBaseLive.value?.get(position)
-        navController.navigate(R.id.teamsInfo)
-    }
+
 
 
 }

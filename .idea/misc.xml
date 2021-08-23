@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_info.xml" value="0.2734375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_person.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_search.xml" value="0.2734375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/activity_main.xml" value="0.2264151024877837" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/custom_dialog.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/dota_items.xml" value="0.4528302049755674" />
@@ -26,11 +27,13 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_tournaments_upcoming.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/heroes_item.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/major_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/nav_header.xml" value="0.6067924746672604" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/players_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/players_search_item.xml" value="0.517557251908397" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/pro_players_item.xml" value="0.5879945429740792" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/public_matches_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/running_tournaments_item.xml" value="0.5465648854961832" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/splash_screen.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/team_tournaments_items.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_info_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_item.xml" value="0.4528302049755674" />
@@ -38,6 +41,7 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/main_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/players_menu.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/teams_menu.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/top_menu.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/tournaments_menu.xml" value="0.2484375" />
       </map>
     </option>

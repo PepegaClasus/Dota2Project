@@ -3,6 +3,7 @@ package com.example.dota2project.RemoteModel
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 @Entity(tableName = "heroes")
@@ -82,7 +83,7 @@ data class Heroes(
     val turbo_pick: Int,
     val turbo_win: Int,
 
-    )
+    ) : Serializable
 
 
 data class MyTeamsFireBase(

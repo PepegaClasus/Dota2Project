@@ -1,4 +1,4 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Teams.CIS
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -59,34 +59,13 @@ class TeamsCIS : Fragment() {
 
         }
 
-//        viewModel.teamsLive.value?.add(Teams("Virtus Pro",
-//            "9,958,499 $",
-//            1,
-//            R.drawable.virtuspro,
-//            R.drawable.vpcarry,
-//            R.drawable.vpmid,
-//            R.drawable.vpofflane,
-//            R.drawable.vpsemisup,
-//            R.drawable.vpsupport,
-//            "11",
-//            utils.VPDescription,
-//            R.drawable.cis))
 
-//        viewModel.teamsLive.value?.add(Teams("NAVi", "4, 922, 752 $", 2,))
-//        viewModel.teamsLive.value?.add(Teams("Team Spirit", "496, 284 $", 3,))
-//        viewModel.teamsLive.value?.add(Teams("Winstrike", "491, 483 $", 4))
-//        viewModel.teamsLive.value?.add(Teams("ASM.GMB", "743, 800 $", 5))
-//        viewModel.teamsLive.value?.add(Teams("PuckChamp", "71, 000 $", 6,))
-//        viewModel.teamsLive.value?.add(Teams("Team Unique", "104, 472 $", 7))
 
         viewModel.myTeamsFireBaseLive.observe(viewLifecycleOwner, Observer {
             binding.recyclerTeamView.adapter?.notifyDataSetChanged()
         })
     }
-    fun showTeamInfo(position:Int){
-        viewModel.myTeamsFireBaseForInfo = viewModel.myTeamsFireBaseLive.value?.get(position)
-        navController.navigate(R.id.teamsInfo)
-    }
+
 
 
 }

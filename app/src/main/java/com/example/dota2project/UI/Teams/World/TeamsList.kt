@@ -1,4 +1,4 @@
-package com.example.dota2project.UI
+package com.example.dota2project.UI.Teams.World
 
 
 import android.annotation.SuppressLint
@@ -19,13 +19,12 @@ import com.example.dota2project.databinding.FragmentTeamsBinding
 import com.google.firebase.firestore.*
 
 class TeamsList : Fragment() {
-     val viewModel: DotaViewModel by viewModels()
+    val viewModel: DotaViewModel by viewModels()
     lateinit var navController: NavController
     private lateinit var binding: FragmentTeamsBinding
-    lateinit var db:FirebaseFirestore
-    private lateinit var myAdapter: TeamAdapter
-    private lateinit var teamArrayList:ArrayList<MyTeamsFireBase>
-
+    lateinit var db: FirebaseFirestore
+    private lateinit var myAdapter: TeamWorldAdapter
+    private lateinit var teamArrayList: ArrayList<MyTeamsFireBase>
 
 
     override fun onCreateView(
@@ -33,8 +32,6 @@ class TeamsList : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-
-
 
 
         return inflater.inflate(R.layout.fragment_teams, container, false)
@@ -50,7 +47,7 @@ class TeamsList : Fragment() {
 
         teamArrayList = arrayListOf()
 
-        myAdapter = TeamAdapter(teamArrayList)
+        myAdapter = TeamWorldAdapter(teamArrayList)
         binding.recyclerTeamView.adapter = myAdapter
         teamArrayList.clear()
 
@@ -79,19 +76,6 @@ class TeamsList : Fragment() {
             }
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -126,7 +110,6 @@ class TeamsList : Fragment() {
         })
 
     }
-
 
 
 }

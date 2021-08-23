@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UI.TournamentsUpcoming">
+    tools:context=".UI.Tournaments.Upcoming.TournamentUpcoming">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
