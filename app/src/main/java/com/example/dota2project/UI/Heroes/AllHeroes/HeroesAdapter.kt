@@ -1,0 +1,190 @@
+package com.example.dota2project.UI.Heroes.AllHeroes
+
+import android.os.Build
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.dota2project.R
+import com.example.dota2project.RemoteModel.Heroes
+import kotlinx.android.synthetic.main.heroes_item.view.*
+
+class HeroesAdapter(
+    val list: MutableList<Heroes>,
+    val fragment: HeroesList,
+) :
+    RecyclerView.Adapter<HeroesAdapter.ViewHolder>() {
+
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var name: TextView
+        var img: ImageView
+        var base_health: TextView
+        var base_mana: TextView
+        var base_armor: TextView
+        var base_str: TextView
+        var base_agi: TextView
+        var base_int: TextView
+        var attack_range: TextView
+        var herald_pick: TextView
+        var herald_win: TextView
+        var guardian_pick: TextView
+        var guardian_win: TextView
+        var crusader_pick: TextView
+        var crusader_win: TextView
+        var archor_pick: TextView
+        var archor_win: TextView
+        var legend_pick: TextView
+        var legend_win: TextView
+        var divine_pick: TextView
+        var divine_win: TextView
+        var ancient_pick: TextView
+        var ancient_win: TextView
+        var immortal_pick: TextView
+        var immortal_win: TextView
+        var base_health_regen: TextView
+        var base_mana_regen: TextView
+        var str_gain: TextView
+        var agi_gain: TextView
+        var int_gain: TextView
+        var layout: ConstraintLayout
+        var move_speed: TextView
+
+
+        init {
+            base_health = itemView.findViewById(R.id.base_health)
+            base_mana = itemView.findViewById(R.id.base_mana)
+            base_armor = itemView.findViewById(R.id.base_armor)
+            base_str = itemView.findViewById(R.id.base_str)
+            base_agi = itemView.findViewById(R.id.base_agi)
+            base_int = itemView.findViewById(R.id.base_int)
+            attack_range = itemView.findViewById(R.id.attack_range)
+            base_health_regen = itemView.findViewById(R.id.base_health_regen)
+            base_mana_regen = itemView.findViewById(R.id.base_mana_regen)
+            str_gain = itemView.findViewById(R.id.str_gain)
+            agi_gain = itemView.findViewById(R.id.agi_gain)
+            int_gain = itemView.findViewById(R.id.int_gain)
+            move_speed = itemView.findViewById(R.id.move_speed)
+            name = itemView.findViewById(R.id.hero_name)
+            img = itemView.findViewById(R.id.hero_image)
+            herald_pick = itemView.findViewById(R.id.Herald_pick)
+            herald_win = itemView.findViewById(R.id.herald_win)
+            guardian_pick = itemView.findViewById(R.id.guardian_pick)
+            guardian_win = itemView.findViewById(R.id.guardian_win)
+            crusader_pick = itemView.findViewById(R.id.crusader_pick)
+            crusader_win = itemView.findViewById(R.id.crusader_win)
+            archor_pick = itemView.findViewById(R.id.archon_pick)
+            archor_win = itemView.findViewById(R.id.archon_win)
+            legend_pick = itemView.findViewById(R.id.legend_pick)
+            legend_win = itemView.findViewById(R.id.legend_win)
+            divine_pick = itemView.findViewById(R.id.divine_pick)
+            divine_win = itemView.findViewById(R.id.divine_win)
+            ancient_pick = itemView.findViewById(R.id.ancient_pick)
+            ancient_win = itemView.findViewById(R.id.ancient_win)
+            immortal_pick = itemView.findViewById(R.id.immortal_pick)
+            immortal_win = itemView.findViewById(R.id.immortal_win)
+            layout = itemView.findViewById(R.id.layout_hero_info)
+
+
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val itemView = inflater.inflate(R.layout.heroes_item, parent, false)
+        val holder = ViewHolder(itemView)
+
+
+        return holder
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val heroes: Heroes = list[position]
+
+
+        holder.name.text = list[position].localized_name
+        holder.base_health.text = list[position].base_health.toString()
+        holder.base_mana.text = list[position].base_mana.toString()
+        holder.base_armor.text = list[position].base_armor.toString()
+        holder.base_str.text = list[position].base_str.toString()
+        holder.base_agi.text = list[position].base_agi.toString()
+        holder.base_int.text = list[position].base_int.toString()
+        holder.attack_range.text = list[position].attack_range.toString()
+        holder.base_health_regen.text = list[position].base_health_regen.toString()
+        holder.base_mana_regen.text = list[position].base_mana_regen.toString()
+        holder.str_gain.text = list[position].str_gain.toString()
+        holder.agi_gain.text = list[position].agi_gain.toString()
+        holder.int_gain.text = list[position].int_gain.toString()
+        holder.move_speed.text = list[position].move_speed.toString()
+        holder.herald_pick.text = list[position].herald_pick.toString()
+        holder.herald_win.text = list[position].herald_win.toString()
+        holder.herald_pick.text = list[position].herald_pick.toString()
+        holder.herald_win.text = list[position].herald_win.toString()
+
+        holder.guardian_pick.text = list[position].Guardian_picks.toString()
+        holder.guardian_win.text = list[position].Guardian_wins.toString()
+
+        holder.crusader_pick.text = list[position].Crusader_picks.toString()
+        holder.crusader_win.text = list[position].Crusader_wins.toString()
+
+        holder.archor_pick.text = list[position].Archon_picks.toString()
+        holder.archor_win.text = list[position].Archon_wins.toString()
+
+        holder.herald_pick.text = list[position].herald_pick.toString()
+        holder.herald_win.text = list[position].herald_win.toString()
+
+        holder.legend_pick.text = list[position].Legend_picks.toString()
+        holder.legend_win.text = list[position].Legend_wins.toString()
+
+        holder.divine_pick.text = list[position].Divine_picks.toString()
+        holder.divine_win.text = list[position].Divine_wins.toString()
+
+        holder.ancient_pick.text = list[position].Ancient_picks.toString()
+        holder.ancient_win.text = list[position].Ancient_wins.toString()
+
+        holder.immortal_pick.text = list[position].Immortal_picks.toString()
+        holder.immortal_win.text = list[position].Immortal_wins.toString()
+        Glide.with(holder.itemView).load("http://cdn.dota2.com" + heroes.img)
+            .into(holder.itemView.hero_image)
+
+
+        holder.itemView.setOnClickListener {
+
+            fragment.onHeroClick(holder.adapterPosition)
+
+
+        }
+
+
+
+        holder.itemView.setOnClickListener {
+            if (holder.layout.visibility == View.GONE) {
+                holder.layout.visibility = View.VISIBLE
+            } else {
+                holder.layout.visibility = View.GONE
+            }
+        }
+
+
+    }
+
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    interface ItemClickListener {
+        fun onItemClick(list: Heroes) {
+
+        }
+    }
+
+
+}
