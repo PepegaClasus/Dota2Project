@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Items
+import com.example.dota2project.UI.Items.Model.Items
 import kotlinx.android.synthetic.main.dota_items.view.*
 
 class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :

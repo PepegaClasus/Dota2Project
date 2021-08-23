@@ -9,10 +9,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.MyTeamsFireBase
+import com.example.dota2project.UI.Teams.Model.MyTeams
 import kotlinx.android.synthetic.main.teams_item.view.*
 
-class TeamCISAdapter(private val list: MutableList<MyTeamsFireBase>) :
+class TeamCISAdapter(private val list: MutableList<MyTeams>) :
     RecyclerView.Adapter<TeamCISAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
@@ -100,7 +100,7 @@ class TeamCISAdapter(private val list: MutableList<MyTeamsFireBase>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val myTeams: MyTeamsFireBase = list[position]
+        val myTeams: MyTeams = list[position]
         holder.name.text = list[position].name
         holder.rating.text = list[position].rank
         holder.earn.text = list[position].earn

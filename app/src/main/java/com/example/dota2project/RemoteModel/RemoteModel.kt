@@ -1,5 +1,9 @@
 package com.example.dota2project.RemoteModel
 
+import com.example.dota2project.UI.Heroes.Model.Heroes
+import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
+import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import javax.inject.Inject
 
 class RemoteModel @Inject constructor() {
@@ -18,15 +22,6 @@ class RemoteModel @Inject constructor() {
     }
 
 
-
-    suspend fun getRemoteTeams():MutableList<MyTeams>{
-        return try {
-            val teams = apiService.getTeams()
-            teams
-        }catch (e:Exception){
-            mutableListOf()
-        }
-    }
 
     suspend fun getRunningTournaments():MutableList<Tournaments>{
         return try {

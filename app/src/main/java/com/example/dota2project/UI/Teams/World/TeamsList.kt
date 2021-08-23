@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.MyTeamsFireBase
+import com.example.dota2project.UI.Teams.Model.MyTeams
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTeamsBinding
 import com.google.firebase.firestore.*
@@ -24,7 +24,7 @@ class TeamsList : Fragment() {
     private lateinit var binding: FragmentTeamsBinding
     lateinit var db: FirebaseFirestore
     private lateinit var myAdapter: TeamWorldAdapter
-    private lateinit var teamArrayList: ArrayList<MyTeamsFireBase>
+    private lateinit var teamArrayList: ArrayList<MyTeams>
 
 
     override fun onCreateView(
@@ -80,9 +80,6 @@ class TeamsList : Fragment() {
 
     }
 
-    fun showTeamInfo(position: Int) {
-
-    }
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
@@ -99,7 +96,7 @@ class TeamsList : Fragment() {
 
                     if (dc.type == DocumentChange.Type.ADDED) {
                         Log.d("dcMajor", dc.document.toString())
-                        teamArrayList.add(dc.document.toObject(MyTeamsFireBase::class.java))
+                        teamArrayList.add(dc.document.toObject(MyTeams::class.java))
                     }
                 }
 

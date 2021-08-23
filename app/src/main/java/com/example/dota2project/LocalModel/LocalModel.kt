@@ -2,8 +2,7 @@ package com.example.dota2project.LocalModel
 
 import android.content.Context
 import androidx.room.Room
-import com.example.dota2project.RemoteModel.Heroes
-import com.example.dota2project.RemoteModel.MyTeams
+import com.example.dota2project.UI.Heroes.Model.Heroes
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -19,13 +18,7 @@ class LocalModel @Inject constructor(@ApplicationContext context: Context) {
         return dataBase.myHeroesDao().selectAllHeroes()
     }
 
-    suspend fun insertTeams(teams:MutableList<MyTeams>){
-        dataBase.myHeroesDao().insertTeams(teams)
-    }
 
-    suspend fun getAllTeams():MutableList<MyTeams>{
-        return dataBase.myHeroesDao().selectAllTeams()
-    }
 
 
 

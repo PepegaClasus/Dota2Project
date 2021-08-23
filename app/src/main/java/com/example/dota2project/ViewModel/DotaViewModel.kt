@@ -3,8 +3,13 @@ package com.example.dota2project.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dota2project.RemoteModel.*
 import com.example.dota2project.Repository.Repository
+import com.example.dota2project.UI.Heroes.Model.Heroes
+import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
+import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
+import com.example.dota2project.UI.Teams.Model.MyTeams
+import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,21 +35,22 @@ class DotaViewModel(val repository: Repository): ViewModel() {
         MutableLiveData<MutableList<ProPlayers>>(mutableListOf())
     }
 
-    val heroesInfo :MutableLiveData<MutableList<Heroes>> by lazy {
+    val heroesInfo: MutableLiveData<MutableList<Heroes>> by lazy {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
     }
 
 
     val playersLive: MutableLiveData<MutableList<PlayersSearch>> by lazy {
-        MutableLiveData<MutableList<PlayersSearch>>(mutableListOf())}
+        MutableLiveData<MutableList<PlayersSearch>>(mutableListOf())
+    }
 
-    val myTeamsFireBaseLive: MutableLiveData<MutableList<MyTeamsFireBase>> by lazy {
-        MutableLiveData<MutableList<MyTeamsFireBase>>(mutableListOf())
+    val myTeamsFireBaseLive: MutableLiveData<MutableList<MyTeams>> by lazy {
+        MutableLiveData<MutableList<MyTeams>>(mutableListOf())
     }
 
 
 
-    var myTeamsFireBaseForInfo:MyTeamsFireBase? = null
+
 
 
 

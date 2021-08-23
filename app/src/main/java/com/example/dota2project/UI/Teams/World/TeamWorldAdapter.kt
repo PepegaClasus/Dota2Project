@@ -1,4 +1,4 @@
-package com.example.dota2project.UI.Teams.Europe
+package com.example.dota2project.UI.Teams.World
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +12,8 @@ import com.example.dota2project.R
 import com.example.dota2project.UI.Teams.Model.MyTeams
 import kotlinx.android.synthetic.main.teams_item.view.*
 
-class TeamEuropeAdapter(private val list: MutableList<MyTeams>) :
-    RecyclerView.Adapter<TeamEuropeAdapter.ViewHolder>() {
+class TeamWorldAdapter(private val list: MutableList<MyTeams>) :
+    RecyclerView.Adapter<TeamWorldAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView
         var carry: TextView

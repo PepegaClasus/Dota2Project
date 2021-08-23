@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.ProPlayers
+import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
 import kotlinx.android.synthetic.main.pro_players_item.view.*
 
 class ProPlayerAdapter(val list: MutableList<ProPlayers>, val fragment: ProPlayersFragment) :

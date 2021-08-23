@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Heroes
+import com.example.dota2project.UI.Heroes.Model.Heroes
 import kotlinx.android.synthetic.main.heroes_item.view.*
 
 class HeroesAdapter(

@@ -1,6 +1,9 @@
 package com.example.dota2project.RemoteModel
 
 
+import com.example.dota2project.UI.Heroes.Model.Heroes
+import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
+import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,8 +18,6 @@ interface ApiService    {
     @GET ("heroStats")
     suspend fun getHeroes():MutableList<Heroes>
 
-    @GET ("teams")
-    suspend fun getTeams():MutableList<MyTeams>
 
     @GET ("search?")
      suspend fun getPlayers(

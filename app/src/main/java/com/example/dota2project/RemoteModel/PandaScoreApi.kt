@@ -1,5 +1,7 @@
 package com.example.dota2project.RemoteModel
 
+import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
