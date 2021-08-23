@@ -3,21 +3,16 @@ package com.example.dota2project.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dota2project.Repository.Repository
+import com.example.dota2project.Repository.DotaRep
 import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.Items.Model.Items
 import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
 import com.example.dota2project.UI.Teams.Model.MyTeams
 import com.example.dota2project.UI.Tournaments.Model.Tournaments
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DotaViewModel(val repository: Repository): ViewModel() {
-    val scope = CoroutineScope(Dispatchers.IO)
-
-
+class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
 
     val heroesLive: MutableLiveData<MutableList<Heroes>> by lazy {
@@ -59,7 +54,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
     fun getHeroes(){
         viewModelScope.launch {
 
-            val heroes = repository.getData()
+            val heroes = dotaRep.getData()
             val list = heroesLive.value
             list?.addAll(heroes)
             heroesLive.postValue(list)
@@ -73,7 +68,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getRunningTournaments(){
         viewModelScope.launch {
-            val tournaments = repository.getRunningTournaments()
+            val tournaments = dotaRep.getRunningTournaments()
             val list = runningTournamentsLive.value
             list?.addAll(tournaments)
             runningTournamentsLive.postValue(list)
@@ -82,7 +77,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getUpcomingTournaments(){
         viewModelScope.launch {
-            val tournaments = repository.getUpcomingTournaments()
+            val tournaments = dotaRep.getUpcomingTournaments()
             val list = runningTournamentsLive.value
             list?.addAll(tournaments)
             runningTournamentsLive.postValue(list)
@@ -91,7 +86,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getPastTournaments(){
         viewModelScope.launch {
-            val tournaments = repository.getPastTournaments()
+            val tournaments = dotaRep.getPastTournaments()
             val list = runningTournamentsLive.value
             list?.addAll(tournaments)
             runningTournamentsLive.postValue(list)
@@ -100,7 +95,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getItems(){
         viewModelScope.launch {
-            val items = repository.getItems()
+            val items = dotaRep.getItems()
             val list = itemsLive.value
             list?.addAll(items)
             itemsLive.postValue(list)
@@ -109,7 +104,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getSecondItems(){
         viewModelScope.launch {
-            val items = repository.getSecondItems()
+            val items = dotaRep.getSecondItems()
             val list = itemsLive.value
             list?.addAll(items)
             itemsLive.postValue(list)
@@ -118,7 +113,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getThirdItems(){
         viewModelScope.launch {
-            val items = repository.getThirdItems()
+            val items = dotaRep.getThirdItems()
             val list = itemsLive.value
             list?.addAll(items)
             itemsLive.postValue(list)
@@ -127,7 +122,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getFourthItems(){
         viewModelScope.launch {
-            val items = repository.getFourthItems()
+            val items = dotaRep.getFourthItems()
             val list = itemsLive.value
             list?.addAll(items)
             itemsLive.postValue(list)
@@ -136,7 +131,7 @@ class DotaViewModel(val repository: Repository): ViewModel() {
 
     fun getProPlayers(){
         viewModelScope.launch {
-            val proPlayers = repository.getProPlayers()
+            val proPlayers = dotaRep.getProPlayers()
             val list = proPlayersLive.value
             list?.addAll(proPlayers)
             proPlayersLive.postValue(list)

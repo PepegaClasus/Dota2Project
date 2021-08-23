@@ -12,8 +12,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Tournaments
 import com.example.dota2project.UI.MainActivity
+import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentTournamentsRunningBinding
 

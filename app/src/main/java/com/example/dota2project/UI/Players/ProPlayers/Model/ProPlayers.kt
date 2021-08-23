@@ -1,6 +1,11 @@
 package com.example.dota2project.UI.Players.ProPlayers.Model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "proPlayers")
 data class ProPlayers(
+    @PrimaryKey(autoGenerate = true) val account_id: Int,
     val avatarfull: String,
     val personaname: String,
     val last_match_time: String,

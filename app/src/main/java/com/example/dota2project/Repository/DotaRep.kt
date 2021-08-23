@@ -9,15 +9,15 @@ import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
 import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import javax.inject.Inject
 
-class Repository @Inject constructor(val remoteModel: RemoteModel, val localModel: LocalModel) {
-    suspend fun getData():MutableList<Heroes>{
+class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: LocalModel) {
+    suspend fun getData(): MutableList<Heroes> {
         var heroesList = localModel.getAllHeroes()
-        return if (heroesList.isEmpty()){
+        return if (heroesList.isEmpty()) {
             heroesList = remoteModel.getRemoteHeroes()
             localModel.insertHeroes(heroesList)
             Log.d("HeroesList", heroesList.toString())
             heroesList
-        }else {
+        } else {
             heroesList
         }
     }
@@ -26,6 +26,7 @@ class Repository @Inject constructor(val remoteModel: RemoteModel, val localMode
 
     suspend fun getRunningTournaments(): MutableList<Tournaments> {
         return remoteModel.getRunningTournaments()
+
     }
 
     suspend fun getUpcomingTournaments(): MutableList<Tournaments> {
@@ -52,8 +53,16 @@ class Repository @Inject constructor(val remoteModel: RemoteModel, val localMode
         return remoteModel.getFourthItems()
     }
 
-    suspend fun getProPlayers():MutableList<ProPlayers>{
-        return remoteModel.getProPlayers()
+    suspend fun getProPlayers():MutableList<ProPlayers> {
+        var proPlayers = localModel.getAllProPlayers()
+
+        return if (proPlayers.isEmpty()) {
+            proPlayers = remoteModel.getProPlayers()
+            localModel.insertProPlayers(proPlayers)
+            proPlayers
+        } else {
+            proPlayers
+        }
     }
 
 

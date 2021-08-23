@@ -14,7 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
-import com.example.dota2project.RemoteModel.Heroes
+import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentHeroesListBinding
@@ -82,6 +82,7 @@ class HeroesList : Fragment(), HeroesAdapter.ItemClickListener {
                     heroes.forEach {
                         if (it.localized_name.lowercase(Locale.getDefault()).contains(search)) {
                             viewModel.heroesLive.value?.add(it)
+
                         }
                     }
                     binding.recyclerView.adapter?.notifyDataSetChanged()
@@ -118,7 +119,7 @@ class HeroesList : Fragment(), HeroesAdapter.ItemClickListener {
 
         viewModel.heroesLive.observe(viewLifecycleOwner, Observer { it ->
             heroes.addAll(viewModel.heroesLive.value!!)
-            Log.d("Heroes!!!", heroes.toString())
+
             viewModel.heroesLive.value!!.sortBy { it.localized_name }
             binding.recyclerView.adapter?.notifyDataSetChanged()
         })
