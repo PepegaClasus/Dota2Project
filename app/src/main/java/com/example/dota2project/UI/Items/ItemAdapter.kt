@@ -36,7 +36,9 @@ class ItemAdapter(val list: MutableList<Items>, val fragment: ItemsFragment) :
 
     override fun onBindViewHolder(holder: ItemAdapter.ViewHolder, position: Int) {
         val items: Items = list[position]
-        holder.item_name.text = items.name
+        holder.item_name.text = items.name.replace("_", " ")
+
+
 
 
         Glide.with(holder.itemView).load(items.image_url).into(holder.itemView.item_image)

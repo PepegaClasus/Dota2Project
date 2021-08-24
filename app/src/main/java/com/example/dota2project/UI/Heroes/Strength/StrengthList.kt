@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +17,7 @@ import com.example.dota2project.databinding.FragmentStrengthListBinding
 
 class StrengthList : Fragment() {
     lateinit var navController: NavController
-    lateinit var viewModel: DotaViewModel
+    val viewModel: DotaViewModel by activityViewModels()
     private lateinit var binding: FragmentStrengthListBinding
 
 
@@ -26,7 +26,6 @@ class StrengthList : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(activity as MainActivity).get(DotaViewModel::class.java)
         return inflater.inflate(R.layout.fragment_strength_list, container, false)
     }
 

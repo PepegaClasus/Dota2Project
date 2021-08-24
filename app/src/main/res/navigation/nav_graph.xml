@@ -28,14 +28,10 @@
     <fragment
         android:id="@+id/teams"
         android:name="com.example.dota2project.UI.Teams.World.TeamsList"
-        android:label="Команды"
+        android:label="Мир"
         tools:layout="@layout/fragment_teams" />
 
-    <fragment
-        android:id="@+id/teamsInfo"
-        android:name="com.example.dota2project.UI.TeamsInfo"
-        android:label="fragment_players_info"
-        tools:layout="@layout/fragment_teams_info" />
+
     <fragment
         android:id="@+id/teamsEurope"
         android:name="com.example.dota2project.UI.Teams.Europe.TeamsEurope"
@@ -46,28 +42,14 @@
         android:name="com.example.dota2project.UI.Teams.CIS.TeamsCIS"
         android:label="СНГ"
         tools:layout="@layout/fragment_teams_c_i_s" />
-    <fragment
-        android:id="@+id/teamsChina"
-        android:name="com.example.dota2project.UI.TeamsChina"
-        android:label="Китай"
-        tools:layout="@layout/fragment_teams_china" />
 
 
-    <fragment
-        android:id="@+id/majors"
-        android:name="com.example.dota2project.UI.Majors"
-        android:label="fragment_majors"
-        tools:layout="@layout/fragment_majors" />
     <fragment
         android:id="@+id/findPlayersFragment"
         android:name="com.example.dota2project.UI.Players.FindPlayers.FindPlayersFragment"
         android:label="Найти игрока"
         tools:layout="@layout/fragment_find_players" />
-    <fragment
-        android:id="@+id/publicMatches"
-        android:name="com.example.dota2project.PublicMatches"
-        android:label="fragment_public_matches"
-        tools:layout="@layout/fragment_public_matches" />
+
     <fragment
         android:id="@+id/tournamentsRunning"
         android:name="com.example.dota2project.UI.Tournaments.Running.TournamentRunning"

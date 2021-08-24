@@ -3,6 +3,7 @@
 
     <item
         android:id="@+id/heroesList"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="Герои" />
     <item
         android:id="@+id/teams"

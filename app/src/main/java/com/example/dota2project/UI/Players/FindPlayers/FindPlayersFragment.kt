@@ -1,19 +1,19 @@
 package com.example.dota2project.UI.Players.FindPlayers
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
 import com.example.dota2project.RemoteModel.ApiService
 import com.example.dota2project.UI.MainActivity
+import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentFindPlayersBinding
 import kotlinx.coroutines.CoroutineScope
@@ -23,9 +23,10 @@ import kotlinx.coroutines.launch
 
 class FindPlayersFragment : Fragment() {
     lateinit var navController: NavController
-    lateinit var viewModel: DotaViewModel
+    val viewModel: DotaViewModel by activityViewModels()
     private lateinit var binding: FragmentFindPlayersBinding
     val apiService = ApiService.create()
+    val list: PlayersSearch? = null
     val scope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
@@ -33,7 +34,7 @@ class FindPlayersFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(activity as MainActivity).get(DotaViewModel::class.java)
+
         return inflater.inflate(R.layout.fragment_find_players, container, false)
     }
 
@@ -43,9 +44,10 @@ class FindPlayersFragment : Fragment() {
         binding = FragmentFindPlayersBinding.bind(view)
 
 
+
         binding.listPlayers.adapter = FindPlayersAdapter(viewModel.playersLive.value!!, this)
         binding.listPlayers.layoutManager = LinearLayoutManager(activity as MainActivity)
-        var i = 0
+
 
 
 
@@ -57,9 +59,9 @@ class FindPlayersFragment : Fragment() {
 
                 viewModel.playersLive.value?.clear()
                 val playerSearch = apiService.getPlayers(binding.etFind.text.toString())
-                viewModel.playersLive.value?.addAll(playerSearch)
-                Log.d("===!!!", viewModel.playersLive.value.toString())
-                binding.listPlayers.adapter?.notifyDataSetChanged()
+            viewModel.playersLive.value?.addAll(playerSearch)
+            list?.last_match_time?.substring(0, 10)
+            binding.listPlayers.adapter?.notifyDataSetChanged()
             }
 
 
@@ -82,6 +84,8 @@ class FindPlayersFragment : Fragment() {
         }
 
         viewModel.playersLive.observe(viewLifecycleOwner, Observer {
+
+
             viewModel.playersLive.value?.sortBy { it.similarity }
             binding.listPlayers.adapter?.notifyDataSetChanged()
         })

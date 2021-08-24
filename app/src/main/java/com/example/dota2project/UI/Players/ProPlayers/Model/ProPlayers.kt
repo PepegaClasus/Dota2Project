@@ -10,6 +10,6 @@ data class ProPlayers(
     val personaname: String,
     val last_match_time: String,
     var fantasy_role: Int,
-    val team_name: String,
+    val team_name: String?,
 
     )

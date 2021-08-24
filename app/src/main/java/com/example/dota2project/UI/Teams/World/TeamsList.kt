@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +19,7 @@ import com.example.dota2project.databinding.FragmentTeamsBinding
 import com.google.firebase.firestore.*
 
 class TeamsList : Fragment() {
-    val viewModel: DotaViewModel by viewModels()
+    val viewModel: DotaViewModel by activityViewModels()
     lateinit var navController: NavController
     private lateinit var binding: FragmentTeamsBinding
     lateinit var db: FirebaseFirestore
@@ -47,9 +47,9 @@ class TeamsList : Fragment() {
 
         teamArrayList = arrayListOf()
 
-        myAdapter = TeamWorldAdapter(teamArrayList)
+        myAdapter = TeamWorldAdapter(viewModel.myTeamsFireBaseLive.value!!)
         binding.recyclerTeamView.adapter = myAdapter
-        teamArrayList.clear()
+        viewModel.myTeamsFireBaseLive.value?.clear()
 
         EventChangeListener()
 
@@ -68,10 +68,7 @@ class TeamsList : Fragment() {
                     navController.navigate(R.id.teamsCIS)
                     true
                 }
-                R.id.ChinaTeams -> {
-                    navController.navigate(R.id.teamsChina)
-                    true
-                }
+
                 else -> false
             }
 
@@ -95,8 +92,8 @@ class TeamsList : Fragment() {
                 for (dc: DocumentChange in value?.documentChanges!!) {
 
                     if (dc.type == DocumentChange.Type.ADDED) {
-                        Log.d("dcMajor", dc.document.toString())
-                        teamArrayList.add(dc.document.toObject(MyTeams::class.java))
+                        viewModel.myTeamsFireBaseLive.value?.add(dc.document.toObject(MyTeams::class.java))
+                        viewModel.myTeamsFireBaseLive.value?.sortByDescending { it.rank }
                     }
                 }
 

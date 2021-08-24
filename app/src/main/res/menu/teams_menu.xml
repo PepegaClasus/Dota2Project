@@ -19,9 +19,5 @@
         android:enabled="true"
         />
 
-    <item
-        android:id="@+id/ChinaTeams"
-        android:title="Китай"
-        android:enabled="true"
-        />
+
 </menu>

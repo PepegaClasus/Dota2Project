@@ -21,7 +21,7 @@ class FindPlayersAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
         init {
             name = itemView.findViewById(R.id.playerSearch_name)
             player_image = itemView.findViewById(R.id.player_imageView)
-            last_match_time = (itemView.findViewById(R.id.last_match_time) as? TextView)!!
+            last_match_time = itemView.findViewById(R.id.last_match_time)
 
         }
 
@@ -39,6 +39,8 @@ class FindPlayersAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
         val players: PlayersSearch = list[position]
 
 
+
+        holder.last_match_time.text = list[position].last_match_time
         holder.name.text = list[position].personaname
         Glide.with(holder.itemView).load(players.avatarfull)
             .into(holder.itemView.player_imageView)

@@ -155,12 +155,7 @@ class HeroesAdapter(
             .into(holder.itemView.hero_image)
 
 
-        holder.itemView.setOnClickListener {
 
-            fragment.onHeroClick(holder.adapterPosition)
-
-
-        }
 
 
 
@@ -180,11 +175,7 @@ class HeroesAdapter(
         return list.size
     }
 
-    interface ItemClickListener {
-        fun onItemClick(list: Heroes) {
 
-        }
-    }
 
 
 }
