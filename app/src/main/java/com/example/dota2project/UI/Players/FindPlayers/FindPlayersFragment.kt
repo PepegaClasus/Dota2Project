@@ -52,16 +52,16 @@ class FindPlayersFragment : Fragment() {
 
 
 
-        binding.btnSearch.setOnClickListener {
+        binding.btnSearch.setOnClickListener { it ->
 
-        scope.launch {
+            scope.launch {
 
 
                 viewModel.playersLive.value?.clear()
                 val playerSearch = apiService.getPlayers(binding.etFind.text.toString())
-            viewModel.playersLive.value?.addAll(playerSearch)
-            list?.last_match_time?.substring(0, 10)
-            binding.listPlayers.adapter?.notifyDataSetChanged()
+                viewModel.playersLive.value?.addAll(playerSearch)
+
+                binding.listPlayers.adapter?.notifyDataSetChanged()
             }
 
 

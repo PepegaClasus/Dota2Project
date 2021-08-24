@@ -72,7 +72,7 @@ class TeamsEurope : Fragment() {
 
         }
 
-        viewModel.heroesLive.observe(viewLifecycleOwner, Observer {
+        viewModel.myTeamsFireBaseLive.observe(viewLifecycleOwner, Observer {
             binding.recyclerTeamView.adapter?.notifyDataSetChanged()
         })
     }
