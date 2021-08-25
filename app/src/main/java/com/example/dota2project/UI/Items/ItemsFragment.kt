@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -12,15 +13,18 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dota2project.R
+import com.example.dota2project.UI.Items.Model.Items
 import com.example.dota2project.UI.MainActivity
 import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentItemsBinding
+import java.util.*
 
 
 class ItemsFragment : Fragment() {
     lateinit var navController: NavController
     val viewModel: DotaViewModel by activityViewModels()
     private lateinit var binding: FragmentItemsBinding
+    val items = arrayListOf<Items>()
 
 
     override fun onCreateView(
@@ -45,7 +49,36 @@ class ItemsFragment : Fragment() {
         viewModel.getSecondItems()
         viewModel.getThirdItems()
         viewModel.getFourthItems()
-        Log.d("!!!Items",viewModel.itemsLive.value!!.toString() )
+        Log.d("!!!Items", viewModel.itemsLive.value!!.toString())
+
+
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                if (newText!!.isNotEmpty()) {
+                    viewModel.itemsLive.value?.clear()
+                    val search = newText.lowercase(Locale.getDefault())
+                    items.forEach {
+                        if (it.name.lowercase(Locale.getDefault()).contains(search)) {
+                            viewModel.itemsLive.value?.add(it)
+                        }
+//
+                    }
+                    binding.itemsList.adapter?.notifyDataSetChanged()
+                } else {
+                    viewModel.itemsLive.value?.addAll(items)
+                    binding.itemsList.adapter?.notifyDataSetChanged()
+                }
+                return true
+            }
+
+        })
 
 
 
@@ -53,6 +86,7 @@ class ItemsFragment : Fragment() {
 
 
         viewModel.itemsLive.observe(viewLifecycleOwner, Observer {
+            items.addAll(viewModel.itemsLive.value!!)
             viewModel.itemsLive.value?.sortBy { it.id }
             binding.itemsList.adapter?.notifyDataSetChanged()
         })

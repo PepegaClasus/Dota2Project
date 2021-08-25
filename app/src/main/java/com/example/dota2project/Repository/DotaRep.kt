@@ -22,8 +22,6 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         }
     }
 
-
-
     suspend fun getRunningTournaments(): MutableList<Tournaments> {
         return remoteModel.getRunningTournaments()
 

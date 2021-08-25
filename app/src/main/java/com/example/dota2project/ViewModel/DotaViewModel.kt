@@ -43,14 +43,6 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         MutableLiveData<MutableList<MyTeams>>(mutableListOf())
     }
 
-
-
-
-
-
-
-
-
     fun getHeroes(){
         viewModelScope.launch {
 

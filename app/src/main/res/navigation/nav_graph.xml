@@ -73,13 +73,8 @@
     <fragment
         android:id="@+id/proPlayersFragment"
         android:name="com.example.dota2project.UI.Players.ProPlayers.ProPlayersFragment"
-        android:label="fragment_pro_players"
+        android:label="Про игроки"
         tools:layout="@layout/fragment_pro_players" />
-    <fragment
-        android:id="@+id/heroesInfo"
-        android:name="com.example.dota2project.HeroesInfo"
-        android:label="fragment_heroes_info"
-        tools:layout="@layout/fragment_heroes_info" />
 
 
 </navigation>

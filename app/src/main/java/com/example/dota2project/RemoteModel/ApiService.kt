@@ -1,6 +1,4 @@
 package com.example.dota2project.RemoteModel
-
-
 import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
@@ -10,33 +8,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
-
 val BASE_URL = "https://api.opendota.com/api/"
+interface ApiService {
 
-interface ApiService    {
+    @GET("heroStats")
+    suspend fun getHeroes(): MutableList<Heroes>
 
-    @GET ("heroStats")
-    suspend fun getHeroes():MutableList<Heroes>
-
-
-    @GET ("search?")
-     suspend fun getPlayers(
-        @Query ("q")Search:String
+    @GET("search?")
+    suspend fun getPlayers(
+        @Query("q") Search: String,
     ): MutableList<PlayersSearch>
 
-     @GET ("proPlayers")
+    @GET("proPlayers")
      suspend fun getProPlayers():MutableList<ProPlayers>
-
-
-
-
-
-
-
-
-
-
-
 
     companion object Factory {
         fun create(): ApiService {
@@ -51,9 +35,6 @@ interface ApiService    {
                 .client(okHttpClient)
                 .build()
             return retrofit.create(ApiService::class.java)
-
         }
-
     }
-
 }

@@ -49,8 +49,6 @@ class TeamsCIS : Fragment() {
         myAdapter = TeamCISAdapter(viewModel.myTeamsFireBaseLive.value!!)
         binding.recyclerTeamView.adapter = myAdapter
         viewModel.myTeamsFireBaseLive.value?.clear()
-
-
         EventChangeListener()
 
 
@@ -106,13 +104,10 @@ class TeamsCIS : Fragment() {
                         viewModel.myTeamsFireBaseLive.value?.add(dc.document.toObject(MyTeams::class.java))
                         Log.d("!!!", viewModel.myTeamsFireBaseLive.value.toString())
                         viewModel.myTeamsFireBaseLive.value?.sortByDescending { it.rank }
-
                     }
                 }
-
                 myAdapter.notifyDataSetChanged()
             }
-
 
         })
 

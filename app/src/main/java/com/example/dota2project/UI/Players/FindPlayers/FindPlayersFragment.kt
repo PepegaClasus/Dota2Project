@@ -69,6 +69,8 @@ class FindPlayersFragment : Fragment() {
         }
 
 
+
+
         binding.bottomPlayersNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.pro_player -> {
@@ -82,6 +84,10 @@ class FindPlayersFragment : Fragment() {
                 else ->true
             }
         }
+
+
+
+
 
         viewModel.playersLive.observe(viewLifecycleOwner, Observer {
 
