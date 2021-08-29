@@ -38,7 +38,7 @@ class AgilityList : Fragment() {
         binding.recyclerAgilityView.layoutManager = LinearLayoutManager(activity as MainActivity)
 
         viewModel.heroesLive.value?.clear()
-        viewModel.getHeroes()
+
 
         binding.bottomAgiNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {

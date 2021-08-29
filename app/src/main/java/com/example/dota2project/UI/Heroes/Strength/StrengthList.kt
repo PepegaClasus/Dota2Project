@@ -38,7 +38,6 @@ class StrengthList : Fragment() {
         binding.recyclerStrengthView.layoutManager = LinearLayoutManager(activity as MainActivity)
         viewModel.heroesLive.value?.clear()
 
-        viewModel.getHeroes()
 
 
         binding.bottomStrNavigation.setOnItemSelectedListener { item ->

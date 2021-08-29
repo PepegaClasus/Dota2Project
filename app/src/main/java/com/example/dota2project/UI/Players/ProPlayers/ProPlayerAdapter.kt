@@ -62,6 +62,10 @@ class ProPlayerAdapter(val list: MutableList<ProPlayers>, val fragment: ProPlaye
         Glide.with(holder.itemView).load(proPlayers.avatarfull)
             .into(holder.itemView.pro_players_image)
 
+        holder.itemView.setOnClickListener {
+            fragment.proPlayerInfo(holder.adapterPosition)
+        }
+
 
     }
 

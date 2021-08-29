@@ -36,7 +36,6 @@ class IntList : Fragment() {
         binding.recyclerIntView.adapter = IntelligenceAdapter(viewModel.heroesLive.value!!, this)
         binding.recyclerIntView.layoutManager = LinearLayoutManager(activity as MainActivity)
         viewModel.heroesLive.value?.clear()
-        viewModel.getHeroes()
 
         binding.bottomIntNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {

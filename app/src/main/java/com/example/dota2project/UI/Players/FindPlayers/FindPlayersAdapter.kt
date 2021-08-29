@@ -44,6 +44,10 @@ class FindPlayersAdapter(val list: MutableList<PlayersSearch>, val fragment: Fin
         holder.name.text = list[position].personaname
         Glide.with(holder.itemView).load(players.avatarfull)
             .into(holder.itemView.player_imageView)
+
+        holder.itemView.setOnClickListener {
+            fragment.showPlayerInfo(holder.adapterPosition)
+        }
     }
 
     override fun getItemCount(): Int {

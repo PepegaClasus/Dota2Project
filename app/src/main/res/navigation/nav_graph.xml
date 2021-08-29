@@ -50,21 +50,7 @@
         android:label="Найти игрока"
         tools:layout="@layout/fragment_find_players" />
 
-    <fragment
-        android:id="@+id/tournamentsRunning"
-        android:name="com.example.dota2project.UI.Tournaments.Running.TournamentRunning"
-        android:label="Идущие турниры"
-        tools:layout="@layout/fragment_tournaments_running" />
-    <fragment
-        android:id="@+id/tournamentsUpcoming"
-        android:name="com.example.dota2project.UI.Tournaments.Upcoming.TournamentUpcoming"
-        android:label="Предстоящие турниры"
-        tools:layout="@layout/fragment_tournaments_upcoming" />
-    <fragment
-        android:id="@+id/tournamentPast"
-        android:name="com.example.dota2project.UI.Tournaments.Past.TournamentPast"
-        android:label="Прошедшие турниры"
-        tools:layout="@layout/fragment_tournament_past" />
+
     <fragment
         android:id="@+id/itemsFragment"
         android:name="com.example.dota2project.UI.Items.ItemsFragment"
@@ -75,6 +61,17 @@
         android:name="com.example.dota2project.UI.Players.ProPlayers.ProPlayersFragment"
         android:label="Про игроки"
         tools:layout="@layout/fragment_pro_players" />
+
+    <fragment
+        android:id="@+id/playerInfo"
+        android:name="com.example.dota2project.UI.Players.ProPlayers.PlayerInfo"
+        android:label="fragment_player_info"
+        tools:layout="@layout/fragment_player_info" />
+    <fragment
+        android:id="@+id/matchInfo"
+        android:name="com.example.dota2project.MatchInfo"
+        android:label="fragment_match_info"
+        tools:layout="@layout/fragment_match_info" />
 
 
 </navigation>

@@ -97,9 +97,11 @@ class FindPlayersFragment : Fragment() {
         })
 
 
+    }
 
-
-
+    fun showPlayerInfo(position: Int) {
+        viewModel.player_id = viewModel.playersLive.value?.get(position)?.account_id!!
+        navController.navigate(R.id.playerInfo)
     }
 
 

@@ -1,7 +1,6 @@
 package com.example.dota2project.RemoteModel
 
 import com.example.dota2project.UI.Items.Model.Items
-import com.example.dota2project.UI.Tournaments.Model.Tournaments
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,16 +10,7 @@ import java.util.concurrent.TimeUnit
 val Panda_URL = "https://api.pandascore.co/dota2/"
 interface PandaScoreApi {
 
-    @GET("tournaments/running?token=VCpidzNp8MvY3wUeLxWao7poBevzDur4QVUkin6UzjDMYAE-HhU")
 
-    suspend fun getRunningTournaments(
-    ):MutableList<Tournaments>
-
-    @GET("tournaments/upcoming?token=VCpidzNp8MvY3wUeLxWao7poBevzDur4QVUkin6UzjDMYAE-HhU")
-    suspend fun getUpcomingTournaments():MutableList<Tournaments>
-
-    @GET ("tournaments/past?token=VCpidzNp8MvY3wUeLxWao7poBevzDur4QVUkin6UzjDMYAE-HhU")
-    suspend fun getPastTournaments():MutableList<Tournaments>
 
     @GET("items?page[size]=100&range[id]=1,100&token=VCpidzNp8MvY3wUeLxWao7poBevzDur4QVUkin6UzjDMYAE-HhU")
     suspend fun getItems():MutableList<Items>
