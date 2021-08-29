@@ -100,11 +100,6 @@ class HeroesList : Fragment() {
 
     }
 
-    fun heroesInfo(position: Int) {
-        viewModel.hero_id = heroes[position].id
-        navController.navigate(R.id.hero_info)
-    }
-
 
 }
 

@@ -17,6 +17,9 @@ class MatchesTeamRadiantAdapter(val list: List<MatchPlayerModel>, val fragment: 
 
         var lvl: TextView? = null
         var kills: TextView? = null
+        var radiantScore: TextView? = null
+        var direScore: TextView? = null
+
         var assists: TextView? = null
         var death: TextView? = null
         var gpm: TextView? = null
@@ -24,6 +27,8 @@ class MatchesTeamRadiantAdapter(val list: List<MatchPlayerModel>, val fragment: 
         var damage: TextView? = null
         var radiantList: RecyclerView? = null
         var direList: RecyclerView? = null
+        var radiantName: TextView? = null
+        var direName: TextView? = null
 
         init {
             lvl = itemView.findViewById(R.id.lvl)
@@ -35,6 +40,10 @@ class MatchesTeamRadiantAdapter(val list: List<MatchPlayerModel>, val fragment: 
             damage = itemView.findViewById(R.id.dmg)
             radiantList = itemView.findViewById(R.id.radiant_list)
             direList = itemView.findViewById(R.id.dire_list)
+            radiantName = itemView.findViewById(R.id.Radiant_name)
+            direName = itemView.findViewById(R.id.Dire_name)
+            radiantScore = itemView.findViewById(R.id.match_info_radiant_score)
+            direScore = itemView.findViewById(R.id.match_info_dire_score)
         }
 
     }
@@ -61,6 +70,7 @@ class MatchesTeamRadiantAdapter(val list: List<MatchPlayerModel>, val fragment: 
 
     override fun onBindViewHolder(holder: MatchesTeamRadiantAdapter.ViewHolder, position: Int) {
         val players: MatchPlayerModel = list[position]
+
         holder.lvl?.text = players.level.toString()
         holder.kills?.text = players.kills.toString()
         holder.assists?.text = players.assists.toString()
@@ -68,6 +78,9 @@ class MatchesTeamRadiantAdapter(val list: List<MatchPlayerModel>, val fragment: 
         holder.gpm?.text = players.gold_per_min.toString()
         holder.xpm?.text = players.xp_per_min.toString()
         holder.damage?.text = players.hero_damage.toString()
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.example.dota2project
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,24 +52,60 @@ class MatchInfo : Fragment() {
         binding.radiantList.layoutManager = LinearLayoutManager(activity as MainActivity)
         binding.direList.layoutManager = LinearLayoutManager(activity as MainActivity)
 
+        viewModel.proPlayersRadiantLive.value?.clear()
+        viewModel.proPlayersDireLive.value?.clear()
 
         var id = viewModel.match_id
 
-        viewModel.proPlayersDireLive.value?.clear()
-        viewModel.proPlayersRadiantLive.value?.clear()
+
+
+
+
+
 
         viewModel.matchesInfo.observe(viewLifecycleOwner, {
 
             scope.launch {
-                try {
-                    val match = viewModel.getMatchesById(id)
-                    val players = match?.players
 
+
+                val match = viewModel.getMatchesById(id)
+                val players = match?.players
+                val radiantId = match?.radiant_team_id
+                val direId = match?.dire_team_id
+                val getDireId = viewModel.getFuckingTeamById(direId!!)
+                val getRadiantTeam = viewModel.getFuckingTeamById(radiantId!!)
+                val radiantName = getRadiantTeam?.name.toString()
+                val direName = getDireId?.name.toString()
+
+
+                binding.RadiantName.text = radiantName
+                binding.DireName.text = direName
+
+
+
+
+                binding.matchInfoRadiantScore.text = match.radiant_score.toString()
+                binding.matchInfoDireScore.text = match.dire_score.toString()
+
+
+
+
+
+
+
+                try {
+
+
+                    Log.d("===111===", binding.DireName.text.toString())
                     if (match?.radiant_win == true) {
                         binding.DireWin.isVisible = false
+                        binding.RadiantWin.text = "$radiantName win"
+
                     } else {
                         binding.DireWin.isVisible = true
                         binding.RadiantWin.isVisible = false
+                        binding.DireWin.text = "$direName win"
+
                     }
 
 
@@ -128,17 +165,19 @@ class MatchInfo : Fragment() {
                     if (playerDire != null) {
                         viewModel.proPlayersDireLive.value?.addAll(playerDire)
                     }
+
                     binding.radiantList.adapter?.notifyDataSetChanged()
                     binding.direList.adapter?.notifyDataSetChanged()
+
                 } catch (e: Exception) {
 
                 }
-
-
             }
 
 
         })
+
+
     }
 
 

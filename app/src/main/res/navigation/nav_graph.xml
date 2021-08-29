@@ -72,6 +72,16 @@
         android:name="com.example.dota2project.MatchInfo"
         android:label="fragment_match_info"
         tools:layout="@layout/fragment_match_info" />
+    <fragment
+        android:id="@+id/proMatchesFragment"
+        android:name="com.example.dota2project.UI.ProTeams.ProMatchesList.ProMatchesFragment"
+        android:label="fragment_pro_matches"
+        tools:layout="@layout/fragment_pro_matches" />
+    <fragment
+        android:id="@+id/proMatchInfo"
+        android:name="com.example.dota2project.UI.ProTeams.ProMatchesList.ProMatchInfo"
+        android:label="fragment_pro_match_info"
+        tools:layout="@layout/fragment_pro_match_info" />
 
 
 </navigation>

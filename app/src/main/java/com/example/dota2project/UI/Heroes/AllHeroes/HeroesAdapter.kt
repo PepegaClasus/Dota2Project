@@ -122,10 +122,6 @@ class HeroesAdapter(
 //            }
 //        }
 
-        holder.itemView.setOnClickListener {
-            fragment.heroesInfo(holder.adapterPosition)
-        }
-
 
     }
 

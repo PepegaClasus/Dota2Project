@@ -68,6 +68,8 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     var hero_id = 0
     var player_id = 0
     var match_id = 6129301907
+    var radiant_team_id = 0
+    var dire_team_id = 6129301907
 
 //    fun getHeroes(){
 //        viewModelScope.launch {
@@ -98,11 +100,11 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         return dotaRep.getWLPlayerById(account_id)
     }
 
-    suspend fun getTeamById(team_id: Int): ProTeamsId? {
+    suspend fun getFuckingTeamById(team_id: Int): ProTeamsId? {
         return dotaRep.getTeamById(team_id)
     }
 
-    suspend fun getMatchesById(team_id: Int): ProTeamsMatches? {
+    suspend fun getTeamMatchesById(team_id: Int): ProTeamsMatches? {
         return dotaRep.getTeamMatchesById(team_id)
     }
 
