@@ -74,6 +74,9 @@ data class MatchPlayerModel(
     val obs_left_log: Any,
     val obs_log: Any,
     val obs_placed: Any,
+    val observer_kills:Int,
+    val sentry_kills:Int,
+
     val party_id: Int,
     val party_size: Int,
     val patch: Int,

@@ -11,17 +11,21 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/dota_items.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_find_players.xml" value="0.2988679352838745" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_hero_info.xml" value="0.271875" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_hero_matchup.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_heroes_info.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_heroes_list.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_int_list.xml" value="0.1" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_items.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_live_match.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_majors.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_match_info.xml" value="0.38925081433224756" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_player_id_info.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_player_info.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_players_list.xml" value="0.2484375" />
-        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_match_info.xml" value="0.271875" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_macthes_players_info.xml" value="0.6067924746672604" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_match_info.xml" value="0.4038199181446112" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_matches.xml" value="0.25" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_matches_players_dire_info.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_players.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_public_matches.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_strength_list.xml" value="0.271875" />
@@ -32,12 +36,14 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_tournaments_upcoming.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/hero_info.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/heroes_item.xml" value="0.4528302049755674" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/live_match_item.xml" value="0.9056604099511348" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/major_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/matchup_item.xml" value="0.9962264509462484" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/nav_header.xml" value="0.6067924746672604" />
-        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/player_match_info_item.xml" value="0.9056604099511348" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/player_match_info_item.xml" value="0.5267175572519084" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/players_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/players_search_item.xml" value="0.517557251908397" />
-        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/pro_match_item.xml" value="0.6067924746672604" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/pro_match_item.xml" value="0.2684124386252046" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/pro_players_item.xml" value="0.5879945429740792" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/public_matches_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/recent_matches_item.xml" value="0.6756255792400371" />
@@ -48,6 +54,7 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_item.xml" value="0.4176" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/heroes_menu.xml" value="0.1" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/main_menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/matches_menu.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/players_menu.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/teams_menu.xml" value="0.2484375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/menu/top_menu.xml" value="0.2484375" />

@@ -1,5 +1,7 @@
 package com.example.dota2project.RemoteModel
+import com.example.dota2project.UI.Heroes.MatchUps
 import com.example.dota2project.UI.Heroes.Model.Heroes
+import com.example.dota2project.UI.LiveMatches.LiveMatch
 import com.example.dota2project.UI.Matches.RecentMatches
 import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
@@ -20,11 +22,19 @@ import java.util.concurrent.TimeUnit
 val BASE_URL = "https://api.opendota.com/api/"
 interface ApiService {
 
-    @GET("heroStats")
+    @GET("heroes")
     suspend fun getHeroes(): MutableList<Heroes>
+
+    @GET("heroes/{hero_id}/matchups")
+    suspend fun getHeroMatchups(
+        @Path("hero_id") hero_id:Int
+    ):MutableList<MatchUps>
 
     @GET("proMatches")
     suspend fun getProMatches(): MutableList<ProMatches>
+
+    @GET("live")
+    suspend fun getLiveMatches():MutableList<LiveMatch>
 
     @GET("teams/{team_id}/matches")
     suspend fun getTeamMatchById(

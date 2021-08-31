@@ -8,5 +8,6 @@ data class ProTeamsId(
     val last_match_time: Int,
     val name: String,
     val tag: String,
+    val logo_url:String
 ) {
 }

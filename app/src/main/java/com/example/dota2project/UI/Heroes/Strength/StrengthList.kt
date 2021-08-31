@@ -36,7 +36,9 @@ class StrengthList : Fragment() {
 
         binding.recyclerStrengthView.adapter = StrengthAdapter(viewModel.heroesLive.value!!, this)
         binding.recyclerStrengthView.layoutManager = LinearLayoutManager(activity as MainActivity)
+        viewModel.getHeroes()
         viewModel.heroesLive.value?.clear()
+
 
 
 
@@ -70,6 +72,11 @@ class StrengthList : Fragment() {
         })
 
 
+    }
+
+    fun showHero(position:Int){
+        viewModel.hero_id = viewModel.heroesLive.value?.get(position)?.id!!
+        navController.navigate(R.id.heroMatchupFragment)
     }
 
 

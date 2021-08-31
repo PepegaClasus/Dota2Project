@@ -3,6 +3,7 @@ package com.example.dota2project.LocalModel
 import android.content.Context
 import androidx.room.Room
 import com.example.dota2project.UI.Heroes.Model.Heroes
+import com.example.dota2project.UI.LiveMatches.LiveMatch
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -18,6 +19,14 @@ class LocalModel @Inject constructor(@ApplicationContext context: Context) {
 
     suspend fun getAllHeroes(): MutableList<Heroes> {
         return dataBase.myHeroesDao().selectAllHeroes()
+    }
+
+    suspend fun insertLiveMatches(liveMatch: MutableList<LiveMatch>){
+        dataBase.myHeroesDao().insertLiveMatches(liveMatch)
+    }
+
+    suspend fun getAllLiveMatches():MutableList<LiveMatch>{
+        return dataBase.myHeroesDao().getAllLiveMatches()
     }
 
 //    suspend fun insertItems(items:MutableList<Items>){

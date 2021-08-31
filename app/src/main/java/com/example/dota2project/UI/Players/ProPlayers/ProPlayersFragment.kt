@@ -18,6 +18,7 @@ import com.example.dota2project.ViewModel.DotaViewModel
 import com.example.dota2project.databinding.FragmentProPlayersBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ProPlayersFragment : Fragment() {
     lateinit var navController: NavController
@@ -44,7 +45,25 @@ class ProPlayersFragment : Fragment() {
         binding.listProPlayers.adapter = ProPlayerAdapter(viewModel.proPlayersLive.value!!, this)
         binding.listProPlayers.layoutManager = LinearLayoutManager(activity as MainActivity)
         viewModel.proPlayersLive.value?.clear()
-        viewModel.getProPlayers()
+
+        scope.launch {
+            viewModel.getProPlayers()
+        }
+
+
+        binding.bottomProPlayersNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.pro_player -> {
+                    navController.navigate(R.id.proPlayersFragment)
+                    true
+                }
+                R.id.players -> {
+                    navController.navigate(R.id.findPlayersFragment)
+                    true
+                }
+                else -> true
+            }
+        }
 
 
 //        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

@@ -2,7 +2,10 @@ package com.example.dota2project.Repository
 
 import com.example.dota2project.LocalModel.LocalModel
 import com.example.dota2project.RemoteModel.RemoteModel
+import com.example.dota2project.UI.Heroes.MatchUps
+import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.LiveMatches.LiveMatch
 import com.example.dota2project.UI.Matches.MatchInfo
 import com.example.dota2project.UI.Matches.RecentMatches
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
@@ -17,17 +20,17 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: LocalModel) {
-//    suspend fun getData(): MutableList<Heroes> {
-//        var heroesList = localModel.getAllHeroes()
-//        return if (heroesList.isEmpty()) {
-//            heroesList = remoteModel.getRemoteHeroes() as MutableList<Heroes>
-//            localModel.insertHeroes(heroesList)
-//            Log.d("HeroesList", heroesList.toString())
-//            heroesList
-//        } else {
-//            heroesList
-//        }
-//    }
+    suspend fun getData(): MutableList<Heroes> {
+        var heroesList = localModel.getAllHeroes()
+        return if (heroesList.isEmpty()) {
+            heroesList = remoteModel.getRemoteHeroes()
+            localModel.insertHeroes(heroesList)
+
+            heroesList
+        } else {
+            heroesList
+        }
+    }
 
     suspend fun getPlayerId(account_id: Int): ProPlayersAccount? = withContext(Dispatchers.Main) {
         val playerInfo: ProPlayersAccount? = remoteModel.getPlayerInfo(account_id)
@@ -37,6 +40,11 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
     suspend fun getMatchById(match_id: Long): MatchInfo? = withContext(Dispatchers.Main) {
         val matchById: MatchInfo? = remoteModel.getMatchById(match_id)
         return@withContext matchById
+    }
+
+    suspend fun getHeroMatchup(hero_id:Int):MutableList<MatchUps> = withContext(Dispatchers.Main){
+        val heroMatchup = remoteModel.getHeroMatchup(hero_id)
+        return@withContext heroMatchup
     }
 
     suspend fun getRecentMatchesById(account_id: Int): MutableList<RecentMatches> =
@@ -85,6 +93,18 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
 
     suspend fun getFourthItems():MutableList<Items>{
         return remoteModel.getFourthItems()
+    }
+
+    suspend fun getLiveMatches():MutableList<LiveMatch>{
+        var liveMatches = localModel.getAllLiveMatches()
+
+        return if (liveMatches.isEmpty()){
+            liveMatches = remoteModel.getLiveMatches()
+            localModel.insertLiveMatches(liveMatches)
+            liveMatches
+        }else {
+            liveMatches
+        }
     }
 
     suspend fun getProPlayers():MutableList<ProPlayers> {

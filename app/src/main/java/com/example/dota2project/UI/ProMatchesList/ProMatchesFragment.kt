@@ -1,4 +1,4 @@
-package com.example.dota2project.UI.ProTeams.ProMatchesList
+package com.example.dota2project.UI.ProMatchesList
 
 import android.os.Bundle
 import android.util.Log
@@ -42,7 +42,22 @@ class ProMatchesFragment : Fragment() {
 
         var id = viewModel.match_id
         viewModel.proMatches.value?.clear()
-        viewModel.getProMatches()
+       viewModel.getProMatches()
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.proMatchesFragment -> {
+                    navController.navigate(R.id.proMatchesFragment)
+                    true
+                }
+                R.id.liveMatchFragment -> {
+                    navController.navigate(R.id.liveMatchFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
 
 
 
@@ -58,7 +73,7 @@ class ProMatchesFragment : Fragment() {
 
     fun showMatch(position: Int) {
         viewModel.match_id = viewModel.proMatches.value?.get(position)?.match_id!!
-        navController.navigate(R.id.matchInfo)
+        navController.navigate(R.id.proMatchInfo)
     }
 
 

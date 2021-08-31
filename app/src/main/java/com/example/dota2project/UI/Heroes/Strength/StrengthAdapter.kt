@@ -27,6 +27,9 @@ class StrengthAdapter(val list: MutableList<Heroes>, val fragment: StrengthList)
         val inflater = LayoutInflater.from(parent.context)
         val itemView = inflater.inflate(R.layout.heroes_item, parent, false)
         val holder = ViewHolder(itemView)
+        holder.itemView.setOnClickListener {
+            fragment.showHero(holder.adapterPosition)
+        }
         return holder
     }
 

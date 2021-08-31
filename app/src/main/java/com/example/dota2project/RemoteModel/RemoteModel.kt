@@ -1,7 +1,10 @@
 package com.example.dota2project.RemoteModel
 
 import android.util.Log
+import com.example.dota2project.UI.Heroes.MatchUps
+import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.LiveMatches.LiveMatch
 import com.example.dota2project.UI.Matches.MatchInfo
 import com.example.dota2project.UI.Matches.RecentMatches
 import com.example.dota2project.UI.Players.ProPlayers.Model.ProPlayers
@@ -20,15 +23,15 @@ class RemoteModel @Inject constructor() {
     val pandaApi = PandaScoreApi.create()
 
 
-//    suspend fun getRemoteHeroes(): List<Heroes> {
-//        return try {
-//            val heroes = apiService.getHeroes()
-//            listOf(heroes)
-//
-//        }catch (e:Exception){
-//            listOf()
-//        }
-//    }
+    suspend fun getRemoteHeroes(): MutableList<Heroes> {
+        return try {
+            val heroes = apiService.getHeroes()
+            heroes
+
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
 
 
     suspend fun getPlayerInfo(account_id: Int): ProPlayersAccount? =
@@ -47,6 +50,8 @@ class RemoteModel @Inject constructor() {
             }
             return@withContext playerInfo
         }
+
+
 
     suspend fun getMatchById(match_id: Long): MatchInfo? =
         withContext(Dispatchers.Main) {
@@ -74,11 +79,30 @@ class RemoteModel @Inject constructor() {
 
     }
 
+    suspend fun getHeroMatchup (hero_id:Int):MutableList<MatchUps>{
+        return try {
+            val heroMatchup = apiService.getHeroMatchups(hero_id)
+            heroMatchup
+        }catch (e:Exception){
+            mutableListOf()
+        }
+    }
+
+
     suspend fun getProMatches(): MutableList<ProMatches> {
         return try {
             val proMatches = apiService.getProMatches()
             proMatches
         } catch (e: Exception) {
+            mutableListOf()
+        }
+    }
+
+    suspend fun getLiveMatches():MutableList<LiveMatch>{
+        return try {
+            val liveMatches = apiService.getLiveMatches()
+            liveMatches
+        }catch (e:Exception){
             mutableListOf()
         }
     }

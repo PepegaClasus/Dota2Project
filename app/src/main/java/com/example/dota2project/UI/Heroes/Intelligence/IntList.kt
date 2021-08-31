@@ -35,6 +35,7 @@ class IntList : Fragment() {
         binding = FragmentIntListBinding.bind(view)
         binding.recyclerIntView.adapter = IntelligenceAdapter(viewModel.heroesLive.value!!, this)
         binding.recyclerIntView.layoutManager = LinearLayoutManager(activity as MainActivity)
+        viewModel.getHeroes()
         viewModel.heroesLive.value?.clear()
 
         binding.bottomIntNavigation.setOnItemSelectedListener { item ->
@@ -65,6 +66,11 @@ class IntList : Fragment() {
             viewModel.heroesLive.value!!.removeIf { it.primary_attr.contains("str") }
             binding.recyclerIntView.adapter?.notifyDataSetChanged()
         })
+    }
+
+    fun showHero(position:Int){
+        viewModel.hero_id = viewModel.heroesLive.value?.get(position)?.id!!
+        navController.navigate(R.id.heroMatchupFragment)
     }
 
 

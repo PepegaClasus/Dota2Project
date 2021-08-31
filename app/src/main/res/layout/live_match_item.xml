@@ -14,59 +14,44 @@
         android:background="@color/black">
 
         <TextView
-            android:id="@+id/league_match_name"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="League name"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/team_radiant_name"
+            android:id="@+id/live_team_radiant_name"
             android:layout_width="55dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="Team 1"
+            android:layout_marginStart="24dp"
+            android:text="Team Radiant"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/league_match_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.152" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/radiant_score"
+            android:id="@+id/live_radiant_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="Score"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.418"
+            app:layout_constraintHorizontal_bias="0.296"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.152" />
+            app:layout_constraintVertical_bias="0.235" />
 
         <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/live_textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VS"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.152" />
+            app:layout_constraintVertical_bias="0.159" />
 
         <TextView
-            android:id="@+id/dire_score"
+            android:id="@+id/live_dire_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -80,19 +65,19 @@
             app:layout_constraintVertical_bias="0.142" />
 
         <TextView
-            android:id="@+id/dire_name"
+            android:id="@+id/live_dire_name"
             android:layout_width="58dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:text="Team B"
+            android:text="Team Dire"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pro_match_duration"
+            app:layout_constraintEnd_toStartOf="@+id/live_pro_match_duration"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.155" />
+            app:layout_constraintVertical_bias="0.217" />
 
         <TextView
-            android:id="@+id/pro_match_duration"
+            android:id="@+id/live_pro_match_duration"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="Duration"
@@ -100,49 +85,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.153" />
+            app:layout_constraintVertical_bias="0.21" />
 
         <TextView
-            android:id="@+id/pro_match_start_time"
-            android:layout_width="match_parent"
+            android:id="@+id/live_average_mmr"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Start Time"
+            android:text="8432"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radiant_score" />
+            app:layout_constraintTop_toBottomOf="@+id/live_radiant_score" />
 
         <TextView
-            android:id="@+id/radiant_win"
+            android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Win"
-            android:textColor="@android:color/holo_green_light"
-            android:textSize="8sp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/league_match_name"
-            app:layout_constraintTop_toBottomOf="@+id/team_radiant_name"
-            app:layout_constraintVertical_bias="0.142" />
-
-        <TextView
-            android:id="@+id/dire_win"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="7dp"
-            android:text="Win"
-            android:textColor="@android:color/holo_green_light"
+            android:layout_marginTop="19dp"
+            android:text="mmr"
+            android:layout_marginStart="5dp"
             android:textSize="10sp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/pro_match_start_time"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dire_name"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toEndOf="@+id/live_average_mmr"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

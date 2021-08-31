@@ -23,7 +23,7 @@ data class MatchInfo(
     val negative_votes: Int,
     val objectives: Any,
     val patch: Int,
-    val players: List<MatchPlayerModel>,
+    val players: MutableList<MatchPlayerModel>,
     val positive_votes: Int,
     val radiant_gold_adv: Any,
     val radiant_score: Int,

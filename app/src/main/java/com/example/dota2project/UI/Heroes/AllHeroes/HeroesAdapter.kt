@@ -98,7 +98,9 @@ class HeroesAdapter(
         val itemView = inflater.inflate(R.layout.heroes_item, parent, false)
         val holder = ViewHolder(itemView)
 
-
+        holder.itemView.setOnClickListener {
+            fragment.showHero(holder.adapterPosition)
+        }
         return holder
     }
 

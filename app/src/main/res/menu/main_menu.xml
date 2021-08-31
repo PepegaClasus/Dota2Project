@@ -5,29 +5,18 @@
         android:id="@+id/heroesList"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Герои" />
-    <item
-        android:id="@+id/teams"
-        android:title="Команды"
-        android:icon="@drawable/ic_group"/>
+
 
     <item
         android:id="@+id/findPlayersFragment"
         android:title="Поиск игрока"
         android:icon="@drawable/ic_search"/>
 
-    <item
-        android:id="@+id/tournamentsRunning"
-        android:title="Турниры"
-        android:icon="@drawable/ic_star" />
-
-    <item
-        android:id="@+id/itemsFragment"
-        android:title="Предметы"
-        android:icon="@drawable/ic_document_scanner" />
 
     <item
         android:id="@+id/proMatchesFragment"
-        android:title="Матчи" />
+        android:title="Матчи"
+        android:icon="@drawable/ic_baseline_tv_24"/>
 
 
 </menu>

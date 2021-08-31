@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dota2project.MatchPlayerModel
 import com.example.dota2project.Repository.DotaRep
+import com.example.dota2project.UI.Heroes.MatchUps
 import com.example.dota2project.UI.Heroes.Model.Heroes
 import com.example.dota2project.UI.Items.Model.Items
+import com.example.dota2project.UI.LiveMatches.LiveMatch
 import com.example.dota2project.UI.Matches.MatchInfo
 import com.example.dota2project.UI.Matches.RecentMatches
 import com.example.dota2project.UI.Players.FindPlayers.Model.PlayersSearch
@@ -18,9 +20,12 @@ import com.example.dota2project.UI.ProTeams.ProTeamPlayers
 import com.example.dota2project.UI.ProTeams.ProTeamsId
 import com.example.dota2project.UI.ProTeams.ProTeamsMatches
 import com.example.dota2project.UI.Teams.Model.MyTeams
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
+    val scope = CoroutineScope(Dispatchers.IO)
 
 
     val heroesLive: MutableLiveData<MutableList<Heroes>> by lazy {
@@ -35,12 +40,18 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     val proPlayersLive: MutableLiveData<MutableList<ProPlayers>> by lazy {
         MutableLiveData<MutableList<ProPlayers>>(mutableListOf())
     }
+    val liveMatches: MutableLiveData<MutableList<LiveMatch>> by lazy {
+        MutableLiveData<MutableList<LiveMatch>>(mutableListOf())
+    }
+
 
     val proPlayersRadiantLive = MutableLiveData<MutableList<MatchPlayerModel>>(mutableListOf())
 
     val proPlayersDireLive = MutableLiveData<MutableList<MatchPlayerModel>>(mutableListOf())
 
     val proMatches = MutableLiveData<MutableList<ProMatches>>(mutableListOf())
+
+    val heroMatchups = MutableLiveData<MutableList<ProMatches>>(mutableListOf())
 
     val teamById = MutableLiveData<MutableList<ProTeamsId>>(mutableListOf())
 
@@ -71,16 +82,16 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     var radiant_team_id = 0
     var dire_team_id = 6129301907
 
-//    fun getHeroes(){
-//        viewModelScope.launch {
-//
-//            val heroes = dotaRep.getData()
-//            val list = heroesLive.value
-//            list?.addAll(heroes)
-//            heroesLive.postValue(list)
-//
-//        }
-//    }
+    fun getHeroes(){
+        viewModelScope.launch {
+
+            val heroes = dotaRep.getData()
+            val list = heroesLive.value
+            list?.addAll(heroes)
+            heroesLive.postValue(list)
+
+        }
+    }
 
     suspend fun getPlayerById(account_id: Int): ProPlayersAccount? {
 
@@ -88,12 +99,18 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
     }
 
+
+
     suspend fun getMatchesById(match_id: Long): MatchInfo? {
         return dotaRep.getMatchById(match_id)
     }
 
     suspend fun getRecentMatchesById(account_id: Int): MutableList<RecentMatches> {
         return dotaRep.getRecentMatchesById(account_id)
+    }
+
+    suspend fun getHeroMatchup(hero_id:Int):MutableList<MatchUps>{
+        return dotaRep.getHeroMatchup(hero_id)
     }
 
     suspend fun getWLPlayerById(account_id: Int): WL? {
@@ -119,6 +136,15 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
             val list = proMatches.value
             list?.addAll(items)
             proMatches.postValue(list)
+        }
+    }
+
+    fun getLiveMatches(){
+        viewModelScope.launch {
+            val items = dotaRep.getLiveMatches()
+            val list = liveMatches.value
+            list?.addAll(items)
+            liveMatches.postValue(list)
         }
     }
 
@@ -159,13 +185,11 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         }
     }
 
-    fun getProPlayers(){
-        viewModelScope.launch {
-            val proPlayers = dotaRep.getProPlayers()
-            val list = proPlayersLive.value
-            list?.addAll(proPlayers)
-            proPlayersLive.postValue(list)
-        }
+    suspend fun getProPlayers():MutableList<ProPlayers>{
+
+           return dotaRep.getProPlayers()
+
+
     }
 
 

@@ -37,7 +37,7 @@ class HeroesList : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        adapter = HeroesAdapter(heroes, this)
+        adapter = HeroesAdapter(viewModel.heroesLive.value!!, this)
         return inflater.inflate(R.layout.fragment_heroes_list, container, false)
 
 
@@ -53,6 +53,7 @@ class HeroesList : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity as MainActivity)
         viewModel.heroesLive.value!!.clear()
+        viewModel.getHeroes()
 
 
 
@@ -81,23 +82,28 @@ class HeroesList : Fragment() {
 
 
         viewModel.heroesLive.observe(viewLifecycleOwner, Observer { it ->
-            scope.launch {
-                val hero = apiSevice.getHeroes()
-                heroes.addAll(hero)
-                binding.recyclerView.adapter?.notifyDataSetChanged()
-
-            }
-
-
 
             viewModel.heroesLive.value!!.sortBy { it.localized_name }
-            binding.recyclerView.adapter?.notifyDataSetChanged()
+
+                binding.recyclerView.adapter?.notifyDataSetChanged()
+
+
+
+
+
+
+
 
         })
 
         Log.d("===!!!===", viewModel.heroesLive.value!!.toString())
 
 
+    }
+
+    fun showHero(position:Int){
+        viewModel.hero_id = viewModel.heroesLive.value?.get(position)?.id!!
+        navController.navigate(R.id.heroMatchupFragment)
     }
 
 

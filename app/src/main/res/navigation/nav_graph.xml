@@ -74,14 +74,34 @@
         tools:layout="@layout/fragment_match_info" />
     <fragment
         android:id="@+id/proMatchesFragment"
-        android:name="com.example.dota2project.UI.ProTeams.ProMatchesList.ProMatchesFragment"
+        android:name="com.example.dota2project.UI.ProMatchesList.ProMatchesFragment"
         android:label="fragment_pro_matches"
         tools:layout="@layout/fragment_pro_matches" />
     <fragment
         android:id="@+id/proMatchInfo"
-        android:name="com.example.dota2project.UI.ProTeams.ProMatchesList.ProMatchInfo"
+        android:name="com.example.dota2project.UI.ProMatchesList.ProMatchInfo"
         android:label="fragment_pro_match_info"
         tools:layout="@layout/fragment_pro_match_info" />
+    <fragment
+        android:id="@+id/proMacthesPlayersInfoFragment"
+        android:name="com.example.dota2project.UI.ProMatchesList.ProMatchesPlayersInfo.ProMatchesPlayersRadiantInfoFragment"
+        android:label="fragment_pro_macthes_players_info"
+        tools:layout="@layout/fragment_pro_macthes_players_info" />
+    <fragment
+        android:id="@+id/proMatchesPlayersDireInfo"
+        android:name="com.example.dota2project.UI.ProMatchesList.ProMatchesPlayersInfo.ProMatchesPlayersDireInfo"
+        android:label="fragment_pro_matches_players_dire_info"
+        tools:layout="@layout/fragment_pro_matches_players_dire_info" />
+    <fragment
+        android:id="@+id/liveMatchFragment"
+        android:name="com.example.dota2project.UI.LiveMatches.LiveMatchFragment"
+        android:label="fragment_live_match"
+        tools:layout="@layout/fragment_live_match" />
+    <fragment
+        android:id="@+id/heroMatchupFragment"
+        android:name="com.example.dota2project.HeroMatchupFragment"
+        android:label="fragment_hero_matchup"
+        tools:layout="@layout/fragment_hero_matchup" />
 
 
 </navigation>

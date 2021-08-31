@@ -81,6 +81,10 @@ class MatchInfo : Fragment() {
                 binding.RadiantName.text = radiantName
                 binding.DireName.text = direName
 
+                if(radiantName == "null" && direName == "null"){
+                    binding.RadiantName.text = "Team Radiant"
+                    binding.DireName.text = "Team Dire"
+                }
 
 
 
@@ -98,13 +102,14 @@ class MatchInfo : Fragment() {
 
                     Log.d("===111===", binding.DireName.text.toString())
                     if (match?.radiant_win == true) {
+                        binding.RadiantWin.isVisible = true
                         binding.DireWin.isVisible = false
-                        binding.RadiantWin.text = "$radiantName win"
+                        binding.RadiantWin.text = "${binding.RadiantName.text} win"
 
                     } else {
                         binding.DireWin.isVisible = true
                         binding.RadiantWin.isVisible = false
-                        binding.DireWin.text = "$direName win"
+                        binding.DireWin.text = "${binding.DireName.text} win"
 
                     }
 

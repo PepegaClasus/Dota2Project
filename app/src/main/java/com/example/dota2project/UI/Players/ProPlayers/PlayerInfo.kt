@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
@@ -59,9 +60,18 @@ class PlayerInfo : Fragment() {
                 val mmr = player?.mmr_estimate?.estimate
                 val leaderRank = player?.leaderboard_rank
                 binding.playerWin.text = wins.toString()
+                binding.playerName.text = player?.profile?.personaname.toString()
                 binding.playerLose.text = loses.toString()
                 binding.playerMmr.text = mmr.toString()
-                binding.playerRank.text = leaderRank.toString()
+
+                if (wins == null&&loses == null&&leaderRank == null){
+                    Toast.makeText(context, "Проблема с профилем", Toast.LENGTH_LONG).show()
+                }
+
+
+                if(leaderRank == null){
+                    binding.playerRank.text = "0"
+                }
 
                 context?.let {
                     Glide.with(it).load(player?.profile?.avatarfull).into(binding.playerImage)
@@ -93,7 +103,7 @@ class PlayerInfo : Fragment() {
 
     fun showMatchDetails(position: Int) {
         viewModel.match_id = recentMatches[position].match_id
-        navController.navigate(R.id.matchInfo)
+        navController.navigate(R.id.proMatchInfo)
     }
 
 
