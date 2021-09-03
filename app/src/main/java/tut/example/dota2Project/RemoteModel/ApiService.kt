@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 val BASE_URL = "https://api.opendota.com/api/"
 interface ApiService {
 
-    @GET("heroes")
+    @GET("heroStats")
     suspend fun getHeroes(): MutableList<Heroes>
 
     @GET("heroes/{hero_id}/matchups")
