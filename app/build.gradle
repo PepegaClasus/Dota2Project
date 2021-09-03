@@ -9,10 +9,18 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\Vladimir\\Desktop\\Ключ\\finalKey.jks')
+            storePassword 'qwerty123456'
+            keyAlias 'finalKey'
+            keyPassword 'qwerty123456'
+        }
+    }
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.example.dota2project"
+        applicationId "tut.example.dota2project"
         minSdk 26
         targetSdk 30
         versionCode 1

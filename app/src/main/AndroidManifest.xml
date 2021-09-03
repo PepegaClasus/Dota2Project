@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dota2project">
+    package="tut.example.dota2Project">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
-        android:name=".DotaApplication"
+        android:name="tut.example.dota2Project.DotaApplication"
         android:allowBackup="false"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dota2Project">
         <activity
-            android:name=".UI.MainActivity"
+            android:name="tut.example.dota2Project.UI.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

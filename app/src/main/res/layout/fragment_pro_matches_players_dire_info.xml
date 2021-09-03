@@ -832,9 +832,9 @@
             android:id="@+id/heroHealing_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/damageTaken_1" />
 
@@ -842,9 +842,9 @@
             android:id="@+id/lastHits_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31_1" />
 
@@ -852,9 +852,9 @@
             android:id="@+id/denies_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastHits_1" />
 
@@ -862,9 +862,9 @@
             android:id="@+id/goldEndMatch_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView55_1" />
 
@@ -872,9 +872,9 @@
             android:id="@+id/goldPerMinut_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldEndMatch_1" />
 
@@ -882,9 +882,9 @@
             android:id="@+id/goldInTheEnd_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldPerMinut_1" />
 
@@ -892,29 +892,29 @@
             android:id="@+id/obsUse_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/observers_text_1"
             app:layout_constraintTop_toBottomOf="@+id/textView155_1" />
 
         <TextView
             android:id="@+id/sentryUse_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/observers_text_1"
             app:layout_constraintTop_toBottomOf="@+id/obsUse_1" />
 
         <TextView
             android:id="@+id/obskill_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentryUse_1" />
 
@@ -922,9 +922,9 @@
             android:id="@+id/sentrykill_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/obskill_1" />
 
@@ -952,9 +952,9 @@
             android:id="@+id/heroHealing_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/damageTaken_2" />
 
@@ -962,9 +962,9 @@
             android:id="@+id/lastHits_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31_2" />
 
@@ -972,9 +972,9 @@
             android:id="@+id/denies_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastHits_2" />
 
@@ -982,9 +982,9 @@
             android:id="@+id/goldEndMatch_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView55_2" />
 
@@ -992,9 +992,9 @@
             android:id="@+id/goldPerMinut_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldEndMatch_2" />
 
@@ -1002,9 +1002,9 @@
             android:id="@+id/goldInTheEnd_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldPerMinut_2" />
 
@@ -1012,29 +1012,29 @@
             android:id="@+id/obsUse_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_2"
             app:layout_constraintTop_toBottomOf="@+id/textView155_2" />
 
         <TextView
             android:id="@+id/sentryUse_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_2"
             app:layout_constraintTop_toBottomOf="@+id/obsUse_2" />
 
         <TextView
             android:id="@+id/obskill_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentryUse_2" />
 
@@ -1042,9 +1042,9 @@
             android:id="@+id/sentrykill_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/obskill_2" />
 
@@ -1072,9 +1072,9 @@
             android:id="@+id/heroHealing_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/damageTaken_3" />
 
@@ -1082,9 +1082,9 @@
             android:id="@+id/lastHits_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31_3" />
 
@@ -1092,9 +1092,9 @@
             android:id="@+id/denies_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastHits_3" />
 
@@ -1102,9 +1102,9 @@
             android:id="@+id/goldEndMatch_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView55_3" />
 
@@ -1112,9 +1112,9 @@
             android:id="@+id/goldPerMinut_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldEndMatch_3" />
 
@@ -1122,9 +1122,9 @@
             android:id="@+id/goldInTheEnd_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldPerMinut_3" />
 
@@ -1132,29 +1132,29 @@
             android:id="@+id/obsUse_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginStart="68dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/observers_text_3"
             app:layout_constraintTop_toBottomOf="@+id/textView155_3" />
 
         <TextView
             android:id="@+id/sentryUse_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
             android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/observers_text_3"
             app:layout_constraintTop_toBottomOf="@+id/obsUse_3" />
 
         <TextView
             android:id="@+id/obskill_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentryUse_3" />
 
@@ -1162,9 +1162,9 @@
             android:id="@+id/sentrykill_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/obskill_3" />
 
@@ -1192,9 +1192,9 @@
             android:id="@+id/heroHealing_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/damageTaken_4" />
 
@@ -1202,9 +1202,9 @@
             android:id="@+id/lastHits_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31_4" />
 
@@ -1212,9 +1212,9 @@
             android:id="@+id/denies_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastHits_4" />
 
@@ -1222,9 +1222,9 @@
             android:id="@+id/goldEndMatch_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView55_4" />
 
@@ -1232,9 +1232,9 @@
             android:id="@+id/goldPerMinut_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldEndMatch_4" />
 
@@ -1242,9 +1242,9 @@
             android:id="@+id/goldInTheEnd_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldPerMinut_4" />
 
@@ -1252,29 +1252,29 @@
             android:id="@+id/obsUse_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_4"
             app:layout_constraintTop_toBottomOf="@+id/textView155_4" />
 
         <TextView
             android:id="@+id/sentryUse_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_4"
             app:layout_constraintTop_toBottomOf="@+id/obsUse_4" />
 
         <TextView
             android:id="@+id/obskill_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentryUse_4" />
 
@@ -1282,9 +1282,9 @@
             android:id="@+id/sentrykill_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/obskill_4" />
 
@@ -1312,9 +1312,9 @@
             android:id="@+id/heroHealing_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/damageTaken_5" />
 
@@ -1322,9 +1322,9 @@
             android:id="@+id/lastHits_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31_5" />
 
@@ -1332,9 +1332,9 @@
             android:id="@+id/denies_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastHits_5" />
 
@@ -1342,9 +1342,9 @@
             android:id="@+id/goldEndMatch_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView55_5" />
 
@@ -1352,9 +1352,9 @@
             android:id="@+id/goldPerMinut_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldEndMatch_5" />
 
@@ -1362,9 +1362,9 @@
             android:id="@+id/goldInTheEnd_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goldPerMinut_5" />
 
@@ -1372,29 +1372,29 @@
             android:id="@+id/obsUse_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_5"
             app:layout_constraintTop_toBottomOf="@+id/textView155_5" />
 
         <TextView
             android:id="@+id/sentryUse_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="65dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@id/observers_text_5"
             app:layout_constraintTop_toBottomOf="@+id/obsUse_5" />
 
         <TextView
             android:id="@+id/obskill_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sentryUse_5" />
 
@@ -1402,9 +1402,9 @@
             android:id="@+id/sentrykill_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="108dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/obskill_5" />
 

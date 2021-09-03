@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:963207257426:android:2147d9ffb2761af765ae8b",
         "android_client_info": {
-          "package_name": "com.example.dota2"
+          "package_name": "tut.example.dota2"
         }
       },
       "oauth_client": [
@@ -39,7 +39,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:963207257426:android:0238b3adf20076a665ae8b",
         "android_client_info": {
-          "package_name": "com.example.dota2project"
+          "package_name": "tut.example.dota2project"
         }
       },
       "oauth_client": [
