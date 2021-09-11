@@ -134,7 +134,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         return dotaRep.getTeamMatchesById(team_id)
     }
 
-    suspend fun getPlayersById(team_id: Int): ProTeamPlayers? {
+    suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? {
         return dotaRep.getTeamPlayersById(team_id)
     }
 
@@ -208,7 +208,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
     fun getTeams() {
         viewModelScope.launch {
-            val items = dotaRep.getTeams()
+            val items = dotaRep.getProTeams()
             val list = proTeams.value
             list?.addAll(items)
             proTeams.postValue(list)

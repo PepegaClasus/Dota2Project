@@ -6,6 +6,7 @@ import androidx.room.Query
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
 
 
 @Dao
@@ -17,10 +18,16 @@ interface DotaDao {
     suspend fun selectAllHeroes(): MutableList<Heroes>
 
     @Insert
-    suspend fun insertLiveMatches(liveMatches:MutableList<LiveMatch>)
+    suspend fun insertLiveMatches(liveMatches: MutableList<LiveMatch>)
 
     @Query("SELECT * FROM liveMatches")
-    suspend fun getAllLiveMatches():MutableList<LiveMatch>
+    suspend fun getAllLiveMatches(): MutableList<LiveMatch>
+
+    @Insert
+    suspend fun insertTeams(teams: MutableList<ProTeams>)
+
+    @Query("SELECT * FROM ProTeams")
+    suspend fun getAllProTeams(): MutableList<ProTeams>
 
 //    @Insert
 //    suspend fun insertItems(items:MutableList<Items>)

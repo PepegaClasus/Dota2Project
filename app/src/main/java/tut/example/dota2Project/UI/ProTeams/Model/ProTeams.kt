@@ -1,5 +1,8 @@
 package tut.example.dota2Project.UI.ProTeams.Model
 
+import androidx.room.Entity
+
+@Entity(tableName = "ProTeams")
 data class ProTeams(
     val team_id: Int,
     val rating: Double,

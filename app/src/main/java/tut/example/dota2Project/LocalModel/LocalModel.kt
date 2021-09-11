@@ -6,6 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
 import javax.inject.Inject
 
 class LocalModel @Inject constructor(@ApplicationContext context: Context) {
@@ -21,14 +22,21 @@ class LocalModel @Inject constructor(@ApplicationContext context: Context) {
         return dataBase.myHeroesDao().selectAllHeroes()
     }
 
-    suspend fun insertLiveMatches(liveMatch: MutableList<LiveMatch>){
+    suspend fun insertLiveMatches(liveMatch: MutableList<LiveMatch>) {
         dataBase.myHeroesDao().insertLiveMatches(liveMatch)
     }
 
-    suspend fun getAllLiveMatches():MutableList<LiveMatch>{
+    suspend fun getAllLiveMatches(): MutableList<LiveMatch> {
         return dataBase.myHeroesDao().getAllLiveMatches()
     }
 
+    suspend fun insertProTeams(proTeams: MutableList<ProTeams>) {
+        dataBase.myHeroesDao().insertTeams(proTeams)
+    }
+
+    suspend fun getAllProTeams(): MutableList<ProTeams> {
+        return dataBase.myHeroesDao().getAllProTeams()
+    }
 //    suspend fun insertItems(items:MutableList<Items>){
 //        dataBase.myHeroesDao().insertItems(items)
 //    }
