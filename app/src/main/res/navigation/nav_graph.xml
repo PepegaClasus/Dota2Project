@@ -103,5 +103,16 @@
         android:label="Матчап"
         tools:layout="@layout/fragment_hero_matchup" />
 
+    <fragment
+        android:id="@+id/proTeamsFragment"
+        android:name="tut.example.dota2Project.UI.ProTeams.ProTeamsFragment"
+        android:label="fragment_pro_teams"
+        tools:layout="@layout/fragment_pro_teams" />
+    <fragment
+        android:id="@+id/teamsInfoFragment"
+        android:name="tut.example.dota2Project.UI.ProTeams.TeamsInfoFragment"
+        android:label="fragment_teams_info"
+        tools:layout="@layout/fragment_teams_info" />
+
 
 </navigation>

@@ -15,32 +15,37 @@ import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayersAccount
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.WL
 import tut.example.dota2Project.UI.ProMatches.ProMatches
-import tut.example.dota2Project.UI.ProTeams.ProTeamPlayers
-import tut.example.dota2Project.UI.ProTeams.ProTeamsId
-import tut.example.dota2Project.UI.ProTeams.ProTeamsMatches
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsId
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsMatches
 import java.util.concurrent.TimeUnit
 
 val BASE_URL = "https://api.opendota.com/api/"
+
 interface ApiService {
 
     @GET("heroStats")
     suspend fun getHeroes(): MutableList<Heroes>
 
+    @GET("teams")
+    suspend fun getTeams(): MutableList<ProTeams>
+
     @GET("heroes/{hero_id}/matchups")
     suspend fun getHeroMatchups(
-        @Path("hero_id") hero_id:Int
-    ):MutableList<MatchUps>
+        @Path("hero_id") hero_id: Int,
+    ): MutableList<MatchUps>
 
     @GET("proMatches")
     suspend fun getProMatches(): MutableList<ProMatches>
 
     @GET("live")
-    suspend fun getLiveMatches():MutableList<LiveMatch>
+    suspend fun getLiveMatches(): MutableList<LiveMatch>
 
     @GET("teams/{team_id}/matches")
     suspend fun getTeamMatchById(
         @Path("team_id") team_id: Int,
-    ): ProTeamsMatches
+    ): MutableList<ProTeamsMatches>
 
     @GET("teams/{team_id}/players")
     suspend fun getTeamPlayersById(

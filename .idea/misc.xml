@@ -27,6 +27,7 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_matches.xml" value="0.25" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_matches_players_dire_info.xml" value="0.1797583081570997" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_players.xml" value="0.271875" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_pro_teams.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_public_matches.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_strength_list.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/fragment_teams.xml" value="0.2484375" />
@@ -49,6 +50,7 @@
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/recent_matches_item.xml" value="0.6756255792400371" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/running_tournaments_item.xml" value="0.5465648854961832" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/splash_screen.xml" value="0.271875" />
+        <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/team_matches_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/team_tournaments_items.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_info_item.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/layout/teams_item.xml" value="0.4176" />

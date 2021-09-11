@@ -19,9 +19,10 @@ import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayersAccount
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.WL
 import tut.example.dota2Project.UI.ProMatches.ProMatches
-import tut.example.dota2Project.UI.ProTeams.ProTeamPlayers
-import tut.example.dota2Project.UI.ProTeams.ProTeamsId
-import tut.example.dota2Project.UI.ProTeams.ProTeamsMatches
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsId
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsMatches
 import tut.example.dota2Project.UI.Teams.Model.MyTeams
 
 class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
@@ -30,6 +31,14 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
     val heroesLive: MutableLiveData<MutableList<Heroes>> by lazy {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
+    }
+
+    val proTeams: MutableLiveData<MutableList<ProTeams>> by lazy {
+        MutableLiveData<MutableList<ProTeams>>(mutableListOf())
+    }
+
+    val proTeamsMatches: MutableLiveData<MutableList<ProTeamsMatches>> by lazy {
+        MutableLiveData<MutableList<ProTeamsMatches>>(mutableListOf())
     }
 
 
@@ -76,6 +85,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         MutableLiveData<MutableList<MyTeams>>(mutableListOf())
     }
 
+    var team_id = 0
     var hero_id = 0
     var player_id = 0
     var match_id = 6129301907
@@ -120,7 +130,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         return dotaRep.getTeamById(team_id)
     }
 
-    suspend fun getTeamMatchesById(team_id: Int): ProTeamsMatches? {
+    suspend fun getTeamMatchesById(team_id: Int): MutableList<ProTeamsMatches> {
         return dotaRep.getTeamMatchesById(team_id)
     }
 
@@ -194,6 +204,15 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         }
 
 
+    }
+
+    fun getTeams() {
+        viewModelScope.launch {
+            val items = dotaRep.getTeams()
+            val list = proTeams.value
+            list?.addAll(items)
+            proTeams.postValue(list)
+        }
     }
 
 }

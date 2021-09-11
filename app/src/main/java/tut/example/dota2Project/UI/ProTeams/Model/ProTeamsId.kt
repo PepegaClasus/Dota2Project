@@ -1,4 +1,4 @@
-package tut.example.dota2Project.UI.ProTeams
+package tut.example.dota2Project.UI.ProTeams.Model
 
 data class ProTeamsId(
     val team_id: Int,

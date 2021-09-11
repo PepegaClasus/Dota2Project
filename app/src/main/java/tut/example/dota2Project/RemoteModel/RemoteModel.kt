@@ -13,9 +13,10 @@ import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayersAccount
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.WL
 import tut.example.dota2Project.UI.ProMatches.ProMatches
-import tut.example.dota2Project.UI.ProTeams.ProTeamPlayers
-import tut.example.dota2Project.UI.ProTeams.ProTeamsId
-import tut.example.dota2Project.UI.ProTeams.ProTeamsMatches
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsId
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsMatches
 import javax.inject.Inject
 
 class RemoteModel @Inject constructor() {
@@ -28,7 +29,16 @@ class RemoteModel @Inject constructor() {
             val heroes = apiService.getHeroes()
             heroes
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
+            mutableListOf()
+        }
+    }
+
+    suspend fun getTeams(): MutableList<ProTeams> {
+        return try {
+            val proTeams = apiService.getTeams()
+            proTeams
+        } catch (e: Exception) {
             mutableListOf()
         }
     }
@@ -139,9 +149,9 @@ class RemoteModel @Inject constructor() {
             return@withContext teamsById
         }
 
-    suspend fun getTeamMatchesById(team_id: Int): ProTeamsMatches? =
+    suspend fun getTeamMatchesById(team_id: Int): MutableList<ProTeamsMatches> =
         withContext(Dispatchers.Main) {
-            var teamMatchesById: ProTeamsMatches? = null
+            var teamMatchesById: MutableList<ProTeamsMatches>? = null
             try {
                 withContext(Dispatchers.IO) {
                     teamMatchesById = apiService.getTeamMatchById(team_id)
@@ -151,7 +161,7 @@ class RemoteModel @Inject constructor() {
             } catch (e: Exception) {
                 Log.d("!!!exception", e.toString())
             }
-            return@withContext teamMatchesById
+            return@withContext teamMatchesById!!
         }
 
     suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? =

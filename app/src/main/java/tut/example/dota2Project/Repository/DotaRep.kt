@@ -14,9 +14,10 @@ import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayers
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.ProPlayersAccount
 import tut.example.dota2Project.UI.Players.ProPlayers.Model.WL
 import tut.example.dota2Project.UI.ProMatches.ProMatches
-import tut.example.dota2Project.UI.ProTeams.ProTeamPlayers
-import tut.example.dota2Project.UI.ProTeams.ProTeamsId
-import tut.example.dota2Project.UI.ProTeams.ProTeamsMatches
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsId
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsMatches
 import javax.inject.Inject
 
 class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: LocalModel) {
@@ -69,10 +70,12 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         return@withContext teamsById
     }
 
-    suspend fun getTeamMatchesById(team_id: Int): ProTeamsMatches? = withContext(Dispatchers.Main) {
-        val teamsMatchesById: ProTeamsMatches? = remoteModel.getTeamMatchesById(team_id)
-        return@withContext teamsMatchesById
-    }
+    suspend fun getTeamMatchesById(team_id: Int): MutableList<ProTeamsMatches> =
+        withContext(Dispatchers.Main) {
+            val teamsMatchesById: MutableList<ProTeamsMatches> =
+                remoteModel.getTeamMatchesById(team_id)
+            return@withContext teamsMatchesById
+        }
 
     suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? = withContext(Dispatchers.Main) {
         val teamPlayersById: ProTeamPlayers? = remoteModel.getTeamPlayersById(team_id)
@@ -118,6 +121,11 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         } else {
             proPlayers
         }
+    }
+
+    suspend fun getTeams(): MutableList<ProTeams> = withContext(Dispatchers.Main) {
+        val proTeams: MutableList<ProTeams> = remoteModel.getTeams()
+        return@withContext proTeams
     }
 
 
