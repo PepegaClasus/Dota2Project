@@ -50,7 +50,7 @@ interface ApiService {
     @GET("teams/{team_id}/players")
     suspend fun getTeamPlayersById(
         @Path("team_id") team_id: Int,
-    ): ProTeamPlayers
+    ): MutableList<ProTeamPlayers>
 
     @GET("teams/{team_id}")
     suspend fun getTeamById(

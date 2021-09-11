@@ -88,10 +88,12 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
             return@withContext teamsMatchesById
         }
 
-    suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? = withContext(Dispatchers.Main) {
-        val teamPlayersById: ProTeamPlayers? = remoteModel.getTeamPlayersById(team_id)
-        return@withContext teamPlayersById
-    }
+    suspend fun getTeamPlayersById(team_id: Int): MutableList<ProTeamPlayers> =
+        withContext(Dispatchers.Main) {
+            val teamPlayersById: MutableList<ProTeamPlayers> =
+                remoteModel.getTeamPlayersById(team_id)
+            return@withContext teamPlayersById
+        }
 
 
     suspend fun getItems(): MutableList<Items> {

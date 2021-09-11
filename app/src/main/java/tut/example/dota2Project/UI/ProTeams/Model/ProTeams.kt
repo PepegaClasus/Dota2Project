@@ -1,10 +1,11 @@
 package tut.example.dota2Project.UI.ProTeams.Model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "ProTeams")
 data class ProTeams(
-    val team_id: Int,
+    @PrimaryKey(autoGenerate = true) val team_id: Int,
     val rating: Double,
     val wins: Int,
     val losses: Int,

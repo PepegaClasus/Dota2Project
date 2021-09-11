@@ -164,9 +164,9 @@ class RemoteModel @Inject constructor() {
             return@withContext teamMatchesById!!
         }
 
-    suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? =
+    suspend fun getTeamPlayersById(team_id: Int): MutableList<ProTeamPlayers> =
         withContext(Dispatchers.Main) {
-            var teamPlayersById: ProTeamPlayers? = null
+            var teamPlayersById: MutableList<ProTeamPlayers>? = null
             try {
                 withContext(Dispatchers.IO) {
                     teamPlayersById = apiService.getTeamPlayersById(team_id)
@@ -177,7 +177,7 @@ class RemoteModel @Inject constructor() {
                 Log.d("!!!", e.toString())
             }
 
-            return@withContext teamPlayersById
+            return@withContext teamPlayersById!!
         }
 
 

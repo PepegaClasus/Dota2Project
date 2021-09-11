@@ -14,6 +14,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import tut.example.dota2Project.R
 import tut.example.dota2Project.UI.MainActivity
+import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
 import tut.example.dota2Project.ViewModel.DotaViewModel
 import tut.example.dota2Project.databinding.FragmentTeamsInfoBinding
 
@@ -22,6 +23,7 @@ class TeamsInfoFragment : Fragment() {
     lateinit var navController: NavController
     val viewModel: DotaViewModel by activityViewModels()
     private lateinit var binding: FragmentTeamsInfoBinding
+    val proPlayers = mutableListOf<ProTeamPlayers>()
     val scope = MainScope()
 
 
@@ -42,6 +44,11 @@ class TeamsInfoFragment : Fragment() {
         binding.teamMatches.layoutManager = LinearLayoutManager(activity as MainActivity)
         viewModel.proTeamsMatches.value?.clear()
 
+        binding.playersList.adapter = TeamPlayersAdapter(viewModel.teamPlayers.value!!, this)
+        binding.playersList.layoutManager = LinearLayoutManager(activity as MainActivity)
+        viewModel.teamPlayers.value?.clear()
+
+
         teams()
 
         viewModel.proTeamsMatches.observe(viewLifecycleOwner, {
@@ -51,6 +58,15 @@ class TeamsInfoFragment : Fragment() {
                 binding.teamMatches.adapter?.notifyDataSetChanged()
             }
 
+
+        })
+
+        viewModel.teamPlayers.observe(viewLifecycleOwner, {
+            scope.launch {
+                val players = viewModel.getTeamPlayersById(viewModel.team_id)
+                proPlayers.addAll(players)
+                binding.playersList.adapter?.notifyDataSetChanged()
+            }
 
         })
 
@@ -85,6 +101,11 @@ class TeamsInfoFragment : Fragment() {
     fun showMatches(position: Int) {
         viewModel.match_id = viewModel.proTeamsMatches.value?.get(position)?.match_id!!
         navController.navigate(R.id.proMatchInfo)
+    }
+
+    fun showPlayers(position: Int) {
+        viewModel.player_id = viewModel.teamPlayers.value?.get(position)?.account_id!!
+        navController.navigate(R.id.playerInfo)
     }
 
 

@@ -134,7 +134,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         return dotaRep.getTeamMatchesById(team_id)
     }
 
-    suspend fun getTeamPlayersById(team_id: Int): ProTeamPlayers? {
+    suspend fun getTeamPlayersById(team_id: Int): MutableList<ProTeamPlayers> {
         return dotaRep.getTeamPlayersById(team_id)
     }
 
