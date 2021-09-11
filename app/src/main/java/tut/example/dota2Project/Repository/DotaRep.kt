@@ -33,15 +33,9 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         }
     }
 
-    suspend fun getProTeams(): MutableList<ProTeams> {
-        var proTeams = localModel.getAllProTeams()
-        return if (proTeams.isEmpty()) {
-            proTeams = remoteModel.getTeams()
-            localModel.insertProTeams(proTeams)
-            proTeams
-        } else {
-            proTeams
-        }
+    suspend fun getProTeams(): MutableList<ProTeams> = withContext(Dispatchers.Main) {
+        val proTeams: MutableList<ProTeams> = remoteModel.getTeams()
+        return@withContext proTeams
     }
 
     suspend fun getPlayerId(account_id: Int): ProPlayersAccount? = withContext(Dispatchers.Main) {

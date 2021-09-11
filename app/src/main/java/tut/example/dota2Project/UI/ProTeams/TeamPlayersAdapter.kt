@@ -1,5 +1,6 @@
 package tut.example.dota2Project.UI.ProTeams
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,9 +53,11 @@ class TeamPlayersAdapter(val list: MutableList<ProTeamPlayers>, val fragment: Te
         if (teamPlayers.is_current_team_member) {
             holder.inTeam?.isVisible = true
             holder.notInTeam?.isVisible = false
+            holder.inTeam?.setTextColor(Color.GREEN)
         } else {
             holder.inTeam?.isVisible = false
             holder.notInTeam?.isVisible = true
+            holder.notInTeam?.setTextColor(Color.RED)
         }
     }
 

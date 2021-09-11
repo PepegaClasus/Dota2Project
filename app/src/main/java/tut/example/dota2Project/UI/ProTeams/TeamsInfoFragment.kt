@@ -64,7 +64,8 @@ class TeamsInfoFragment : Fragment() {
         viewModel.teamPlayers.observe(viewLifecycleOwner, {
             scope.launch {
                 val players = viewModel.getTeamPlayersById(viewModel.team_id)
-                proPlayers.addAll(players)
+                viewModel.teamPlayers.value?.addAll(players)
+                viewModel.teamPlayers.value?.sortByDescending { it.is_current_team_member }
                 binding.playersList.adapter?.notifyDataSetChanged()
             }
 
