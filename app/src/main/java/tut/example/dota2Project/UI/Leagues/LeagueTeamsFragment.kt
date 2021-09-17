@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
@@ -44,11 +45,21 @@ class LeagueTeamsFragment : Fragment() {
 
 
 
+
+
+
+
+
+
         viewModel.leagueTeams.observe(viewLifecycleOwner, {
             scope.launch {
                 try {
                     val leaguesMatches = viewModel.getLeagueTeams(viewModel.league_id)
+                    viewModel.leagueTeams.value?.clear()
                     viewModel.leagueTeams.value?.addAll(leaguesMatches)
+                    if (viewModel.leagueTeams.value?.isEmpty() == true) {
+                        Toast.makeText(context, "Нет данных о команде", Toast.LENGTH_LONG).show()
+                    }
                     binding.leagueTeamsList.adapter?.notifyDataSetChanged()
                 } catch (e: Exception) {
                     Log.d("LeagueTeams error", e.toString())
@@ -58,6 +69,11 @@ class LeagueTeamsFragment : Fragment() {
             }
         })
 
+    }
+
+    fun showTeamInfo(position: Int) {
+        viewModel.team_id = viewModel.leagueTeams.value?.get(position)?.team_id!!
+        navController.navigate(R.id.teamsInfoFragment)
     }
 
 

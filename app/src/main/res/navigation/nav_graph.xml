@@ -89,22 +89,22 @@
     <fragment
         android:id="@+id/proTeamsFragment"
         android:name="tut.example.dota2Project.UI.ProTeams.ProTeamsFragment"
-        android:label="fragment_pro_teams"
+        android:label="Про команды"
         tools:layout="@layout/fragment_pro_teams" />
     <fragment
         android:id="@+id/teamsInfoFragment"
         android:name="tut.example.dota2Project.UI.ProTeams.TeamsInfoFragment"
-        android:label="fragment_teams_info"
+        android:label="Инфо о команде"
         tools:layout="@layout/fragment_teams_info" />
     <fragment
         android:id="@+id/leaguesFragment"
         android:name="tut.example.dota2Project.UI.Leagues.LeaguesFragment"
-        android:label="fragment_leagues"
+        android:label="Лиги"
         tools:layout="@layout/fragment_leagues" />
     <fragment
         android:id="@+id/leagueTeamsFragment"
         android:name="tut.example.dota2Project.UI.Leagues.LeagueTeamsFragment"
-        android:label="fragment_league_teams"
+        android:label="Команды"
         tools:layout="@layout/fragment_league_teams" />
 
 

@@ -15,7 +15,7 @@ class LeagueAdapter(val list: MutableList<League>, val fragment: LeaguesFragment
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var league_name: TextView? = null
-        var league_banner: TextView? = null
+        var league_banner: ImageView? = null
         var league_tier: TextView? = null
 
         init {

@@ -31,6 +31,10 @@ class LeagueTeamsAdapter(val list: MutableList<LeagueTeams>, val fragment: Leagu
         val itemView = inflater.inflate(R.layout.teams_item, parent, false)
         val holder = ViewHolder(itemView)
 
+        holder.itemView.setOnClickListener {
+            fragment.showTeamInfo(holder.adapterPosition)
+        }
+
         return holder
     }
 
@@ -44,7 +48,7 @@ class LeagueTeamsAdapter(val list: MutableList<LeagueTeams>, val fragment: Leagu
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return list.size
     }
 
 }
