@@ -7,6 +7,8 @@ import tut.example.dota2Project.RemoteModel.RemoteModel
 import tut.example.dota2Project.UI.Heroes.MatchUps
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
 import tut.example.dota2Project.UI.Items.Model.Items
+import tut.example.dota2Project.UI.Leagues.Model.League
+import tut.example.dota2Project.UI.Leagues.Model.LeagueTeams
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Matches.MatchInfoModel
 import tut.example.dota2Project.UI.Matches.RecentMatches
@@ -36,6 +38,11 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
     suspend fun getProTeams(): MutableList<ProTeams> = withContext(Dispatchers.Main) {
         val proTeams: MutableList<ProTeams> = remoteModel.getTeams()
         return@withContext proTeams
+    }
+
+    suspend fun getLeagues(): MutableList<League> = withContext(Dispatchers.Main) {
+        val leagues: MutableList<League> = remoteModel.getLeagues()
+        return@withContext leagues
     }
 
     suspend fun getPlayerId(account_id: Int): ProPlayersAccount? = withContext(Dispatchers.Main) {
@@ -75,6 +82,12 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         return@withContext teamsById
     }
 
+    suspend fun getLeagueTeams(league_id: Int): MutableList<LeagueTeams> =
+        withContext(Dispatchers.Main) {
+            val leagueTeams: MutableList<LeagueTeams> = remoteModel.getLeagueTeams(league_id)
+            return@withContext leagueTeams
+        }
+
     suspend fun getTeamMatchesById(team_id: Int): MutableList<ProTeamsMatches> =
         withContext(Dispatchers.Main) {
             val teamsMatchesById: MutableList<ProTeamsMatches> =
@@ -98,27 +111,27 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         return remoteModel.getSecondItems()
     }
 
-    suspend fun getThirdItems():MutableList<Items>{
+    suspend fun getThirdItems(): MutableList<Items> {
         return remoteModel.getThirdItems()
     }
 
-    suspend fun getFourthItems():MutableList<Items>{
+    suspend fun getFourthItems(): MutableList<Items> {
         return remoteModel.getFourthItems()
     }
 
-    suspend fun getLiveMatches():MutableList<LiveMatch>{
+    suspend fun getLiveMatches(): MutableList<LiveMatch> {
         var liveMatches = localModel.getAllLiveMatches()
 
-        return if (liveMatches.isEmpty()){
+        return if (liveMatches.isEmpty()) {
             liveMatches = remoteModel.getLiveMatches()
             localModel.insertLiveMatches(liveMatches)
             liveMatches
-        }else {
+        } else {
             liveMatches
         }
     }
 
-    suspend fun getProPlayers():MutableList<ProPlayers> {
+    suspend fun getProPlayers(): MutableList<ProPlayers> {
         var proPlayers = localModel.getAllProPlayers()
 
         return if (proPlayers.isEmpty()) {
@@ -134,16 +147,6 @@ class DotaRep @Inject constructor(val remoteModel: RemoteModel, val localModel: 
         val proTeams: MutableList<ProTeams> = remoteModel.getTeams()
         return@withContext proTeams
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

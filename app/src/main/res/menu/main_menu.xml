@@ -22,5 +22,9 @@
         android:id="@+id/proTeamsFragment"
         android:title="Команды" />
 
+    <item
+        android:id="@+id/leaguesFragment"
+        android:title="Лиги" />
+
 
 </menu>

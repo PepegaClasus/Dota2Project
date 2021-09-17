@@ -25,23 +25,6 @@
         android:name="tut.example.dota2Project.UI.Heroes.Intelligence.IntList"
         android:label="Интеллект"
         tools:layout="@layout/fragment_int_list" />
-    <fragment
-        android:id="@+id/teams"
-        android:name="tut.example.dota2Project.UI.Teams.World.TeamsList"
-        android:label="Мир"
-        tools:layout="@layout/fragment_teams" />
-
-
-    <fragment
-        android:id="@+id/teamsEurope"
-        android:name="tut.example.dota2Project.UI.Teams.Europe.TeamsEurope"
-        android:label="Европа"
-        tools:layout="@layout/fragment_teams_europe" />
-    <fragment
-        android:id="@+id/teamsCIS"
-        android:name="tut.example.dota2Project.UI.Teams.CIS.TeamsCIS"
-        android:label="СНГ"
-        tools:layout="@layout/fragment_teams_c_i_s" />
 
 
     <fragment
@@ -113,6 +96,16 @@
         android:name="tut.example.dota2Project.UI.ProTeams.TeamsInfoFragment"
         android:label="fragment_teams_info"
         tools:layout="@layout/fragment_teams_info" />
+    <fragment
+        android:id="@+id/leaguesFragment"
+        android:name="tut.example.dota2Project.UI.Leagues.LeaguesFragment"
+        android:label="fragment_leagues"
+        tools:layout="@layout/fragment_leagues" />
+    <fragment
+        android:id="@+id/leagueTeamsFragment"
+        android:name="tut.example.dota2Project.UI.Leagues.LeagueTeamsFragment"
+        android:label="fragment_league_teams"
+        tools:layout="@layout/fragment_league_teams" />
 
 
 </navigation>

@@ -6,6 +6,8 @@ import kotlinx.coroutines.withContext
 import tut.example.dota2Project.UI.Heroes.MatchUps
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
 import tut.example.dota2Project.UI.Items.Model.Items
+import tut.example.dota2Project.UI.Leagues.Model.League
+import tut.example.dota2Project.UI.Leagues.Model.LeagueTeams
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Matches.MatchInfoModel
 import tut.example.dota2Project.UI.Matches.RecentMatches
@@ -43,6 +45,15 @@ class RemoteModel @Inject constructor() {
         }
     }
 
+    suspend fun getLeagues(): MutableList<League> {
+        return try {
+            val leagues = apiService.getLeagues()
+            leagues
+        } catch (e: java.lang.Exception) {
+            mutableListOf()
+        }
+    }
+
 
     suspend fun getPlayerInfo(account_id: Int): ProPlayersAccount? =
         withContext(Dispatchers.Main) {
@@ -54,7 +65,7 @@ class RemoteModel @Inject constructor() {
 
                 }
             } catch (ex: retrofit2.HttpException) {
-                Log.d("nickname error", ex.toString())
+                Log.d("playerInfo error", ex.toString())
             } catch (e: java.lang.Exception) {
                 Log.d("internet", e.toString())
             }
@@ -70,7 +81,7 @@ class RemoteModel @Inject constructor() {
                     matchByIdModel = apiService.getMatches(match_id)
                 }
             } catch (ex: retrofit2.HttpException) {
-                Log.d("nickname error", ex.toString())
+                Log.d("matchByID error", ex.toString())
             } catch (e: Exception) {
                 Log.d("internet", e.toString())
             }
@@ -125,7 +136,7 @@ class RemoteModel @Inject constructor() {
                 }
 
             } catch (ex: retrofit2.HttpException) {
-                Log.d("nickname error", ex.toString())
+                Log.d("WLPlayersByID error", ex.toString())
             } catch (e: Exception) {
                 Log.d("internet", e.toString())
             }
@@ -141,7 +152,7 @@ class RemoteModel @Inject constructor() {
                     teamsById = apiService.getTeamById(team_id)
                 }
             } catch (ex: retrofit2.HttpException) {
-                Log.d("nickname error", ex.toString())
+                Log.d("TeamById error", ex.toString())
             } catch (e: Exception) {
                 Log.d("internet", e.toString())
             }
@@ -157,7 +168,7 @@ class RemoteModel @Inject constructor() {
                     teamMatchesById = apiService.getTeamMatchById(team_id)
                 }
             } catch (ex: retrofit2.HttpException) {
-                Log.d("!!!", ex.toString())
+                Log.d("TeamMatchesById error", ex.toString())
             } catch (e: Exception) {
                 Log.d("!!!exception", e.toString())
             }
@@ -178,6 +189,23 @@ class RemoteModel @Inject constructor() {
             }
 
             return@withContext teamPlayersById!!
+        }
+
+    suspend fun getLeagueTeams(league_id: Int): MutableList<LeagueTeams> =
+        withContext(Dispatchers.Main) {
+            var leagueTeams: MutableList<LeagueTeams>? = null
+
+            try {
+                withContext(Dispatchers.IO) {
+                    leagueTeams = apiService.getLeagueMatches(league_id)
+                }
+            } catch (ex: retrofit2.HttpException) {
+                Log.d("legueTeams error", ex.toString())
+            } catch (e: java.lang.Exception) {
+                Log.d("!!!", e.toString())
+            }
+
+            return@withContext leagueTeams!!
         }
 
 

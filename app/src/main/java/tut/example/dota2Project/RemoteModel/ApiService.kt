@@ -8,6 +8,8 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 import tut.example.dota2Project.UI.Heroes.MatchUps
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
+import tut.example.dota2Project.UI.Leagues.Model.League
+import tut.example.dota2Project.UI.Leagues.Model.LeagueTeams
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Matches.RecentMatches
 import tut.example.dota2Project.UI.Players.FindPlayers.Model.PlayersSearch
@@ -28,6 +30,9 @@ interface ApiService {
     @GET("heroStats")
     suspend fun getHeroes(): MutableList<Heroes>
 
+    @GET("leagues")
+    suspend fun getLeagues(): MutableList<League>
+
     @GET("teams")
     suspend fun getTeams(): MutableList<ProTeams>
 
@@ -35,6 +40,11 @@ interface ApiService {
     suspend fun getHeroMatchups(
         @Path("hero_id") hero_id: Int,
     ): MutableList<MatchUps>
+
+    @GET("leagues/{league_id}/teams")
+    suspend fun getLeagueMatches(
+        @Path("league_id") league_id: Int,
+    ): MutableList<LeagueTeams>
 
     @GET("proMatches")
     suspend fun getProMatches(): MutableList<ProMatches>

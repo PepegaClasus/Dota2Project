@@ -10,6 +10,8 @@ import tut.example.dota2Project.Repository.DotaRep
 import tut.example.dota2Project.UI.Heroes.MatchUps
 import tut.example.dota2Project.UI.Heroes.Model.Heroes
 import tut.example.dota2Project.UI.Items.Model.Items
+import tut.example.dota2Project.UI.Leagues.Model.League
+import tut.example.dota2Project.UI.Leagues.Model.LeagueTeams
 import tut.example.dota2Project.UI.LiveMatches.LiveMatch
 import tut.example.dota2Project.UI.Matches.MatchInfoModel
 import tut.example.dota2Project.UI.Matches.MatchPlayerModel
@@ -23,7 +25,7 @@ import tut.example.dota2Project.UI.ProTeams.Model.ProTeamPlayers
 import tut.example.dota2Project.UI.ProTeams.Model.ProTeams
 import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsId
 import tut.example.dota2Project.UI.ProTeams.Model.ProTeamsMatches
-import tut.example.dota2Project.UI.Teams.Model.MyTeams
+
 
 class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     val scope = CoroutineScope(Dispatchers.IO)
@@ -53,6 +55,10 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
         MutableLiveData<MutableList<LiveMatch>>(mutableListOf())
     }
 
+    val leaguesLive: MutableLiveData<MutableList<League>> by lazy {
+        MutableLiveData<MutableList<League>>(mutableListOf())
+    }
+
 
     val proPlayersRadiantLive = MutableLiveData<MutableList<MatchPlayerModel>>(mutableListOf())
 
@@ -68,6 +74,8 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
     val teamPlayers = MutableLiveData<MutableList<ProTeamPlayers>>(mutableListOf())
 
+    val leagueTeams = MutableLiveData<MutableList<LeagueTeams>>(mutableListOf())
+
 
     val heroesInfo: MutableLiveData<MutableList<Heroes>> by lazy {
         MutableLiveData<MutableList<Heroes>>(mutableListOf())
@@ -81,9 +89,6 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     val recentMatches = MutableLiveData<MutableList<RecentMatches>>(mutableListOf())
     val matchesInfo = MutableLiveData<MutableList<MatchPlayerModel>>(mutableListOf())
 
-    val myTeamsFireBaseLive: MutableLiveData<MutableList<MyTeams>> by lazy {
-        MutableLiveData<MutableList<MyTeams>>(mutableListOf())
-    }
 
     var team_id = 0
     var hero_id = 0
@@ -91,6 +96,7 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
     var match_id = 6129301907
     var radiant_team_id = 0
     var dire_team_id = 6129301907
+    var league_id = 0
 
     fun getHeroes() {
         viewModelScope.launch {
@@ -100,6 +106,15 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
             list?.addAll(heroes)
             heroesLive.postValue(list)
 
+        }
+    }
+
+    fun getLeagues() {
+        viewModelScope.launch {
+            val leagues = dotaRep.getLeagues()
+            val list = leaguesLive.value
+            list?.addAll(leagues)
+            leaguesLive.postValue(list)
         }
     }
 
@@ -136,6 +151,10 @@ class DotaViewModel(val dotaRep: DotaRep) : ViewModel() {
 
     suspend fun getTeamPlayersById(team_id: Int): MutableList<ProTeamPlayers> {
         return dotaRep.getTeamPlayersById(team_id)
+    }
+
+    suspend fun getLeagueTeams(league_id: Int): MutableList<LeagueTeams> {
+        return dotaRep.getLeagueTeams(league_id)
     }
 
 
