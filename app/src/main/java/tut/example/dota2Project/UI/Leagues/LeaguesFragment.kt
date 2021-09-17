@@ -43,6 +43,7 @@ class LeaguesFragment : Fragment() {
 
 
         viewModel.leaguesLive.observe(viewLifecycleOwner, {
+            viewModel.leaguesLive.value?.sortByDescending { it.tier }
             binding.leagueList.adapter?.notifyDataSetChanged()
         })
 

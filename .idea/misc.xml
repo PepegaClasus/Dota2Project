@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dota/app/src/main/res/layout/fragment_leagues.xml" value="0.271875" />
+        <entry key="..\:/Dota/app/src/main/res/layout/league_item.xml" value="0.6067924746672604" />
         <entry key="..\:/Dota/app/src/main/res/menu/main_menu.xml" value="0.271875" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_info.xml" value="0.2734375" />
         <entry key="..\:/Users/Vladimir/ByMySelf/Dota2Project/app/src/main/res/drawable/ic_person.xml" value="0.24895833333333334" />
